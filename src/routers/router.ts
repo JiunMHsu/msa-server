@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-// Deberia ser <T, U> siendo T el controlador y U el middleware
+// Deberia ser <T, U>, siendo T el controlador y U el middleware
 export class BaseRouter<T> {
    public router: Router;
    public controller: T;

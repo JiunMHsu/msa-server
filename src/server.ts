@@ -1,15 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import { UserRouter } from './router/user.router';
-import { ArtistRouter } from './router/artist.router';
+import { ArtistRouter } from './routers/artist.router';
 
 class ServerBootstrap {
+   // para las configuraciones del dotenv deberia heredar de la clase ServerConfig
+
    private app: express.Application = express();
    private host: string = 'localhost';
    private port: number = 8000;
 
    constructor() {
+      // seteando middlewares
       this.app.use(express.json());
       this.app.use(express.urlencoded({ extended: true }));
       this.app.use(morgan('dev'));
@@ -20,7 +22,7 @@ class ServerBootstrap {
    }
 
    public routes(): Array<express.Router> {
-      const routers = [new UserRouter(), new ArtistRouter()];
+      const routers = [new ArtistRouter()];
       return routers.map(router => router.router);
    }
 
