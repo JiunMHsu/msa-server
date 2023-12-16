@@ -1,0 +1,17 @@
+{
+   "artistId": {
+      "artistId": "number or string(token)",
+      "verified": "boolean",
+      "artistName": "string",
+      "iconPhoto": "string (file path)",
+      "profileBanner": "string (file path)",
+      "followers": "number",
+      "monthlyListeners": "number",
+      "popular": ["string (trackId)"],
+      "discography": ["string (albumId)"],
+      "about": {
+         "images": ["string (file path)"],
+         "description":"string"
+      }
+   }
+}

@@ -1,0 +1,19 @@
+{
+   "playlistId": {
+      "playlistId": "number or string(token)",
+      "title": "string",
+      "user": {
+         "userId": "number or string(token)",
+         "profilePhoto": "string (file path)",
+         "name": "string"
+      },
+      "coverArt": "string (file path)",
+      "duration": "string (format: 00:00:00)",
+      "tracks": [
+         {
+            "trackId": "number or string(token)",
+            "addedAt": "string (date object)"
+         }
+      ]
+   }
+}

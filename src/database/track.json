@@ -1,0 +1,21 @@
+{
+   "trackId": {
+      "trackId": "number or string(token)",
+      "albumId": "number or string(token)",
+      "title": "string",
+      "artists": [
+         {
+            "artistId": "number or string(token)",
+            "name": "string"
+         }
+      ],
+      "credits": {
+         "writer": "string (name)",
+         "producer": "string (name)"
+      },
+      "duration": "string (format: 00:00:00)",
+      "isExplicit": "boolean",
+      "plays": "number",
+      "sourceFile": "string (file path)"
+   }
+}
