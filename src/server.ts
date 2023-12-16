@@ -6,15 +6,16 @@ import { ImageRouter } from './routers/image.router';
 import { ServerConfig } from './config/config';
 
 class ServerBootstrap extends ServerConfig {
-   // para las configuraciones del dotenv deberia heredar de la clase ServerConfig
-
-   private app: express.Application = express();
-   private host: string = this.getEnviroment('HOST') || 'localhost';
-   private port: number = this.getNumberEnv('PORT') || 8080;
+   private app: express.Application;
+   private host: string;
+   private port: number;
 
    constructor() {
       super();
-      console.log(process.env.NODE_ENV);
+      this.app = express();
+      this.host = this.getEnviroment('HOST') || 'localhost';
+      this.port = this.getNumberEnv('PORT') || 8080;
+
       // seteando middlewares
       this.app.use(express.json());
       this.app.use(express.urlencoded({ extended: true }));
