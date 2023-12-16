@@ -15,4 +15,24 @@ El presente proyecto consiste en una API para una plataforma de streaming de mú
 * [ ] Establecer modelos y la interaccion con la base de datos (por el momento archivos json)
 * [ ] Streamear los archivos de audio
 
+## Endpoints
+
+### Artista
+
+* `GET /artist/:id`
+* `GET /artist/discography/:id`
+
+### Disco
+
+* `GET /album/:id`
+
+### Playlist
+
+* `GET /playlist/:id`
+
+### Track
+
+* `GET /track/:id/credits`
+* `GET /play/track/:id`
+
 ## Esquemas

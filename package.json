@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node dist/server.js",
-    "dev": "tsc && concurrently \"tsc -w\" \"nodemon dist/server.js\""
+    "dev": "tsc && concurrently \"tsc -w\" \"nodemon dist/server.js\"",
+    "prod": "NODE_ENV=production npm start"
   },
   "author": "Jiun Ming Hsu",
   "license": "ISC",
@@ -15,7 +16,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
