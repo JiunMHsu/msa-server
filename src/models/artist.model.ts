@@ -34,7 +34,9 @@ export class _Artist {
       },
    };
 
-   constructor(id?: string) {}
+   constructor(id?: string) {
+      console.log(id);
+   }
 
    public get info(): Object {
       return this._info;

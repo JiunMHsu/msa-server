@@ -17,6 +17,7 @@ export abstract class BaseModel<T> {
     * el objeto de tipo correspondiente
     */
    protected getDataById(id: string): T {
+      console.log(id);
       return {} as T;
    }
 }
