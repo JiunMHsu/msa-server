@@ -7,8 +7,8 @@ export class ImageRouter extends BaseRouter<ImageController> {
    }
 
    override routes(): void {
-      this.router.get('/image/:image_name', (req, res) =>
-         this.controller.getImage(req, res),
-      );
+      this.router.get('/image/:image_name', (req, res) => {
+         this.controller.getImage(req, res);
+      });
    }
 }

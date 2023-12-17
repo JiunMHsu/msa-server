@@ -19,20 +19,23 @@ El presente proyecto consiste en una API para una plataforma de streaming de mú
 
 ### Artista
 
-* `GET /artist/:id`
-* `GET /artist/discography/:id`
+* `GET /artist/:artist_id`
+* `GET /artist/:artist_id/discography`
 
 ### Disco
 
-* `GET /album/:id`
+* `GET /album/:album_id`
 
 ### Playlist
 
-* `GET /playlist/:id`
+* `GET /playlist/:playlist_id`
 
 ### Track
 
-* `GET /track/:id/credits`
-* `GET /play/track/:id`
+* `GET /track/:track_id/credits`
+* `GET /track/:track_id/play`
+* `GET /track/:track_id/lyrics`
+
+### User
 
 ## Esquemas

@@ -12,5 +12,5 @@ export abstract class BaseRouter<T> {
       this.routes();
    }
 
-   public routes(): void {}
+   protected routes(): void {}
 }

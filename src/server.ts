@@ -6,13 +6,12 @@ import { ImageRouter } from './routers/image.router';
 import { ServerConfig } from './config/config';
 
 class ServerBootstrap extends ServerConfig {
-   private app: express.Application;
+   private app: express.Application = express();
    private host: string;
    private port: number;
 
    constructor() {
       super();
-      this.app = express();
       this.host = this.getEnviroment('HOST') || 'localhost';
       this.port = this.getNumberEnv('PORT') || 8080;
 
@@ -26,7 +25,7 @@ class ServerBootstrap extends ServerConfig {
       this.listen();
    }
 
-   public routes(): Array<express.Router> {
+   private routes(): Array<express.Router> {
       const routers = [new ImageRouter(), new ArtistRouter()];
       return routers.map(router => router.router);
    }

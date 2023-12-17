@@ -1,6 +1,11 @@
 import { Request, Response } from 'express';
 
 export class ArtistController {
+   // private searchArtistById(id: string): Artist {
+   //    // search by calling artist model method
+   //    return new Artist();
+   // }
+
    public getArtist(req: Request, res: Response) {
       // DB
       const artists = new Map<string, object>([
@@ -13,7 +18,7 @@ export class ArtistController {
       res.status(200).json(artists.get(req.params.id));
    }
 
-   public createArtist(req: Request, res: Response) {
+   public getDiscography(req: Request, res: Response) {
       console.log(req.body);
       res.status(200);
    }

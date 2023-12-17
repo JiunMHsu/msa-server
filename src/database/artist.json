@@ -1,5 +1,5 @@
 {
-   "artistId": {
+   "$artistId": {
       "artistId": "number or string(token)",
       "verified": "boolean",
       "artistName": "string",
@@ -7,11 +7,105 @@
       "profileBanner": "string (file path)",
       "followers": "number",
       "monthlyListeners": "number",
-      "popular": ["string (trackId)"],
-      "discography": ["string (albumId)"],
+      "popular": [
+         "string (trackId)"
+      ],
+      "discography": [
+         "string (albumId)"
+      ],
       "about": {
-         "images": ["string (file path)"],
-         "description":"string"
+         "images": [
+            "string (file path)"
+         ],
+         "description": "string"
+      }
+   },
+   "kj51cs": {
+      "artistId": "kj51cs",
+      "verified": true,
+      "artistName": "Kanye West",
+      "iconPhoto": "kanye_west.png",
+      "profileBanner": "kanye_west_banner.png",
+      "followers": "number",
+      "monthlyListeners": "number",
+      "popular": [
+         "string (trackId)"
+      ],
+      "discography": [
+         "string (albumId)"
+      ],
+      "about": {
+         "images": [
+            "string (file path)"
+         ],
+         "description": "string"
+      }
+   },
+   "qL78ba": {
+      "artistId": "qL78ba",
+      "verified": true,
+      "artistName": "Taylor Swift",
+      "iconPhoto": "taylor_swift.png",
+      "profileBanner": "taylor_swift_banner.png",
+      "followers": 96270337,
+      "monthlyListeners": 109657737,
+      "popular": [
+         "track_078y234b",
+         "track_fa2ye5yv",
+         "track_09a8syvW"
+      ],
+      "discography": [
+         "disc_x89pUHWoXa",
+         "disc_c098adqwLJ",
+         "disc_qWD876y9fw"
+      ],
+      "about": {
+         "images": [
+            "taylor_swift_about_img_1.png"
+         ],
+         "description": "some description"
+      }
+   },
+   "px17wX": {
+      "artistId": "px17wX",
+      "verified": false,
+      "artistName": "string",
+      "iconPhoto": "string (file path)",
+      "profileBanner": "string (file path)",
+      "followers": "number",
+      "monthlyListeners": "number",
+      "popular": [
+         "string (trackId)"
+      ],
+      "discography": [
+         "string (albumId)"
+      ],
+      "about": {
+         "images": [
+            "string (file path)"
+         ],
+         "description": "string"
+      }
+   },
+   "fG02lO": {
+      "artistId": "fG02lO",
+      "verified": true,
+      "artistName": "string",
+      "iconPhoto": "string (file path)",
+      "profileBanner": "string (file path)",
+      "followers": "number",
+      "monthlyListeners": "number",
+      "popular": [
+         "string (trackId)"
+      ],
+      "discography": [
+         "string (albumId)"
+      ],
+      "about": {
+         "images": [
+            "string (file path)"
+         ],
+         "description": "string"
       }
    }
 }
