@@ -1,3 +1,9 @@
+
+export interface Model {
+   
+}
+
+
 export abstract class BaseModel<T> {
    private _data: T = {} as T; // valor inseguro
 
