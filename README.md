@@ -14,7 +14,7 @@ El presente proyecto consiste en una API para una plataforma de streaming de mú
 * [ ] Routers (Implementar los Endpoints): album, artista, track, user(opcional, este involucraria muchas mas cosas como playlists y favoritos)
 * [ ] Diseñar la Base de Datos (DER) y definir las consultas.
 * [ ] Establecer modelos y la interaccion con la base de datos
-* [ ] Streamear los archivos de audio
+* [ ] Stremear los archivos de audio
 
 ## Endpoints
 
