@@ -1,8 +1,4 @@
 
-export interface Model {
-   
-}
-
 
 export abstract class BaseModel<T> {
    private _data: T = {} as T; // valor inseguro
@@ -14,14 +10,6 @@ export abstract class BaseModel<T> {
       }
    }
 
-   /**
-    * !! implementar
-    *
-    * Funcion propia de las clases modelo,
-    * recibe un id del elemento a consultar,
-    * busca en la base de datos y retorna
-    * el objeto de tipo correspondiente
-    */
    protected getDataById(id: string): T {
       console.log(id);
       return {} as T;

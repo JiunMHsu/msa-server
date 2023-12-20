@@ -25,8 +25,9 @@ export class ArtistController {
       );
       fetched
          .then(artist => {
-            this._artist = artist;
+            this._artist = artist[0];
             console.log(artist);
+            console.log(this._artist.artist_name);
             res.status(200).json(...artist);
          })
          .catch(error => {
