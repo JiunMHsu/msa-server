@@ -23,4 +23,13 @@ export abstract class ServerConfig {
    public getEnvPath(nodeEnv: string): string {
       return nodeEnv == '' ? '.env' : `.${nodeEnv}.env`;
    }
+
+   public get database() {
+      return {
+         host: this.getEnviroment('DB_HOST'),
+         user: this.getEnviroment('DB_USER'),
+         password: this.getEnviroment('DB_PASSWORD'),
+         name: this.getEnviroment('DB_DATABASE'),
+      };
+   }
 }

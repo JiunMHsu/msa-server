@@ -2,41 +2,64 @@
 
 ## Descripción
 
-El presente proyecto consiste en una API para una plataforma de streaming de música. Deberá poder servir información sobre:
-
-* Piezas Musicales.
-* Artistas.
-* Usuarios. (con albums guardados, playlists creados, temas favoritos).
+El presente proyecto consiste en la construcción de una API para plataformas de streaming de música. Está desarrollado junto con un cliente: [msa-client](https://github.com/JiunMHsu/msa-client).
 
 ## TODO
 
-* [X] Configurar Variables de entorno, diferiendo desarrollo y produccion
-* [ ] Routers (Implementar los Endpoints): album, artista, track, user(opcional, este involucraria muchas mas cosas como playlists y favoritos)
-* [ ] Diseñar la Base de Datos (DER) y definir las consultas.
-* [ ] Establecer modelos y la interaccion con la base de datos
-* [ ] Stremear los archivos de audio
+- Generales:
 
-## Endpoints
+  - [x] Configurar Variables de entorno, diferiendo desarrollo y producción.
 
-### Artista
+- Rutas y Endpoints:
 
-* `GET /artist/:artist_id`
-* `GET /artist/:artist_id/discography`
+  - [X] Definir los endpoints.
+  - [ ] Implementar las Rutas.
 
-### Disco
+- Modelos y Base de Datos:
 
-* `GET /album/:album_id`
+  - [ ] Diseñar las Tablas y sus relaciones (la DB).
+  - [ ] Implementar los modelos y la interacción con la base de datos. (Ver si meter ORM)
 
-### Playlist
+- Streaming de Audio:
 
-* `GET /playlist/:playlist_id`
+  - [ ]
+  - [ ] Stremear los archivos de audio
 
-### Track
+## Endpoints y Methods
 
-* `GET /track/:track_id/credits`
-* `GET /track/:track_id/play`
-* `GET /track/:track_id/lyrics`
+- Artista
 
-### User
+  - `GET /artist/:artist_id`
+  - `GET /artist/:artist_id/discography`
+  - `GET /artist/:artist_id/playlists`
+
+- Disco
+
+  - `GET /album/:album_id`
+  - `POST /album/create/:artist_id`
+  - `DELETE /album/delete/:artist_id`
+
+- Playlist
+
+  - `GET /playlist/:playlist_id`
+  - `POST /playlist/create/:user_id`
+  - `PUT /playlist/modify/title/:playlist_id`
+  - `PUT /playlist/modify/cover/:playlist_id`
+  - `POST /playlist/modify/:playlist_id/:track_id`
+  - `DELETE /playlist/modify/:playlist_id/:track_id`
+  - `DELETE /playlist/delete/:playlist_id`
+
+- Track
+
+  - `GET /track/:track_id/credits`
+  - `GET /track/:track_id/play`
+  - `GET /track/:track_id/lyrics`
+
+- User
+
+  - `GET /user/:user_id`
+  - `POST /user/create/:user_id`
+  - `PUT /user/update/:user_id`
+  - `DELETE /user/delete/:user_id`
 
 ## Esquemas

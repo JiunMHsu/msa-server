@@ -12,8 +12,8 @@ class ServerBootstrap extends ServerConfig {
 
    constructor() {
       super();
-      this.host = this.getEnviroment('HOST') || 'localhost';
-      this.port = this.getNumberEnv('PORT') || 8080;
+      this.host = this.getEnviroment('HOST') || '127.0.0.1';
+      this.port = this.getNumberEnv('PORT') || 5050;
 
       // seteando middlewares
       this.app.use(express.json());

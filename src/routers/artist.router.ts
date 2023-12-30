@@ -1,5 +1,5 @@
-import { ArtistController } from '../controllers/artist.conteoller';
 import { BaseRouter } from './router';
+import { ArtistController } from '../controllers/artist.controller';
 
 export class ArtistRouter extends BaseRouter<ArtistController> {
    constructor() {
