@@ -24,11 +24,11 @@ interface DbArtist {
 
 // Ver si extender de una clase o interfaz
 export class ArtistModel {
-   public _data = {} as Artist;
-   public _dataList = [] as Artist[];
-   public _sqlData = {} as DbArtist;
-   public _sqlDataList = [] as DbArtist[];
-   private _database = dataBase;
+   // public _data = {} as Artist;
+   // public _dataList = [] as Artist[];
+   // public _sqlData = {} as DbArtist;
+   // public _sqlDataList = [] as DbArtist[];
+   // private _database = dataBase;
 
    private adaptToData(dbArtist: DbArtist): Artist {
       const artist: Artist = {
@@ -67,17 +67,10 @@ export class ArtistModel {
    }
 
    public async getArtist(id: string): Promise<Artist> {
-      const results = dataBase.selectQuery<DbArtist>(
+      const results = await dataBase.selectQuery<DbArtist>(
          `SELECT * FROM artist WHERE artist_id = ?`,
          [id],
       );
-
-      return results
-         .then(artist => {
-            return this.adaptToData(artist[0]);
-         })
-         .catch(error => {
-            throw error;
-         });
+      return this.adaptToData(results[0]);
    }
 }
