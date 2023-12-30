@@ -22,7 +22,6 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 
 - Streaming de Audio:
 
-  - [ ]
   - [ ] Stremear los archivos de audio
 
 ## Endpoints y Methods
