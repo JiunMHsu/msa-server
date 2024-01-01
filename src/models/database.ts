@@ -1,8 +1,6 @@
 import { Pool, createPool } from 'mysql2/promise';
 import { ServerConfig } from '../config/config';
 
-type ErrorMessage = '';
-
 export class DataBase extends ServerConfig {
    private _pool: Pool;
 
@@ -23,7 +21,7 @@ export class DataBase extends ServerConfig {
          const [results] = await connection.execute(query, values);
          return results as T[];
 
-         // se poría manejar un error custom aca,
+         // se podría manejar un error custom aca,
          // sino no hace falta el catch (se esta capturando en el controller)
          // } catch (error) {
          //    throw error;

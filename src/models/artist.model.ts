@@ -1,4 +1,4 @@
-import { dataBase } from './database.model';
+import { dataBase } from './';
 
 export interface Artist {
    artistId: string;
@@ -24,11 +24,6 @@ interface DbArtist {
 
 // Ver si extender de una clase o interfaz
 export class ArtistModel {
-   // public _data = {} as Artist;
-   // public _dataList = [] as Artist[];
-   // public _sqlData = {} as DbArtist;
-   // public _sqlDataList = [] as DbArtist[];
-   // private _database = dataBase;
 
    private adaptToData(dbArtist: DbArtist): Artist {
       const artist: Artist = {

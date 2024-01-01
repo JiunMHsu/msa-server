@@ -1,4 +1,4 @@
-import { DataBase, dataBase } from './database.model';
+import { DataBase, dataBase } from './database';
 
 export interface Model<T, U> {
    _data: T; // valor inseguro

@@ -1,4 +1,4 @@
-import { Track } from "./";
+import { Track } from './';
 
 export type DiskType = 'Album' | 'EP' | 'Single' | 'Mixtape';
 
@@ -13,3 +13,5 @@ export interface Album {
    release: Date; // XX-XX-XX
    duration: Date; // miliseconds
 }
+
+
