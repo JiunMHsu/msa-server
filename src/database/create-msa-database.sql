@@ -1,74 +1,141 @@
-drop database if exists music_streamer;
-create database music_streamer;
-use music_streamer;
+DROP DATABASE IF EXISTS music_streamer;
+CREATE DATABASE music_streamer;
+USE music_streamer;
 
-create table artist (
-   artist_id varchar(36) not null, -- UUID 36 chars
-   artist_name varchar(50) not null,
-   verified boolean,
-   followers int unsigned,
-   monthly_listeners int unsigned,
-   profile_photo varchar(255), -- path
-   profile_banner varchar(255), -- path
-   about varchar(255), -- path
+CREATE TABLE artist (
+   artist_id VARCHAR(36) NOT NULL, -- UUID 36
+   artist_name VARCHAR(50) NOT NULL,
+   verified boolean NOT NULL,
+   followers INTEGER UNSIGNED NOT NULL,
+   monthly_listeners INTEGER UNSIGNED NOT NULL,
+   profile_photo VARCHAR(255), -- path
+   profile_banner VARCHAR(255), -- path
+   about VARCHAR(255), -- path
 
-   primary key (artist_id)
+   PRIMARY KEY (artist_id)
 );
 
-create table album (
-   album_id varchar(36) not null, -- UUID 36 chars
-   title varchar(255) not null,
-   disc_type varchar(10) not null,
-   cover_art varchar(255) not null, -- path
-   label varchar(255) not null,
-   release_date varchar(10), -- '0000-00-00'
-   duration varchar(8), -- '00.00.00'
+CREATE TABLE album (
+   album_id VARCHAR(36) NOT NULL, -- UUID 36
+   title VARCHAR(255) NOT NULL,
+   disc_type VARCHAR(10) NOT NULL, -- 'Album', 'EP', 'Single', 'Mixtape'
+   cover_art VARCHAR(255) NOT NULL, -- path
+   label VARCHAR(255) NOT NULL,
+   release_date DATE NOT NULL, -- 'YYYY-MM-DD'
+   duration TIME NOT NULL, -- '00.00.00'
 
-   primary key (album_id)
+   PRIMARY KEY (album_id)
 );
 
-create table track (
-   track_id varchar(36) not null, -- UUID 36 chars
-   title varchar(255) not null,
-   disc_number tinyint unsigned,
-   track_number tinyint unsigned not null,
-   writer varchar(255),
-   producer varchar(255),
-   duration varchar(8) not null, -- '00.00.00'
-   is_explicit boolean,
-   plays int unsigned not null,
-   lyrics varchar(255), -- path
-   source_file varchar(255) not null, -- path
+CREATE TABLE track (
+   track_id VARCHAR(36) NOT NULL, -- UUID 36
+   title VARCHAR(255) NOT NULL,
+   disc_number TINYINT UNSIGNED,
+   track_number TINYINT UNSIGNED NOT NULL,
+   writer VARCHAR(255),
+   producer VARCHAR(255),
+   duration TIME NOT NULL, -- '00.00.00'
+   is_explicit boolean NOT NULL,
+   plays INTEGER UNSIGNED NOT NULL,
+   lyrics VARCHAR(255), -- path
+   source_file VARCHAR(255) NOT NULL, -- path
 
-   primary key (track_id)
+   PRIMARY KEY (track_id)
 );
 
-create table album_track (
-   track_album_id int not null auto_increment,
-   album_id varchar(36) not null, -- UUID 36 chars
-   track_id varchar(36) not null, -- UUID 36 chars
+CREATE TABLE user (
+   user_id VARCHAR(36) NOT NULL, -- UUID 36
+   user_name VARCHAR(50) NOT NULL,
+   email VARCHAR(100) NOT NULL,
+   user_password VARCHAR(50) NOT NULL,
+   profile_photo VARCHAR(255), -- path
 
-   primary key (track_album_id),
-   foreign key (album_id references album(album_id),
-   foreign key (track_id) references track(track_id)
+   PRIMARY KEY (user_id)
 );
 
-create table album_artist (
-   album_artist_id int not null auto_increment,
-   artist_id varchar(36) not null, -- UUID 36 chars
-   album_id varchar(36) not null, -- UUID 36 chars
+CREATE TABLE playlist (
+   playlist_id VARCHAR(36) NOT NULL, -- UUID 36
+   title VARCHAR(255) NOT NULL,
+   cover_art VARCHAR(255), -- path
+   created_by VARCHAR(36) NOT NULL, -- UUID 36
 
-   primary key (album_artist_id),
-   foreign key (artist_id) references artist(artist_id),
-   foreign key (album_id) references album(album_id)
+   PRIMARY KEY (playlist_id),
+   FOREIGN KEY (created_by) REFERENCES user(user_id)
 );
 
-create table track_artist (
-   artist_track_id int not null auto_increment,
-   track_id varchar(36) not null, -- UUID 36 chars
-   artist_id varchar(36) not null, -- UUID 36 chars
+-- Album tracks
+CREATE TABLE album_track (
+   album_track_id INTEGER NOT NULL AUTO_INCREMENT,
+   album_id VARCHAR(36) NOT NULL, -- UUID 36
+   track_id VARCHAR(36) NOT NULL, -- UUID 36
 
-   primary key (artist_track_id),
-   foreign key (track_id) references track(track_id),
-   foreign key (artist_id) references artist(artist_id)
+   PRIMARY KEY (album_track_id),
+   FOREIGN KEY (album_id) REFERENCES album(album_id),
+   FOREIGN KEY (track_id) REFERENCES track(track_id)
+);
+
+-- Playlist tracks
+CREATE TABLE playlist_track (
+   playlist_track_id INTEGER NOT NULL AUTO_INCREMENT,
+   playlist_id VARCHAR(36) NOT NULL, -- UUID 36
+   track_id VARCHAR(36) NOT NULL, -- UUID 36
+
+   PRIMARY KEY (playlist_track_id),
+   FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id),
+   FOREIGN KEY (track_id) REFERENCES track(track_id)
+);
+
+-- Ownership
+CREATE TABLE album_artist (
+   album_artist_id INTEGER NOT NULL AUTO_INCREMENT,
+   album_id VARCHAR(36) NOT NULL, -- UUID 36
+   artist_id VARCHAR(36) NOT NULL, -- UUID 36
+
+   PRIMARY KEY (album_artist_id),
+   FOREIGN KEY (album_id) REFERENCES album(album_id),
+   FOREIGN KEY (artist_id) REFERENCES artist(artist_id)
+);
+
+-- Contribution
+CREATE TABLE track_artist (
+   track_artist_id INTEGER NOT NULL AUTO_INCREMENT,
+   track_id VARCHAR(36) NOT NULL, -- UUID 36
+   artist_id VARCHAR(36) NOT NULL, -- UUID 36
+
+   PRIMARY KEY (track_artist_id),
+   FOREIGN KEY (track_id) REFERENCES track(track_id),
+   FOREIGN KEY (artist_id) REFERENCES artist(artist_id)
+);
+
+-- Following
+CREATE TABLE user_artist (
+   user_artist_id INTEGER NOT NULL AUTO_INCREMENT,
+   user_id VARCHAR(36) NOT NULL, -- UUID 36
+   artist_id VARCHAR(36) NOT NULL, -- UUID 36
+
+   PRIMARY KEY (user_artist_id),
+   FOREIGN KEY (user_id) REFERENCES user(user_id),
+   FOREIGN KEY (artist_id) REFERENCES artist(artist_id)
+);
+
+-- Saved Album
+CREATE TABLE user_album (
+   user_album_id INTEGER NOT NULL AUTO_INCREMENT,
+   user_id VARCHAR(36) NOT NULL, -- UUID 36
+   album_id VARCHAR(36) NOT NULL, -- UUID 36
+
+   PRIMARY KEY (user_album_id),
+   FOREIGN KEY (user_id) REFERENCES user(user_id),
+   FOREIGN KEY (album_id) REFERENCES album(album_id)
+);
+
+-- Saved Playlist
+CREATE TABLE user_playlist (
+   user_playlist_id INTEGER NOT NULL AUTO_INCREMENT,
+   user_id VARCHAR(36) NOT NULL, -- UUID 36
+   playlist_id VARCHAR(36) NOT NULL, -- UUID 36
+
+   PRIMARY KEY (user_playlist_id),
+   FOREIGN KEY (user_id) REFERENCES user(user_id),
+   FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id)
 );

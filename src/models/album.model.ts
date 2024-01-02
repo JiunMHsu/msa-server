@@ -13,5 +13,3 @@ export interface Album {
    release: Date; // XX-XX-XX
    duration: Date; // miliseconds
 }
-
-
