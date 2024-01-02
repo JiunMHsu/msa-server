@@ -22,7 +22,7 @@ CREATE TABLE album (
    cover_art VARCHAR(255) NOT NULL, -- path
    label VARCHAR(255) NOT NULL,
    release_date DATE NOT NULL, -- 'YYYY-MM-DD'
-   duration TIME NOT NULL, -- '00.00.00'
+   duration TIME NOT NULL, -- 'HH:MM:SS'
 
    PRIMARY KEY (album_id)
 );
@@ -34,7 +34,7 @@ CREATE TABLE track (
    track_number TINYINT UNSIGNED NOT NULL,
    writer VARCHAR(255),
    producer VARCHAR(255),
-   duration TIME NOT NULL, -- '00.00.00'
+   duration TIME NOT NULL, -- 'HH:MM:SS'
    is_explicit boolean NOT NULL,
    plays INTEGER UNSIGNED NOT NULL,
    lyrics VARCHAR(255), -- path
