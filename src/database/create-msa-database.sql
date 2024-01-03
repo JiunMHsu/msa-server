@@ -9,8 +9,8 @@ CREATE TABLE artist (
    followers INTEGER UNSIGNED NOT NULL,
    monthly_listeners INTEGER UNSIGNED NOT NULL,
    profile_photo VARCHAR(255), -- path
-   profile_banner VARCHAR(255), -- path
-   about VARCHAR(255), -- path
+   -- profile_banner VARCHAR(255), -- path
+   -- about VARCHAR(255), -- path
 
    PRIMARY KEY (artist_id)
 );
@@ -29,18 +29,20 @@ CREATE TABLE album (
 
 CREATE TABLE track (
    track_id VARCHAR(36) NOT NULL, -- UUID 36
+   album_id VARCHAR(36) NOT NULL,
    title VARCHAR(255) NOT NULL,
    disc_number TINYINT UNSIGNED,
    track_number TINYINT UNSIGNED NOT NULL,
-   writer VARCHAR(255),
-   producer VARCHAR(255),
+   -- writer VARCHAR(255),
+   -- producer VARCHAR(255),
    duration TIME NOT NULL, -- 'HH:MM:SS'
    is_explicit boolean NOT NULL,
    plays INTEGER UNSIGNED NOT NULL,
-   lyrics VARCHAR(255), -- path
+   -- lyrics VARCHAR(255), -- path
    source_file VARCHAR(255) NOT NULL, -- path
 
-   PRIMARY KEY (track_id)
+   PRIMARY KEY (track_id),
+   FOREIGN KEY (album_id) REFERENCES album(album_id)
 );
 
 CREATE TABLE user (
@@ -61,17 +63,6 @@ CREATE TABLE playlist (
 
    PRIMARY KEY (playlist_id),
    FOREIGN KEY (created_by) REFERENCES user(user_id)
-);
-
--- Album tracks
-CREATE TABLE album_track (
-   album_track_id INTEGER NOT NULL AUTO_INCREMENT,
-   album_id VARCHAR(36) NOT NULL, -- UUID 36
-   track_id VARCHAR(36) NOT NULL, -- UUID 36
-
-   PRIMARY KEY (album_track_id),
-   FOREIGN KEY (album_id) REFERENCES album(album_id),
-   FOREIGN KEY (track_id) REFERENCES track(track_id)
 );
 
 -- Playlist tracks

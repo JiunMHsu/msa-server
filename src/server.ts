@@ -1,9 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import { ArtistRouter } from './routers/artist.router';
-import { ImageRouter } from './routers/image.router';
 import { ServerConfig } from './config/config';
+import { ArtistRouter, AssetRouter, TrackRouter } from './routers';
 
 class ServerBootstrap extends ServerConfig {
    private app: express.Application = express();
@@ -26,7 +25,11 @@ class ServerBootstrap extends ServerConfig {
    }
 
    private routes(): Array<express.Router> {
-      const routers = [new ImageRouter(), new ArtistRouter()];
+      const routers = [
+         new AssetRouter(),
+         new ArtistRouter(),
+         new TrackRouter(),
+      ];
       return routers.map(router => router.router);
    }
 

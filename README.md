@@ -17,12 +17,18 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 
 - Modelos y Base de Datos:
 
-  - [ ] Diseñar las Tablas y sus relaciones (la DB).
+  - [X] Diseñar las Tablas y sus relaciones (la DB).
   - [ ] Implementar los modelos y la interacción con la base de datos. (Ver si meter ORM)
 
 - Streaming de Audio:
 
-  - [ ] Stremear los archivos de audio
+  - [X] Stremear los archivos de audio
+
+## Para tener en cuenta
+
+- [ ] Refactorizar la lógica de track.controller, la busqueda a la base de datos se debe extraer al modelo.
+- [ ] Revisar tema conversión de tipos, (adaptar las variables de la DB a interfaces con camel case).
+- [ ] Ver bien tema `modelos` en esta arquitectura, creo q se esta manejando mal.
 
 ## Endpoints y Methods
 

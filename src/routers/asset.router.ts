@@ -1,9 +1,9 @@
-import { ImageController } from '../controllers/image.controller';
 import { BaseRouter } from './router';
+import { AssetController } from '../controllers';
 
-export class ImageRouter extends BaseRouter<ImageController> {
+export class AssetRouter extends BaseRouter<AssetController> {
    constructor() {
-      super(ImageController);
+      super(AssetController);
    }
 
    override routes(): void {
