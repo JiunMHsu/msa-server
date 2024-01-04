@@ -1,4 +1,4 @@
-import { Track } from './';
+import { CamelizeKeys } from "../utilities";
 
 export type DiskType = 'Album' | 'EP' | 'Single' | 'Mixtape';
 
@@ -11,5 +11,7 @@ type AlbumDB = {
    release_date: string;
    duration: string;
 };
+
+type Album = CamelizeKeys<AlbumDB>;
 
 export class AlbumModel {}

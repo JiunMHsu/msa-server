@@ -73,8 +73,10 @@ De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genéri
 
 - Track
 
-  - `GET /track/:track_id/credits`
-  - `GET /track/:track_id/lyrics`
+  - `GET /track/:track_id`
+  - `GET /track/all/:album_id`
+  - `GET /track/credits/:track_id`
+  - `GET /track/lyrics/:track_id`
 
 - User
 
@@ -83,8 +85,21 @@ De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genéri
   - `PUT /user/update/:user_id`
   - `DELETE /user/delete/:user_id`
 
-- Playable
+- Media
 
-  - `GET /play/track/:track_id`
+  - `GET /play/:track_id`
+  - `GET /image/:image_name`
 
 ## Esquemas
+
+### Albums
+
+| Clave       | Tipo         | Descripción                                            |
+| ----------- | -----------: | ------------------------------------------------------ |
+| albumId     | string       | Identificador del disco                                |
+| title       | string       | Título del disco                                       |
+| discType    | string       | Tipo del disco, puede ser: Album, EP, Single o Mixtape |
+| coverArt    | string (url) | Url de la portada (imagen) en esta misma API           |
+| label       | string       | Nombre del sello discográfico                          |
+| releaseDate | string       | Fecha de publicación, formato: AA-MM-DD                |
+| duration    | string       | Duración total del disco, formato: HH-MM-SS            |
