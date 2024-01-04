@@ -95,7 +95,7 @@ De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genéri
 ### Albums
 
 | Clave       | Tipo         | Descripción                                            |
-| ----------- | -----------: | ------------------------------------------------------ |
+| ----------- | ------------ | ------------------------------------------------------ |
 | albumId     | string       | Identificador del disco                                |
 | title       | string       | Título del disco                                       |
 | discType    | string       | Tipo del disco, puede ser: Album, EP, Single o Mixtape |
