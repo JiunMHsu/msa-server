@@ -14,6 +14,8 @@ class ServerBootstrap extends ServerConfig {
       this.host = this.getEnviroment('HOST') || '127.0.0.1';
       this.port = this.getNumberEnv('PORT') || 5050;
 
+      this.app.disable('x-powered-by');
+
       // seteando middlewares
       this.app.use(express.json());
       this.app.use(express.urlencoded({ extended: true }));

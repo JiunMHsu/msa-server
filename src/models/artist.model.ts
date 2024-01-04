@@ -1,65 +1,53 @@
-import { adaptData } from '../utilities';
-import { dataBase } from './';
+import { Model } from './model';
+import { CamelizeKeys } from '../utilities';
 
-export interface Artist {
-   artistId: string;
-   name: string;
-   isVerified: boolean;
-   followers: number;
-   monthlyListeners: number;
-   profilePhoto: string;
-}
-
-interface DBArtist {
-   artist_id: string; // Va a ser por Token
+type ArtistDB = {
+   artist_id: string;
    artist_name: string;
    verified: boolean;
    followers: number;
    monthly_listeners: number;
    profile_photo: string;
-}
+};
 
-// Ver si extender de una clase o interfaz
-export class ArtistModel {
-   private emptyArtist: Artist = {
-      artistId: '',
-      name: '',
-      isVerified: false,
-      followers: 0,
-      monthlyListeners: 0,
-      profilePhoto: '',
-   };
+export type Artist = CamelizeKeys<ArtistDB>;
 
-   private emptyDBArtist: DBArtist = {
-      artist_id: '',
-      artist_name: '',
-      verified: false,
-      followers: 0,
-      monthly_listeners: 0,
-      profile_photo: '',
-   };
-
-   private adaptToData(dbArtist: DBArtist): Artist {
-      return adaptData<DBArtist, Artist>(dbArtist, { ...this.emptyArtist });
+export class ArtistModel extends Model<ArtistDB, Artist> {
+   private get emptyArtist() {
+      return {
+         artistId: '',
+         artistName: '',
+         verified: false,
+         followers: 0,
+         monthlyListeners: 0,
+         profilePhoto: '',
+      } as Artist;
+   }
+   private get emptyDBArtist() {
+      return {
+         artist_id: '',
+         artist_name: '',
+         verified: false,
+         followers: 0,
+         monthly_listeners: 0,
+         profile_photo: '',
+      } as ArtistDB;
    }
 
-   private adaptToSqlData(artist: Artist): DBArtist {
-      return adaptData<Artist, DBArtist>(artist, { ...this.emptyDBArtist });
-   }
-
-   private adaptToDataList(dbArtistList: DBArtist[]): Artist[] {
-      return dbArtistList.map(dbArtist => this.adaptToData(dbArtist));
-   }
-
-   private adaptToSqlDataList(artistList: Artist[]): DBArtist[] {
-      return artistList.map(artist => this.adaptToSqlData(artist));
-   }
-
-   public async getArtist(id: string): Promise<Artist> {
-      const results = await dataBase.selectQuery<DBArtist>(
+   public async getById(id: string): Promise<Artist> {
+      const [results] = await this.dataBase.selectQuery<ArtistDB>(
          `SELECT * FROM artist WHERE artist_id = ?`,
          [id],
       );
-      return this.adaptToData(results[0]);
+      return this.adapter.adaptToData(results, this.emptyArtist);
+   }
+
+   public async getAll(): Promise<Artist[]> {
+      const results = await this.dataBase.selectQuery<ArtistDB>(
+         `SELECT * FROM artist`,
+         [],
+      );
+      console.log(results);
+      return this.adapter.adaptListToData(results, this.emptyArtist);
    }
 }

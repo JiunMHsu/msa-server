@@ -1,14 +1,7 @@
-import { DataBase, dataBase } from './database';
+import { Adapter } from '../utilities';
+import { dataBase } from './database';
 
-export interface Model<T, U> {
-   _data: T; // valor inseguro
-   _dataList: T[];
-   _sqlData: U;
-   _sqlDataList: U[];
-   readonly _database: DataBase;
-
-   adaptToData: (u: U) => T;
-   adaptToSqlData: (t: T) => U;
-   adaptToDataList: (u: U[]) => T[];
-   adaptToSqlDataList: (t: T[]) => U[];
+export abstract class Model<T, U> {
+   protected adapter = new Adapter<T, U>();
+   protected dataBase = dataBase;
 }

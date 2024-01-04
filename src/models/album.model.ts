@@ -2,14 +2,14 @@ import { Track } from './';
 
 export type DiskType = 'Album' | 'EP' | 'Single' | 'Mixtape';
 
-export interface Album {
-   albumId: string;
-   discType: DiskType;
+type AlbumDB = {
+   album_id: string;
    title: string;
-   coverArt: string;
-   artists: string[]; // id
-   tracks: Track[];
+   disc_type: string;
+   cover_art: string;
    label: string;
-   release: Date; // XX-XX-XX
-   duration: Date; // miliseconds
-}
+   release_date: string;
+   duration: string;
+};
+
+export class AlbumModel {}
