@@ -7,7 +7,7 @@ export class ArtistRouter extends BaseRouter<ArtistController> {
    }
 
    override routes(): void {
-      this.router.get('/artists', (req, res) => {
+      this.router.get('/artists', (_, res) => {
          this.controller.getAllArtist(res);
       });
 

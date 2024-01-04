@@ -34,12 +34,12 @@ export class ArtistModel extends Model<ArtistDB, Artist> {
       } as ArtistDB;
    }
 
-   public async getById(id: string): Promise<Artist> {
+   public async getById(artistId: string): Promise<Artist> {
       const [results] = await this.dataBase.selectQuery<ArtistDB>(
          `SELECT * FROM artist WHERE artist_id = ?`,
-         [id],
+         [artistId],
       );
-      return this.adapter.adaptToData(results, this.emptyArtist);
+      return this.adapter.adaptToModel(results, this.emptyArtist);
    }
 
    public async getAll(): Promise<Artist[]> {
@@ -48,6 +48,13 @@ export class ArtistModel extends Model<ArtistDB, Artist> {
          [],
       );
       console.log(results);
-      return this.adapter.adaptListToData(results, this.emptyArtist);
+      return this.adapter.adaptListToModel(results, this.emptyArtist);
+   }
+
+   // hace falta que sea async?
+   // !! Revisar
+   public async create(artist: Artist): Promise<void> {
+      const artistDB = this.adapter.adaptToDB(artist, this.emptyDBArtist);
+      await this.dataBase.insertQuery('artist', [artistDB]);
    }
 }

@@ -86,8 +86,5 @@ De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genéri
 - Playable
 
   - `GET /play/track/:track_id`
-  - `GET /play/artist/:artist_id`
-  - `GET /play/album/:album_id`
-  - `GET /play/playlist/:playlist_id`
 
 ## Esquemas

@@ -2,11 +2,11 @@ import { Pool, createPool } from 'mysql2/promise';
 import { ServerConfig } from '../config/config';
 
 export class DataBase extends ServerConfig {
-   private _pool: Pool;
+   private pool: Pool;
 
    constructor() {
       super();
-      this._pool = createPool({
+      this.pool = createPool({
          host: this.database.host,
          user: this.database.user,
          password: this.database.password,
@@ -15,7 +15,7 @@ export class DataBase extends ServerConfig {
    }
 
    public async selectQuery<T>(query: string, values?: any[]): Promise<T[]> {
-      const connection = await this._pool.getConnection();
+      const connection = await this.pool.getConnection();
 
       try {
          const [results] = await connection.execute(query, values);
@@ -25,6 +25,17 @@ export class DataBase extends ServerConfig {
          // sino no hace falta el catch (se esta capturando en el controller)
          // } catch (error) {
          //    throw error;
+      } finally {
+         connection.release();
+      }
+   }
+
+   // !! Revisar
+   public async insertQuery(query: string, values?: any[]): Promise<void> {
+      const connection = await this.pool.getConnection();
+
+      try {
+         await connection.execute(query, values);
       } finally {
          connection.release();
       }
