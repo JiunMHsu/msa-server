@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import { ServerConfig } from './config/config';
-import { ArtistRouter, MediaRouter, TrackRouter } from './routers';
+import { AlbumRouter, ArtistRouter, MediaRouter, TrackRouter } from './routers';
 
 class ServerBootstrap extends ServerConfig {
    private app: express.Application = express();
@@ -30,6 +30,7 @@ class ServerBootstrap extends ServerConfig {
       const routers = [
          new MediaRouter(),
          new ArtistRouter(),
+         new AlbumRouter(),
          new TrackRouter(),
       ];
       return routers.map(router => router.router);

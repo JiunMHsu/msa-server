@@ -47,7 +47,6 @@ export class ArtistModel extends Model<ArtistDB, Artist> {
          `SELECT * FROM artist`,
          [],
       );
-      console.log(results);
       return this.adapter.adaptListToModel(results, this.emptyArtist);
    }
 

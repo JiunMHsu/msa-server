@@ -15,11 +15,11 @@ export class ArtistRouter extends BaseRouter<ArtistController> {
          this.controller.getArtist(req, res);
       });
 
-      this.router.get('/artist/:artist_id/discography', (req, res) => {
+      this.router.get('/artist/discography/:artist_id', (req, res) => {
          this.controller.getDiscography(req, res);
       });
 
-      this.router.get('/artist/:artist_id/playlists', (req, res) => {
+      this.router.get('/artist/playlists/:artist_id', (req, res) => {
          this.controller.getPlaylists(req, res);
       });
    }

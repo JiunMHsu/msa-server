@@ -43,6 +43,7 @@ Ahora se esta usando los tipos de la DB como principal y, el modelo de la app ad
 
 De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genérico y prescindir de repetirlo para todos los modelos.
 
+- [ ] Lectura del `TIME` en MySQL, ahora se esta manejando por string, pero despues del SELECT agrega otra info que no habia insertado (creo q es el timezone)
 - [ ] Refactorizar la lógica de track.controller, la busqueda a la base de datos se debe extraer al modelo.
 - [ ] Revisar tema conversión de tipos, (adaptar las variables de la DB a interfaces con camel case).
 - [ ] Ver bien tema `modelos` en esta arquitectura, creo q se esta manejando mal.
@@ -52,14 +53,14 @@ De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genéri
 - Artista
 
   - `GET /artist/:artist_id`
-  - `GET /artist/:artist_id/discography`
-  - `GET /artist/:artist_id/playlists`
+  - `GET /artist/discography/:artist_id`
+  - `GET /artist/playlists/:artist_id`
 
 - Disco
 
   - `GET /album/:album_id`
   - `POST /album/create/:artist_id`
-  - `DELETE /album/delete/:artist_id`
+  - `DELETE /album/delete/:album_id`
 
 - Playlist
 
@@ -81,7 +82,7 @@ De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genéri
 - User
 
   - `GET /user/:user_id`
-  - `POST /user/create/:user_id`
+  - `POST /user/create`
   - `PUT /user/update/:user_id`
   - `DELETE /user/delete/:user_id`
 

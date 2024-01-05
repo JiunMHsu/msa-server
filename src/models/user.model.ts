@@ -1,17 +1,14 @@
-export interface User {
-   userID: string; //
-   name: string;
-   email: string;
-   profilePhoto: string; // blob?
-   following: string[]; // artists id
-   playlists: string[];
-   savedAlbums: string[];
-}
+import { CamelizeKeys } from '../utilities';
+import { Model } from './model';
 
-interface DbUser {
+type UserDB = {
    user_id: string;
    name: string;
    email: string;
-   password: string; //
-   profilePhoto: string; // blob?
-}
+   password: string;
+   profilePhoto: string;
+};
+
+export type User = CamelizeKeys<UserDB>;
+
+export class UserModel extends Model<UserDB, User> {}
