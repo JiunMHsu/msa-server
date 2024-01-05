@@ -43,7 +43,7 @@ Ahora se esta usando los tipos de la DB como principal y, el modelo de la app ad
 
 De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genérico y prescindir de repetirlo para todos los modelos.
 
-- [ ] Lectura del `TIME` en MySQL, ahora se esta manejando por string, pero despues del SELECT agrega otra info que no habia insertado (creo q es el timezone)
+- [ ] Lectura del `DATE` en MySQL, ahora se esta manejando por string, pero despues del SELECT agrega otra info que no habia insertado (creo q es el timezone)
 - [ ] Refactorizar la lógica de track.controller, la busqueda a la base de datos se debe extraer al modelo.
 - [ ] Revisar tema conversión de tipos, (adaptar las variables de la DB a interfaces con camel case).
 - [ ] Ver bien tema `modelos` en esta arquitectura, creo q se esta manejando mal.
