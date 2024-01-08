@@ -6,61 +6,26 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 
 ## TODO
 
-- Generales:
-
-  - [x] Configurar Variables de entorno, diferiendo desarrollo y producción.
-
-- Rutas y Endpoints:
-
-  - [X] Definir los endpoints.
-  - [ ] Implementar las Rutas.
-
-- Modelos y Base de Datos:
-
-  - [X] Diseñar las Tablas y sus relaciones (la DB).
-  - [ ] Implementar los modelos y la interacción con la base de datos. (Ver si meter ORM)
-
-- Streaming de Audio:
-
-  - [X] Stremear los archivos de audio
+- [x] Configurar Variables de entorno, diferiendo desarrollo y producción.
+- [X] Rediseñar la respuesta de `album`, debería contener los tracks (?
 
 ## Para tener en cuenta
 
-Ahora se esta usando los tipos de la DB como principal y, el modelo de la app adaptado según la DB, debería ser al revés, ejemplo:
-
-  ```typescript
-  export type Artist = {
-    artistId: string;
-    artistName: string;
-    verified: boolean;
-    followers: number;
-    monthlyListeners: number;
-    profilePhoto: string;
-  }
-
-  type ArtistDB = CamelizeKeys<Artist>;
-  ```
-
-De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genérico y prescindir de repetirlo para todos los modelos.
-
 - [ ] Lectura del `DATE` en MySQL, ahora se esta manejando por string, pero despues del SELECT agrega otra info que no habia insertado (creo q es el timezone)
-- [ ] Refactorizar la lógica de track.controller, la busqueda a la base de datos se debe extraer al modelo.
-- [ ] Revisar tema conversión de tipos, (adaptar las variables de la DB a interfaces con camel case).
-- [ ] Ver bien tema `modelos` en esta arquitectura, creo q se esta manejando mal.
 
 ## Endpoints y Methods
 
 - Artista
 
-  <!-- - `GET /artists/` -->
+  - `GET /artists/`
   - `GET /artist/:artist_id`
   - `GET /artist/discography/:artist_id`
   - `GET /artist/playlists/:artist_id`
 
-- Disco
+- Album
 
   - `GET /album/:album_id`
-  - `GET /album/tracks/:album_id`
+  - `GET /album/discography/:artistId`
   - `POST /album/create/:artist_id`
   - `DELETE /album/delete/:album_id`
 
