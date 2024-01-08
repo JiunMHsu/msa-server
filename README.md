@@ -52,6 +52,7 @@ De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genéri
 
 - Artista
 
+  <!-- - `GET /artists/` -->
   - `GET /artist/:artist_id`
   - `GET /artist/discography/:artist_id`
   - `GET /artist/playlists/:artist_id`
@@ -59,23 +60,24 @@ De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genéri
 - Disco
 
   - `GET /album/:album_id`
+  - `GET /album/tracks/:album_id`
   - `POST /album/create/:artist_id`
   - `DELETE /album/delete/:album_id`
 
 - Playlist
 
   - `GET /playlist/:playlist_id`
+  - `GET /playlist/tracks/:playlist_id`
   - `POST /playlist/create/:user_id`
-  - `PUT /playlist/modify/title/:playlist_id`
-  - `PUT /playlist/modify/cover/:playlist_id`
-  - `POST /playlist/modify/:playlist_id/:track_id`
-  - `DELETE /playlist/modify/:playlist_id/:track_id`
+  - `PATCH /playlist/update/title/:playlist_id`
+  - `PATCH /playlist/update/cover/:playlist_id`
+  - `PATCH /playlist/add-track/:playlist_id/:track_id`
+  - `PATCH /playlist/remove-track/:playlist_id/:track_id`
   - `DELETE /playlist/delete/:playlist_id`
 
 - Track
 
   - `GET /track/:track_id`
-  - `GET /track/all/:album_id`
   - `GET /track/credits/:track_id`
   - `GET /track/lyrics/:track_id`
 
@@ -85,6 +87,7 @@ De esta forma, el `type T = CamelizeKeys<U>` puede ser interno del Model genéri
   - `POST /user/create`
   - `PUT /user/update/:user_id`
   - `DELETE /user/delete/:user_id`
+  - `GET /user/authenticate`
 
 - Media
 

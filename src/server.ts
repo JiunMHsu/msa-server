@@ -1,8 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+
 import { ServerConfig } from './config/config';
-import { AlbumRouter, ArtistRouter, MediaRouter, TrackRouter } from './routers';
+
+import { MediaRouter } from './media/media.router';
+import { ArtistRouter } from './artist/artist.router';
+import { AlbumRouter } from './album/album.router';
+import { PlaylistRouter } from './playlist/playlist.router';
+import { TrackRouter } from './track/track.router';
+import { UserRouter } from './user/user.router';
 
 class ServerBootstrap extends ServerConfig {
    private app: express.Application = express();
@@ -11,8 +18,8 @@ class ServerBootstrap extends ServerConfig {
 
    constructor() {
       super();
-      this.host = this.getEnviroment('HOST') || '127.0.0.1';
-      this.port = this.getNumberEnv('PORT') || 5050;
+      this.host = this.getEnviroment('HOST') ?? '127.0.0.1';
+      this.port = this.getNumberEnv('PORT') ?? 5050;
 
       this.app.disable('x-powered-by');
 
@@ -26,19 +33,21 @@ class ServerBootstrap extends ServerConfig {
       this.listen();
    }
 
-   private routes(): Array<express.Router> {
+   private routes(): express.Router[] {
       const routers = [
          new MediaRouter(),
          new ArtistRouter(),
          new AlbumRouter(),
+         new PlaylistRouter(),
          new TrackRouter(),
+         new UserRouter(),
       ];
       return routers.map(router => router.router);
    }
 
    public listen(): void {
       this.app.listen(this.port, () => {
-         console.log(`server listening on ${this.host}:${this.port}`);
+         console.log(`server listening on http://${this.host}:${this.port}`);
       });
    }
 }
