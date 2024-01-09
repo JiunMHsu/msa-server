@@ -26,6 +26,19 @@ export class UserService {
       // return results;
    }
 
+   public static async resolveToId(userEmail: string, userPassword: string) {
+      console.log({ userEmail, userPassword });
+      return `80b98b16-94da-4246-9996-6e74e9fff286`;
+
+      // const results = await dataBase.selectQuery<UserDB>(
+      //    `SELECT *
+      //    FROM user
+      //    WHERE user_id = ?`,
+      //    [userId],
+      // );
+      // return results;
+   }
+
    public static async updateUser(userId: string, user: any) {
       return `update User ${userId} with ${user}`;
 

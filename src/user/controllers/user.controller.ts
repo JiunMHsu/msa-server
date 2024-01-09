@@ -1,13 +1,29 @@
 import { Request, Response } from 'express';
 import { UserService } from '../services/user.service';
+import { JWTHandler } from '../../shared/utilities/jwtHandler.utility';
 
 export class UserController {
    public async getUser(req: Request, res: Response) {
-      const userId = req.params.userId;
+      const accessToken = req.headers.authorization ?? '';
+      const jwtData = await new JWTHandler().validateToken(accessToken);
 
       try {
-         const user = await UserService.getUser(userId);
-         res.status(200).json(user);
+         res.send(jwtData.userId); // 80b98b16-94da-4246-9996-6e74e9fff286
+         // const user = await UserService.getUser(userId);
+         // res.status(200).json(user);
+      } catch (error) {
+         res.status(500).send(`Error produced: ${error}`);
+      }
+   }
+
+   public async loginUser(req: Request, res: Response) {
+      const jwt = new JWTHandler();
+      const { email, password } = req.body;
+      try {
+         // 80b98b16-94da-4246-9996-6e74e9fff286
+         const userId = await UserService.resolveToId(email, password);
+         const token = await jwt.generateToken(userId);
+         res.status(200).json({ accessToken: token });
       } catch (error) {
          res.status(500).send(`Error produced: ${error}`);
       }
@@ -18,7 +34,10 @@ export class UserController {
 
       try {
          const result = await UserService.createUser(user);
-         res.status(200).json(result);
+
+         // should redirect after creating an user
+         // res.redirect(303, `/api/user/${result.id}`);
+         res.status(303).json(result);
       } catch (error) {
          res.status(500).send(`Error produced: ${error}`);
       }

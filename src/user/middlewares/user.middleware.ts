@@ -1,10 +1,29 @@
 import { Request, Response, NextFunction } from 'express';
+import { JWTHandler } from '../../shared/utilities/jwtHandler.utility';
 
 export class UserMiddleware {
-   public async authenticate(req: Request, _: Response, next: NextFunction) {
-      const userId = req.params.userId;
-      console.log(`User ${userId} authenticated`);
+   // public async verifyHeaderToken(
+   //    req: Request,
+   //    res: Response,
+   //    next: NextFunction,
+   // ) {
+   //    const token = req.headers.authorization;
 
+   //    if (!token) {
+   //       // caso no autorizado
+   //       res.status(401).send('No token provided');
+   //    }
+
+   //    next();
+   // }
+
+   public async validateCredential(
+      req: Request,
+      res: Response,
+      next: NextFunction,
+   ) {
+      console.log(req);
+      console.log(res);
       next();
    }
 }
