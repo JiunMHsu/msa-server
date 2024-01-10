@@ -1,16 +1,22 @@
 import { Request, Response } from 'express';
 import { UserService } from '../services/user.service';
-import { JWTHandler } from '../../shared/utilities/jwtHandler.utility';
+import { JWTHandler } from '../../shared';
 
 export class UserController {
    public async getUser(req: Request, res: Response) {
       const accessToken = req.headers.authorization ?? '';
-      const jwtData = await new JWTHandler().validateToken(accessToken);
 
       try {
-         res.send(jwtData.userId); // 80b98b16-94da-4246-9996-6e74e9fff286
-         // const user = await UserService.getUser(userId);
-         // res.status(200).json(user);
+         const { userId } = (await new JWTHandler().validateToken(
+            accessToken,
+         )) as { userId: string };
+
+         res.send(userId); // 80b98b16-94da-4246-9996-6e74e9fff286
+
+         const user = await UserService.getById(userId);
+         const library = await UserService.getLibrary(userId);
+
+         res.status(200).json(user);
       } catch (error) {
          res.status(500).send(`Error produced: ${error}`);
       }
@@ -64,10 +70,4 @@ export class UserController {
          res.status(500).send(`Error produced: ${error}`);
       }
    }
-
-   // public async authenticateUser(_: Request, res: Response) {}
-
-   // public async getFollowedAlbums(req: Request, res: Response) {}
-
-   // public async getFollowedPlaylists(req: Request, res: Response) {}
 }

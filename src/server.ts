@@ -35,12 +35,12 @@ class ServerBootstrap extends ServerConfig {
 
    private routes(): express.Router[] {
       const routers = [
+         new UserRouter(),
          new MediaRouter(),
          new ArtistRouter(),
          new AlbumRouter(),
          new PlaylistRouter(),
          new TrackRouter(),
-         new UserRouter(),
       ];
       return routers.map(router => router.router);
    }

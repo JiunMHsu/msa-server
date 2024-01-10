@@ -1,11 +1,6 @@
 
 USE music_streamer;
 
--- IU
-INSERT INTO artist (artist_id, artist_name, verified, followers, monthly_listeners, profile_photo) 
-VALUES ('9d220c9b-d1b8-41a7-8286-8a1c5b0936f5', 'IU', true, 8920393, 6938273, 'iu-profile-photo.png');
-
-
 -- LILAC --
 INSERT INTO album (album_id, title, disc_type, cover_art, label, release_date, duration) 
 VALUES ('5d66351d-addd-49ac-84a9-dbde46ab5384', "IU 5th Album 'LILAC'", 'Album', 'iu-lilac-cover.png', '2021 EDAM Entertainment', '2021-03-25', '00:36:31');
@@ -39,6 +34,7 @@ VALUES
 ('cbc28265-4ae4-43f5-bcc8-532f9c675745', '9d220c9b-d1b8-41a7-8286-8a1c5b0936f5'),
 ('6e56c0a7-37f2-4657-83cc-52f833a01688', '9d220c9b-d1b8-41a7-8286-8a1c5b0936f5');
 
+-- ======================================================================================================================
 
 -- Love poem --
 INSERT INTO album (album_id, title, disc_type, cover_art, label, release_date, duration) 
@@ -65,6 +61,7 @@ VALUES
 ('395f889b-026b-4b80-bf82-817dcbff1506', '9d220c9b-d1b8-41a7-8286-8a1c5b0936f5'),
 ('6596c675-859f-4bb8-b53f-a8f4ca34780d', '9d220c9b-d1b8-41a7-8286-8a1c5b0936f5');
 
+-- ======================================================================================================================
 
 -- BBIBBI --
 INSERT INTO album (album_id, title, disc_type, cover_art, label, release_date, duration) 
@@ -80,12 +77,7 @@ INSERT INTO track_artist (track_id, artist_id)
 VALUES 
 ('7ecdde2a-1696-4b45-a1e2-666e50789244', '9d220c9b-d1b8-41a7-8286-8a1c5b0936f5');
 
-
-
--- Taeyeon
-INSERT INTO artist (artist_id, artist_name, verified, followers, monthly_listeners, profile_photo) 
-VALUES ('8b65089c-2a07-47ad-a5e3-9bf8bd612a4e', 'Taeyeon', true, 2835456, 4513653, 'taeyeon-profile-photo.png');
-
+-- ======================================================================================================================
 
 -- My Voice - The 1st Album (Deluxe Edition) --
 INSERT INTO album (album_id, title, disc_type, cover_art, label, release_date, duration) 
@@ -132,6 +124,7 @@ VALUES
 ('3292a582-9d5e-4822-952f-867aefc42644', '8b65089c-2a07-47ad-a5e3-9bf8bd612a4e'),
 ('63187b4e-dc87-407e-bfc0-c4e1580a5417', '8b65089c-2a07-47ad-a5e3-9bf8bd612a4e');
 
+-- ======================================================================================================================
 
 -- INVU - The 3rd Album --
 INSERT INTO album (album_id, title, disc_type, cover_art, label, release_date, duration) 
@@ -172,6 +165,154 @@ VALUES
 ('af81962b-8b3e-4ded-a4c1-8ec9aae1e5de', '8b65089c-2a07-47ad-a5e3-9bf8bd612a4e'),
 ('a6132ff9-eda6-4326-a1a9-a980ef71bec1', '8b65089c-2a07-47ad-a5e3-9bf8bd612a4e');
 
+-- ======================================================================================================================
 
+-- I Do --
 
--- !! FALTA INSERTAR PLAYLISTS Y TODO DE USERS 
+-- ======================================================================================================================
+
+-- VOICE --
+
+-- ======================================================================================================================
+
+-- BORN PINK --
+
+-- ======================================================================================================================
+
+-- Girls - The 2nd Mini Album --
+
+-- ======================================================================================================================
+
+-- Blonde --
+INSERT INTO album (album_id, title, disc_type, cover_art, label, release_date, duration)
+VALUES ('2958ed40-da38-49ae-af5d-78579f9332a6', 'Blonde', 'Album', 'blonde-cover.png', `2016 Boys Don't Cry`, '2016-08-20', '01:00:00');
+
+INSERT INTO album_artist (album_id, artist_id) 
+VALUES ('2958ed40-da38-49ae-af5d-78579f9332a6', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0');
+
+INSERT INTO track (track_id, album_id, title, disc_number, track_number, duration, is_explicit, plays, source_file) 
+VALUES 
+('d93794ec-e5ca-45d8-a71a-473d81072cfd', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Nikes', 0, 1, '00:05:14', true, 12345678, 'Nikes.flac'),
+('06e14ad5-a912-48f5-a29e-ce11054a420d', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Ivy', 0, 2, '00:04:09', true, 38492882, 'Ivy.flac'),
+('9d38a6d1-d977-45c3-b81d-e69253365c6a', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Pink + White', 0, 3, '00:03:04', false, 17266638, 'PinkWhite.flac'),
+('6bd9373d-c88b-4b5e-8d32-c57e60c26ed8', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Be Yourself (Interlude)', 0, 4, '00:01:27', false, 22738994, 'BeYourself.flac'),
+('09e1e8dd-d88a-4df7-b38f-b4b2aac5da23', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Solo', 0, 5, '00:04:17', true, 28399092, 'Solo.flac'),
+('cb72be78-1398-4138-a041-4f8f1e858102', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Skyline To', 0, 6, '00:03:05', true, 12838832, 'SkylineTo.flac'),
+('a77fc6f3-873f-465b-9c97-596597392619', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Self Control', 0, 7, '00:04:09', false, 78641246, 'SelfControl.flac'),
+('dae1563a-e0a2-4b16-b3d1-73995cb8010a', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Good Guy', 0, 8, '00:01:06', false, 47858377, 'GoodGuy.flac'),
+('be65d857-3fca-4a7f-b3a7-fa306b77ece8', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Nights', 0, 9, '00:05:07', true, 23198649, 'Nights.flac'),
+('8463b4bc-9f3a-4d76-a4e2-50c784f6be80', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Solo (Reprise)', 0, 10, '00:01:18', false, 58972365, 'SoloReprise.flac'),
+('f04f9a16-be14-4db1-9029-17d4e2a90407', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Pretty Sweet', 0, 11, '00:02:38', true, 23756222, 'PrettySweet.flac'),
+('09320a63-6330-4eb5-95c5-30c4a3ea8dd9', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Facebook Story (Interlude)', 0, 12, '00:01:10', false, 12463587, 'FacebookStory.flac'),
+('ee88e624-1223-49eb-8a1e-c3c11519e53e', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Close to You', 0, 13, '00:01:25', false, 23589762, 'CloseToYou.flac'),
+('21c68201-6139-4df1-a7db-f52e3a81f578', '2958ed40-da38-49ae-af5d-78579f9332a6', 'White Ferrari', 0, 14, '00:04:08', false, 31467865, 'WhiteFerrari.flac'),
+('f9537956-b242-4db2-bb36-e1d5b18ad3dd', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Seigfried', 0, 15, '00:05:34', false, 24357876, 'Seigfried.flac'),
+('93ec4efa-9b5f-4167-ae1c-c80bbbae1c4a', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Godspeed', 0, 16, '00:02:57', false, 12377823, 'Godspeed.flac'),
+('529aeac7-1628-4da2-a8fa-bbbf81eb1057', '2958ed40-da38-49ae-af5d-78579f9332a6', 'Futura Free', 0, 17, '00:09:24', true, 23147856, 'FuturaFree.flac');
+
+INSERT INTO track_artist (track_id, artist_id)
+VALUES 
+('d93794ec-e5ca-45d8-a71a-473d81072cfd', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('06e14ad5-a912-48f5-a29e-ce11054a420d', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('9d38a6d1-d977-45c3-b81d-e69253365c6a', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('6bd9373d-c88b-4b5e-8d32-c57e60c26ed8', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('09e1e8dd-d88a-4df7-b38f-b4b2aac5da23', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('cb72be78-1398-4138-a041-4f8f1e858102', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('a77fc6f3-873f-465b-9c97-596597392619', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('dae1563a-e0a2-4b16-b3d1-73995cb8010a', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('be65d857-3fca-4a7f-b3a7-fa306b77ece8', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('8463b4bc-9f3a-4d76-a4e2-50c784f6be80', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('f04f9a16-be14-4db1-9029-17d4e2a90407', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('09320a63-6330-4eb5-95c5-30c4a3ea8dd9', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('ee88e624-1223-49eb-8a1e-c3c11519e53e', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('21c68201-6139-4df1-a7db-f52e3a81f578', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('f9537956-b242-4db2-bb36-e1d5b18ad3dd', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('93ec4efa-9b5f-4167-ae1c-c80bbbae1c4a', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0'),
+('529aeac7-1628-4da2-a8fa-bbbf81eb1057', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0');
+
+-- ======================================================================================================================
+
+-- The Melodic Blue --
+ebc613b6-1e26-42d6-b610-40ab15796668 (Baby Keem)
+
+INSERT INTO album (album_id, title, disc_type, cover_art, label, release_date, duration)
+VALUES ('7c8da1d1-e7be-4f60-9044-073c2f898d28', 'The Melodic Blue', 'Album', 'the-melodic-blue-cover.png', '2021 Columbia Records', '2021-09-22', '01:03:00');
+
+INSERT INTO album_artist (album_id, artist_id) 
+VALUES ('7c8da1d1-e7be-4f60-9044-073c2f898d28', 'ebc613b6-1e26-42d6-b610-40ab15796668');
+
+INSERT INTO track (track_id, album_id, title, disc_number, track_number, duration, is_explicit, plays, source_file) 
+VALUES 
+('eb87a77d-3c3e-4e14-a090-cc02f2198c29', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'trademark usa', 0, 1, '00:04:30', true, 12345678, 'trademarkusa.flac'),
+('92479d09-77d4-46bf-be40-744a504db387', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'pink panties', 0, 2, '00:02:43', true, 38492882, 'pinkpanties.flac'),
+('6de7732e-c29d-40a5-8cf2-1458371813c9', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'scapegoats', 0, 3, '00:01:16', true, 17266638, 'scapegoats.flac'),
+('3fa9cc0f-7f32-4758-a582-9f2527c6677c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'range brothers (with Kendrick Lamar)', 0, 4, '00:05:16', true, 78641246, 'rangebrothers.flac'),
+('b7454e1c-8912-4f2b-9fd5-bb8dfd23192c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'issues', 0, 5, '00:03:39', true, 28399092, 'issues.flac'),
+('bc7dc544-91ed-4042-b10e-5c49e1de2ea1', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'gorgeous', 0, 6, '00:02:20', true, 12838832, 'gorgeous.flac'),
+('4b27deaa-4c77-4251-b7bf-d39757d4895e', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'south africa', 0, 7, '00:02:54', true, 78641246, 'southafrica.flac'),
+('4492a976-7dc3-4f6b-8a4d-f64d235fd8ec', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'lost souls', 0, 8, '00:04:29', true, 47858377, 'lostsouls.flac'),
+('36261c85-d66e-4250-b3ad-7b4c517d3b54', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'cocoa (with Don Toliver)', 0, 9, '00:03:49', true, 23198649, 'cocoa.flac'),
+('d873e719-d033-48f4-b571-4b48c2d4f929', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'family ties (with Kendrick Lamar)', 0, 10, '00:04:12', true, 58972365, 'familyties.flac'),
+('9043e416-7d40-4533-be30-265db04fcb45', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'scars', 0, 11, '00:04:26', true, 23756222, 'scars.flac'),
+('4d216a58-a7c0-4c0c-b594-ce171719981c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'durag activity (with Travis Scott)', 0, 12, '00:03:44', true, 12463587, 'duragactivity.flac'),
+('6f0caa81-05bb-409e-b32e-487a682bff8c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'booman', 0, 13, '00:02:35', true, 23589762, 'booman.flac'),
+('342699e6-d989-440b-a9d1-e4e8efdb78bf', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'first order of business', 0, 14, '00:02:48', true, 31467865, 'firstorderofbusiness.flac'),
+('69e8f583-ee07-4c73-be68-25c9b06c0e47', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'vent', 0, 15, '00:02:16', true, 24357876, 'vent.flac'),
+('8f3e54be-cda3-4aec-843d-0015729ee7e9', '7c8da1d1-e7be-4f60-9044-073c2f898d28', '16', 0, 16, '00:02:36', true, 12377823, '16.flac');
+
+INSERT INTO track_artist (track_id, artist_id)
+VALUES 
+('eb87a77d-3c3e-4e14-a090-cc02f2198c29', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('92479d09-77d4-46bf-be40-744a504db387', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('6de7732e-c29d-40a5-8cf2-1458371813c9', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('3fa9cc0f-7f32-4758-a582-9f2527c6677c', 'ebc613b6-1e26-42d6-b610-40ab15796668'), -- agregar Kendrick Lamar
+('b7454e1c-8912-4f2b-9fd5-bb8dfd23192c', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('bc7dc544-91ed-4042-b10e-5c49e1de2ea1', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('4b27deaa-4c77-4251-b7bf-d39757d4895e', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('4492a976-7dc3-4f6b-8a4d-f64d235fd8ec', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('36261c85-d66e-4250-b3ad-7b4c517d3b54', 'ebc613b6-1e26-42d6-b610-40ab15796668'), -- agregar Don Toliver
+('d873e719-d033-48f4-b571-4b48c2d4f929', 'ebc613b6-1e26-42d6-b610-40ab15796668'), -- agregar Kendrick Lamar
+('9043e416-7d40-4533-be30-265db04fcb45', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('4d216a58-a7c0-4c0c-b594-ce171719981c', 'ebc613b6-1e26-42d6-b610-40ab15796668'), -- agregar Travis Scott
+('6f0caa81-05bb-409e-b32e-487a682bff8c', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('342699e6-d989-440b-a9d1-e4e8efdb78bf', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('69e8f583-ee07-4c73-be68-25c9b06c0e47', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('8f3e54be-cda3-4aec-843d-0015729ee7e9', 'ebc613b6-1e26-42d6-b610-40ab15796668');
+
+-- ======================================================================================================================
+
+-- Mr. Morale & The Big Steppers --
+
+-- ======================================================================================================================
+
+-- Donda --
+
+-- ======================================================================================================================
+
+-- Swimming --
+
+-- ======================================================================================================================
+
+-- Watching Movies With The Sound Off --
+
+-- ======================================================================================================================
+
+-- Dua Lipa (Deluxe Edition) --
+
+-- ======================================================================================================================
+
+-- Future Nostalgia (The Moonlight Edition) --
+
+-- ======================================================================================================================
+
+-- ======================================================================================================================
+
+-- ======================================================================================================================
+
+-- ======================================================================================================================
+
+-- ======================================================================================================================
+
+-- ======================================================================================================================
+
+-- ======================================================================================================================

@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { JWTHandler } from '../../shared/utilities/jwtHandler.utility';
 
 export class UserMiddleware {
    // public async verifyHeaderToken(

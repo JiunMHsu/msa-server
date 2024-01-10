@@ -2,7 +2,7 @@
 // import { User, UserDB } from '../models/user.model';
 
 export class UserService {
-   public static async getUser(userId: string) {
+   public static async getById(userId: string) {
       return `get User ${userId}`;
 
       // const results = await dataBase.selectQuery<UserDB>(
@@ -38,6 +38,8 @@ export class UserService {
       // );
       // return results;
    }
+
+   public static async getLibrary(userId: string) {}
 
    public static async updateUser(userId: string, user: any) {
       return `update User ${userId} with ${user}`;
