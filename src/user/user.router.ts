@@ -1,6 +1,6 @@
 import { BaseRouter } from '../shared';
-import { UserController } from './controllers/user.controller';
-import { UserMiddleware } from './middlewares/user.middleware';
+import { UserController } from './user.controller';
+import { UserMiddleware } from './user.middleware';
 
 export class UserRouter extends BaseRouter<UserController, UserMiddleware> {
    constructor() {

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { AlbumService } from '../services/album.service';
+import { AlbumService } from './album.service';
 
 export class AlbumController {
    public async getAll(_: Request, res: Response) {

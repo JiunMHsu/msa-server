@@ -1,5 +1,5 @@
-import { dataBase } from '../../shared/service/database';
-import { Album, AlbumDB } from '../models/album.model';
+import { dataBase } from '../shared/service/database';
+import { Album, AlbumDB } from './album.model';
 
 export class AlbumService {
    public static async getAll(): Promise<Album[]> {

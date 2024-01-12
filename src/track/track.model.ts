@@ -1,4 +1,4 @@
-import { CamelizeKeys } from '../../shared/utilities';
+import { CamelizeKeys } from '../shared/utilities';
 
 export type TrackDB = {
    track_id: string;

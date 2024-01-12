@@ -1,6 +1,6 @@
 import { BaseRouter } from '../shared/router/router';
-import { PlaylistController } from './controllers/playlist.controller';
-import { PlaylistMiddleware } from './middlewares/playlist.middleware';
+import { PlaylistController } from './playlist.controller';
+import { PlaylistMiddleware } from './playlist.middleware';
 
 export class PlaylistRouter extends BaseRouter<
    PlaylistController,

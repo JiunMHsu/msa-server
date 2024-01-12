@@ -15,19 +15,21 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 
 ## Endpoints y Methods
 
+- Album
+
+  - `GET /album/:albumId`
+  - `GET /album/full/albumId`
+
+  - `GET /album/discography/:artistId`
+  - `POST /album/create/:artist_id`
+  - `DELETE /album/delete/:album_id`
+
 - Artista
 
   - `GET /artists/`
   - `GET /artist/:artist_id`
   - `GET /artist/discography/:artist_id`
   - `GET /artist/playlists/:artist_id`
-
-- Album
-
-  - `GET /album/:album_id`
-  - `GET /album/discography/:artistId`
-  - `POST /album/create/:artist_id`
-  - `DELETE /album/delete/:album_id`
 
 - Playlist
 
@@ -72,3 +74,60 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 | label       | string       | Nombre del sello discográfico                          |
 | releaseDate | string       | Fecha de publicación, formato: AA-MM-DD                |
 | duration    | string       | Duración total del disco, formato: HH-MM-SS            |
+
+```JSON
+GET /album/:albumId
+
+{
+  "albumId": "",
+  "title": "",
+  "artists": {
+    "artistId": "",
+    "name": ""
+  },
+  "discType": "",
+  "coverArt": ""
+}
+```
+
+```JSON
+GET /album/full/albumId
+
+{
+  "albumId": "",
+  "title": "",
+  "artists": {
+    "artistId": "",
+    "name": ""
+  },
+  "discType": "",
+  "coverArt": "url/to/image",
+  "label": "",
+  "releaseDate": "00-00-00",
+  "duration": "00:00:00",
+  "discs": [
+    [
+      {
+        "trackId": "",
+        "title": "",
+        "trackNumber": 0,
+        "artists": [
+          {
+            "artistId": "",
+            "name": ""
+          },
+          // ...other artists
+        ],
+        "duration": "",
+        "isExplicit": false,
+        "plays": 0,
+        "lyrics": "",
+        "sourceFile": ""
+      },
+      // ... other tracks
+    ],
+    // ... other discs
+  ]
+},
+
+```

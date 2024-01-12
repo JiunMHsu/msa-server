@@ -1,8 +1,11 @@
 import { BaseRouter } from '../shared/router/router';
-import { ArtistController } from './controllers/artist.controller';
-import { ArtistMiddleware } from './middlewares/artist.middleware';
+import { ArtistController } from './artist.controller';
+import { ArtistMiddleware } from './artist.middleware';
 
-export class ArtistRouter extends BaseRouter<ArtistController, ArtistMiddleware> {
+export class ArtistRouter extends BaseRouter<
+   ArtistController,
+   ArtistMiddleware
+> {
    constructor() {
       super(ArtistController, ArtistMiddleware);
    }

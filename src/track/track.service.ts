@@ -1,5 +1,5 @@
-import { dataBase } from '../../shared/service/database';
-import { Track, TrackDB } from '../models/track.model';
+import { dataBase } from '../shared/service/database';
+import { Track, TrackDB } from './track.model';
 
 export class TrackService {
    public static async getById(trackId: string) {

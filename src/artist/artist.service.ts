@@ -1,5 +1,5 @@
-import { dataBase } from "../../shared/service/database";
-import { Artist, ArtistDB } from "../models/artist.model";
+import { dataBase } from '../shared/service/database';
+import { Artist, ArtistDB } from './artist.model';
 
 export class ArtistService {
    public static async getAll() {

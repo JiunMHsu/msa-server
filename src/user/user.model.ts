@@ -1,4 +1,4 @@
-import { CamelizeKeys } from '../../shared/utilities';
+import { CamelizeKeys } from '../shared/utilities';
 
 type UserDB = {
    user_id: string;

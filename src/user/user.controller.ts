@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { UserService } from '../services/user.service';
-import { JWTHandler } from '../../shared';
+import { UserService } from './user.service';
+import { JWTHandler } from '../shared';
 
 export class UserController {
    public async getUser(req: Request, res: Response) {

@@ -1,6 +1,6 @@
 import { BaseRouter } from '../shared/router/router';
-import { AlbumController } from './controllers/album.controller';
-import { AlbumMiddleware } from './middlewares/album.middleware';
+import { AlbumController } from './album.controller';
+import { AlbumMiddleware } from './album.middleware';
 
 export class AlbumRouter extends BaseRouter<AlbumController, AlbumMiddleware> {
    constructor() {

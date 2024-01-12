@@ -1,6 +1,6 @@
 import { BaseRouter } from '../shared/router/router';
-import { TrackController } from './controllers/track.cotroller';
-import { TrackMiddleware } from './middlewares/track.middleware';
+import { TrackController } from './track.cotroller';
+import { TrackMiddleware } from './track.middleware';
 
 export class TrackRouter extends BaseRouter<TrackController, TrackMiddleware> {
    constructor() {

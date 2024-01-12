@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ArtistService } from '../services/artist.service';
+import { ArtistService } from './artist.service';
 
 export class ArtistController {
    public async getAllArtist(res: Response) {

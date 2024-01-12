@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { join } from 'node:path';
 
-import { ServerConfig } from '../../config/config';
+import { ServerConfig } from '../config/config';
 
 export class MediaController extends ServerConfig {
    private get assetsDir() {

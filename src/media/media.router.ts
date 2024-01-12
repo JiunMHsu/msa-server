@@ -1,6 +1,6 @@
 import { BaseRouter } from '../shared/router/router';
-import { MediaController } from './controllers/media.controller';
-import { MediaMiddleware } from './middlewares/media.middleware';
+import { MediaController } from './media.controller';
+import { MediaMiddleware } from './media.middleware';
 
 export class MediaRouter extends BaseRouter<MediaController, MediaMiddleware> {
    constructor() {

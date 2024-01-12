@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { PlaylistService } from '../services/playlist.service';
+import { PlaylistService } from './playlist.service';
 
 export class PlaylistController {
    public async getPlaylist(req: Request, res: Response) {

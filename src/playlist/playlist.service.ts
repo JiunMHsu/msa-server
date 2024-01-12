@@ -1,5 +1,5 @@
-import { dataBase } from '../../shared/service/database';
-import { Playlist, PlaylistDB } from '../models/playlist.model';
+import { dataBase } from '../shared/service/database';
+import { Playlist, PlaylistDB } from './playlist.model';
 
 export class PlaylistService {
    public static async getById(playlistId: string) {
