@@ -1,3 +1,4 @@
+import { AlbumDB } from '../album/album.model';
 import { dataBase } from '../shared/service/database';
 import { Artist, ArtistDB } from './artist.model';
 
@@ -11,6 +12,13 @@ export class ArtistService {
    }
 
    public static async getDiscography(artistId: string) {
+      // const results = await dataBase.selectQuery<AlbumDB>(
+      //    `SELECT *
+      //    FROM album al left join album_artist aa on al.album_id = aa.album_id
+      //    WHERE artist_id = ?`,
+      //    [artistId],
+      // );
+
       return `get Discography of ${artistId}`;
    }
 

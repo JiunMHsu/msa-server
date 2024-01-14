@@ -1,53 +1,64 @@
-export type DiskType = 'Album' | 'EP' | 'Single' | 'Mixtape';
+import { ArtistTag } from '../artist/artist.model';
+import { Track } from '../track/track.model';
 
-export class AlbumDB {
-   album_id!: string;
-   title!: string;
-   disc_type!: DiskType;
-   cover_art!: string;
-   label!: string;
-   release_date!: string;
-   duration!: string;
+export type DiskType = 'Album' | 'EP' | 'Single' | 'Mixtape' | 'Compilation';
 
-   public static toAlbum(albumDB: AlbumDB): Album {
-      const album = new Album();
-      album.albumId = albumDB.album_id;
-      album.title = albumDB.title;
-      album.discType = albumDB.disc_type as DiskType;
-      album.coverArt = albumDB.cover_art;
-      album.label = albumDB.label;
-      album.releaseDate = albumDB.release_date;
-      album.duration = albumDB.duration;
-      return album;
-   }
-
-   public static toAlbums(albumsDB: AlbumDB[]): Album[] {
-      return albumsDB.map(albumDB => this.toAlbum(albumDB));
-   }
+export interface AlbumDB {
+   album_id: string;
+   title: string;
+   disc_type: DiskType;
+   cover_art: string;
+   label: string;
+   release_date: string;
+   duration: string;
 }
 
 export class Album {
-   albumId!: string;
-   title!: string;
-   discType!: DiskType;
-   coverArt!: string;
-   label!: string;
-   releaseDate!: string;
-   duration!: string;
+   albumId: string = '';
+   title: string = '';
+   artist: ArtistTag = { artistId: '', name: '' };
+   discType: DiskType | '' = '';
+   coverArt: string = '';
+   label: string = '';
+   releaseDate: string = '';
+   duration: string = '';
+   discs: Track[][] = [];
 
-   // public static toAlbumDB(album: Album): AlbumDB {
-   //    const albumDB = new AlbumDB();
-   //    albumDB.album_id = album.albumId;
-   //    albumDB.title = album.title;
-   //    albumDB.disc_type = album.discType;
-   //    albumDB.cover_art = album.coverArt;
-   //    albumDB.label = album.label;
-   //    albumDB.release_date = album.releaseDate;
-   //    albumDB.duration = album.duration;
-   //    return albumDB;
-   // }
+   constructor(artist?: ArtistTag, albumDB?: AlbumDB, tracks?: Track[][]) {
+      if (albumDB) {
+         this.albumId = albumDB.album_id;
+         this.title = albumDB.title;
+         this.discType = albumDB.disc_type as DiskType;
+         this.coverArt = albumDB.cover_art;
+         this.label = albumDB.label;
+         this.releaseDate = albumDB.release_date;
+         this.duration = albumDB.duration;
+      }
+      if (artist) {
+         this.artist = artist;
+      }
+      if (tracks) {
+         this.discs = tracks;
+      }
+   }
+}
 
-   // public static toAlbumsDB(albums: Album[]): AlbumDB[] {
-   //    return albums.map(album => this.toAlbumDB(album));
-   // }
+export class AlbumPreview {
+   albumId: string = '';
+   title: string = '';
+   artist: ArtistTag = { artistId: '', name: '' };
+   discType: DiskType | '' = '';
+   coverArt: string = '';
+
+   constructor(artist?: ArtistTag, albumDB?: AlbumDB) {
+      if (albumDB) {
+         this.albumId = albumDB.album_id;
+         this.title = albumDB.title;
+         this.discType = albumDB.disc_type as DiskType;
+         this.coverArt = albumDB.cover_art;
+      }
+      if (artist) {
+         this.artist = artist;
+      }
+   }
 }

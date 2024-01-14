@@ -1,6 +1,6 @@
 import { CamelizeKeys } from '../shared/utilities';
 
-export type TrackDB = {
+export interface TrackDB {
    track_id: string;
    album_id: string;
    title: string;
@@ -10,6 +10,22 @@ export type TrackDB = {
    is_explicit: boolean;
    plays: number;
    source_file: string;
-};
+}
 
-export type Track = CamelizeKeys<TrackDB>;
+export class Track {
+   trackId: string ='';
+   title: string = '';
+   trackNumber: number = 0;
+   artists: [
+      {
+         artistId: '';
+         name: '';
+      },
+      // ...other artists
+   ];
+   duration: '';
+   isExplicit: false;
+   plays: 0;
+   lyrics: '';
+   sourceFile: '';
+}
