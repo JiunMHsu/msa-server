@@ -2,15 +2,6 @@ import { Request, Response } from 'express';
 import { ArtistService } from './artist.service';
 
 export class ArtistController {
-   public async getAllArtist(res: Response) {
-      try {
-         const artists = await ArtistService.getAll();
-         res.json(artists);
-      } catch (error) {
-         res.status(500).json(error);
-      }
-   }
-
    public async getArtist(req: Request, res: Response) {
       const artistId = req.params.artistId;
 

@@ -13,43 +13,14 @@ export class AlbumController {
       }
    }
 
-   public async getPreview(req: Request, res: Response) {
-      const artistId = req.params.artistId;
+   public async getAlbumPreview(req: Request, res: Response) {
+      const albumId = req.params.albumId;
 
       try {
-         const albums = await AlbumService.getPreview(artistId);
-         res.status(200).json(albums);
+         const preview = await AlbumService.getAlbumPreview(albumId);
+         res.status(200).json(preview);
       } catch (error) {
          res.status(500).send(`Error produced: ${error}`);
       }
    }
-
-   // public async createAlbum(req: Request, res: Response) {
-   //    res.status(200).json({
-   //       message: 'Album created',
-   //       album: { ...req.body },
-   //       artist: req.params.artistId,
-   //    });
-
-   //    const artistId = req.params.artistId;
-   //    const albumName = req.body.albumName;
-   //    const albumGenre = req.body.albumGenre;
-   //    const albumYear = req.body.albumYear;
-   //    const albumCover = req.body.albumCover;
-
-   //    try {
-   //       await AlbumService.createAlbum(
-   //          artistId,
-   //          albumName,
-   //          albumGenre,
-   //          albumYear,
-   //          albumCover,
-   //       );
-   //       res.status(200).json({ message: 'Album created' });
-   //    } catch (error) {
-   //       res.status(500).send(`Error produced: ${error}`);
-   //    }
-   // }
-
-   // public async deleteAlbum(req: Request, res: Response) {}
 }

@@ -12,6 +12,7 @@ export interface ArtistDB {
 export interface ArtistTag {
    artistId: string;
    name: string;
+   profilePhoto?: string;
 }
 
 export interface Discography {

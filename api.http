@@ -1,22 +1,6 @@
-### All Albums
-GET http://127.0.0.1:5000/api/album/
+### Get Album
+GET http://192.168.0.49:5000/api/album/7c8da1d1-e7be-4f60-9044-073c2f898d28
 
-### Single Album, by ID
-GET http://127.0.0.1:5000/api/album/07f261b7-8c5f-4a53-aaed-b269e64f03c1
-
-### Discography
-GET http://127.0.0.1:5000/api/album/discography/9d220c9b-d1b8-41a7-8286-8a1c5b0936f5
-
-### Create Album
-POST http://127.0.0.1:5000/api/album/create/345-hgjige-1lkjfqer-234
-Content-Type: application/json
-
-{
-   "title": "Donda",
-   "diskType": "Album",
-   "coverArt": "Donda_by_Kanye_West.png",
-   "label": "2021 Getting Out Our Dreams II",
-   "releaseDate": "2021-08-29",
-   "duration": "01:48:00"
-}
+### Get Album Preview
+GET http://192.168.0.49:5000/api/album/preview/7c8da1d1-e7be-4f60-9044-073c2f898d28
 

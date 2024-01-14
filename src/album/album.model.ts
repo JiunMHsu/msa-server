@@ -8,6 +8,7 @@ export interface AlbumDB {
    title: string;
    disc_type: DiskType;
    cover_art: string;
+   discs: number;
    label: string;
    release_date: string;
    duration: string;
@@ -16,7 +17,7 @@ export interface AlbumDB {
 export class Album {
    albumId: string = '';
    title: string = '';
-   artist: ArtistTag = { artistId: '', name: '' };
+   artist: ArtistTag = { artistId: '', name: ''};
    discType: DiskType | '' = '';
    coverArt: string = '';
    label: string = '';
@@ -46,7 +47,7 @@ export class Album {
 export class AlbumPreview {
    albumId: string = '';
    title: string = '';
-   artist: ArtistTag = { artistId: '', name: '' };
+   artist: ArtistTag = { artistId: '', name: ''};
    discType: DiskType | '' = '';
    coverArt: string = '';
 

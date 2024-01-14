@@ -185,7 +185,7 @@ VALUES
 
 -- Blonde --
 INSERT INTO album (album_id, title, disc_type, cover_art, label, release_date, duration)
-VALUES ('2958ed40-da38-49ae-af5d-78579f9332a6', 'Blonde', 'Album', 'blonde-cover.png', `2016 Boys Don't Cry`, '2016-08-20', '01:00:00');
+VALUES ('2958ed40-da38-49ae-af5d-78579f9332a6', 'Blonde', 'Album', 'blonde-cover.png', "2016 Boys Don't Cry", '2016-08-20', '01:00:00');
 
 INSERT INTO album_artist (album_id, artist_id) 
 VALUES ('2958ed40-da38-49ae-af5d-78579f9332a6', '9a01c1fa-37eb-4d7b-80d6-9c1e7518fee0');
@@ -233,8 +233,6 @@ VALUES
 -- ======================================================================================================================
 
 -- The Melodic Blue --
-ebc613b6-1e26-42d6-b610-40ab15796668 (Baby Keem)
-
 INSERT INTO album (album_id, title, disc_type, cover_art, label, release_date, duration)
 VALUES ('7c8da1d1-e7be-4f60-9044-073c2f898d28', 'The Melodic Blue', 'Album', 'the-melodic-blue-cover.png', '2021 Columbia Records', '2021-09-22', '01:03:00');
 
@@ -243,41 +241,51 @@ VALUES ('7c8da1d1-e7be-4f60-9044-073c2f898d28', 'ebc613b6-1e26-42d6-b610-40ab157
 
 INSERT INTO track (track_id, album_id, title, disc_number, track_number, duration, is_explicit, plays, source_file) 
 VALUES 
-('eb87a77d-3c3e-4e14-a090-cc02f2198c29', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'trademark usa', 0, 1, '00:04:30', true, 12345678, 'trademarkusa.flac'),
-('92479d09-77d4-46bf-be40-744a504db387', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'pink panties', 0, 2, '00:02:43', true, 38492882, 'pinkpanties.flac'),
-('6de7732e-c29d-40a5-8cf2-1458371813c9', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'scapegoats', 0, 3, '00:01:16', true, 17266638, 'scapegoats.flac'),
-('3fa9cc0f-7f32-4758-a582-9f2527c6677c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'range brothers (with Kendrick Lamar)', 0, 4, '00:05:16', true, 78641246, 'rangebrothers.flac'),
-('b7454e1c-8912-4f2b-9fd5-bb8dfd23192c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'issues', 0, 5, '00:03:39', true, 28399092, 'issues.flac'),
-('bc7dc544-91ed-4042-b10e-5c49e1de2ea1', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'gorgeous', 0, 6, '00:02:20', true, 12838832, 'gorgeous.flac'),
-('4b27deaa-4c77-4251-b7bf-d39757d4895e', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'south africa', 0, 7, '00:02:54', true, 78641246, 'southafrica.flac'),
-('4492a976-7dc3-4f6b-8a4d-f64d235fd8ec', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'lost souls', 0, 8, '00:04:29', true, 47858377, 'lostsouls.flac'),
-('36261c85-d66e-4250-b3ad-7b4c517d3b54', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'cocoa (with Don Toliver)', 0, 9, '00:03:49', true, 23198649, 'cocoa.flac'),
-('d873e719-d033-48f4-b571-4b48c2d4f929', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'family ties (with Kendrick Lamar)', 0, 10, '00:04:12', true, 58972365, 'familyties.flac'),
-('9043e416-7d40-4533-be30-265db04fcb45', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'scars', 0, 11, '00:04:26', true, 23756222, 'scars.flac'),
-('4d216a58-a7c0-4c0c-b594-ce171719981c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'durag activity (with Travis Scott)', 0, 12, '00:03:44', true, 12463587, 'duragactivity.flac'),
-('6f0caa81-05bb-409e-b32e-487a682bff8c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'booman', 0, 13, '00:02:35', true, 23589762, 'booman.flac'),
-('342699e6-d989-440b-a9d1-e4e8efdb78bf', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'first order of business', 0, 14, '00:02:48', true, 31467865, 'firstorderofbusiness.flac'),
-('69e8f583-ee07-4c73-be68-25c9b06c0e47', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'vent', 0, 15, '00:02:16', true, 24357876, 'vent.flac'),
-('8f3e54be-cda3-4aec-843d-0015729ee7e9', '7c8da1d1-e7be-4f60-9044-073c2f898d28', '16', 0, 16, '00:02:36', true, 12377823, '16.flac');
+('eb87a77d-3c3e-4e14-a090-cc02f2198c29', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'trademark usa', 1, 1, '00:04:30', true, 12345678, 'trademarkusa.flac'),
+('92479d09-77d4-46bf-be40-744a504db387', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'pink panties', 1, 2, '00:02:43', true, 38492882, 'pinkpanties.flac'),
+('6de7732e-c29d-40a5-8cf2-1458371813c9', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'scapegoats', 1, 3, '00:01:16', true, 17266638, 'scapegoats.flac'),
+('3fa9cc0f-7f32-4758-a582-9f2527c6677c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'range brothers (with Kendrick Lamar)', 1, 4, '00:05:16', true, 78641246, 'rangebrothers.flac'),
+('b7454e1c-8912-4f2b-9fd5-bb8dfd23192c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'issues', 1, 5, '00:03:39', true, 28399092, 'issues.flac'),
+('bc7dc544-91ed-4042-b10e-5c49e1de2ea1', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'gorgeous', 1, 6, '00:02:20', true, 12838832, 'gorgeous.flac'),
+('4b27deaa-4c77-4251-b7bf-d39757d4895e', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'south africa', 1, 7, '00:02:54', true, 78641246, 'southafrica.flac'),
+('4492a976-7dc3-4f6b-8a4d-f64d235fd8ec', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'lost souls', 1, 8, '00:04:29', true, 47858377, 'lostsouls.flac'),
+('36261c85-d66e-4250-b3ad-7b4c517d3b54', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'cocoa (with Don Toliver)', 1, 9, '00:03:49', true, 23198649, 'cocoa.flac'),
+('d873e719-d033-48f4-b571-4b48c2d4f929', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'family ties (with Kendrick Lamar)', 1, 10, '00:04:12', true, 58972365, 'familyties.flac'),
+('9043e416-7d40-4533-be30-265db04fcb45', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'scars', 1, 11, '00:04:26', true, 23756222, 'scars.flac'),
+('4d216a58-a7c0-4c0c-b594-ce171719981c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'durag activity (with Travis Scott)', 1, 12, '00:03:44', true, 12463587, 'duragactivity.flac'),
+('6f0caa81-05bb-409e-b32e-487a682bff8c', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'booman', 1, 13, '00:02:35', true, 23589762, 'booman.flac'),
+('342699e6-d989-440b-a9d1-e4e8efdb78bf', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'first order of business', 1, 14, '00:02:48', true, 31467865, 'firstorderofbusiness.flac'),
+('69e8f583-ee07-4c73-be68-25c9b06c0e47', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'vent', 1, 15, '00:02:16', true, 24357876, 'vent.flac'),
+('8f3e54be-cda3-4aec-843d-0015729ee7e9', '7c8da1d1-e7be-4f60-9044-073c2f898d28', '16', 1, 16, '00:02:36', true, 12377823, '16.flac'),
+('c3923430-7baa-4fed-ae8d-de7c428f7708', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'lost souls (with Brent Faiyaz)', 2, 1, '00:04:29', true, 23147856, 'lostsouls.flac'),
+('636f1e57-6c90-4c99-abd6-7df1d85a7402', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'hooligan', 2, 2, '00:02:36', true, 23147856, 'hooligan.flac'),
+('2cffcdf7-5bcc-49b9-8804-b158f782af5e', '7c8da1d1-e7be-4f60-9044-073c2f898d28', 'no sense', 2, 3, '00:02:53', true, 23147856, 'nosense.flac');
+
+
 
 INSERT INTO track_artist (track_id, artist_id)
 VALUES 
 ('eb87a77d-3c3e-4e14-a090-cc02f2198c29', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
 ('92479d09-77d4-46bf-be40-744a504db387', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
 ('6de7732e-c29d-40a5-8cf2-1458371813c9', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
-('3fa9cc0f-7f32-4758-a582-9f2527c6677c', 'ebc613b6-1e26-42d6-b610-40ab15796668'), -- agregar Kendrick Lamar
+('3fa9cc0f-7f32-4758-a582-9f2527c6677c', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('3fa9cc0f-7f32-4758-a582-9f2527c6677c', 'da19bb2c-28ef-4a8b-984e-48a6df1cbd44'), -- Kendrick Lamar
 ('b7454e1c-8912-4f2b-9fd5-bb8dfd23192c', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
 ('bc7dc544-91ed-4042-b10e-5c49e1de2ea1', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
 ('4b27deaa-4c77-4251-b7bf-d39757d4895e', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
 ('4492a976-7dc3-4f6b-8a4d-f64d235fd8ec', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
 ('36261c85-d66e-4250-b3ad-7b4c517d3b54', 'ebc613b6-1e26-42d6-b610-40ab15796668'), -- agregar Don Toliver
-('d873e719-d033-48f4-b571-4b48c2d4f929', 'ebc613b6-1e26-42d6-b610-40ab15796668'), -- agregar Kendrick Lamar
+('d873e719-d033-48f4-b571-4b48c2d4f929', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('d873e719-d033-48f4-b571-4b48c2d4f929', 'da19bb2c-28ef-4a8b-984e-48a6df1cbd44'), -- Kendrick Lamar
 ('9043e416-7d40-4533-be30-265db04fcb45', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
 ('4d216a58-a7c0-4c0c-b594-ce171719981c', 'ebc613b6-1e26-42d6-b610-40ab15796668'), -- agregar Travis Scott
 ('6f0caa81-05bb-409e-b32e-487a682bff8c', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
 ('342699e6-d989-440b-a9d1-e4e8efdb78bf', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
 ('69e8f583-ee07-4c73-be68-25c9b06c0e47', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
-('8f3e54be-cda3-4aec-843d-0015729ee7e9', 'ebc613b6-1e26-42d6-b610-40ab15796668');
+('8f3e54be-cda3-4aec-843d-0015729ee7e9', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('c3923430-7baa-4fed-ae8d-de7c428f7708', 'ebc613b6-1e26-42d6-b610-40ab15796668'), -- agregar Brent Faiyaz
+('636f1e57-6c90-4c99-abd6-7df1d85a7402', 'ebc613b6-1e26-42d6-b610-40ab15796668'),
+('2cffcdf7-5bcc-49b9-8804-b158f782af5e', 'ebc613b6-1e26-42d6-b610-40ab15796668');
 
 -- ======================================================================================================================
 

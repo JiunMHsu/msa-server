@@ -5,7 +5,7 @@ USE music_streamer;
 CREATE TABLE artist (
    artist_id VARCHAR(36) NOT NULL, -- UUID 36
    artist_name VARCHAR(50) NOT NULL,
-   verified boolean NOT NULL,
+   verified BOOLEAN NOT NULL,
    followers INTEGER UNSIGNED NOT NULL,
    monthly_listeners INTEGER UNSIGNED NOT NULL,
    profile_photo VARCHAR(255), -- path
@@ -36,9 +36,9 @@ CREATE TABLE track (
    -- writer VARCHAR(255),
    -- producer VARCHAR(255),
    duration TIME NOT NULL, -- 'HH:MM:SS'
-   is_explicit boolean NOT NULL,
+   is_explicit BOOLEAN NOT NULL,
    plays INTEGER UNSIGNED NOT NULL,
-   -- lyrics VARCHAR(255), -- path
+   lyrics VARCHAR(255), -- path
    source_file VARCHAR(255) NOT NULL, -- path
 
    PRIMARY KEY (track_id),

@@ -6,8 +6,8 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 
 ## TODO
 
-- [x] Configurar Variables de entorno, diferiendo desarrollo y producción.
-- [X] Rediseñar la respuesta de `album`, debería contener los tracks (?
+- [ ] Diseñar e implementar las respuestas para Artist, Track, Playlist y User
+- [ ] Implementar los métodos faltantes (create, update y delete) para todas las entidades
 
 ## Para tener en cuenta
 
@@ -18,16 +18,14 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 - Album
 
   - `GET /album/:albumId`
-  - `GET /album/full/albumId`
-
-  - `GET /album/discography/:artistId`
+  - `GET /album/preview/albumId`
   - `POST /album/create/:artist_id`
   - `DELETE /album/delete/:album_id`
 
-- Artista
+<!-- - Artista
 
-  - `GET /artists/`
-  - `GET /artist/:artist_id`
+  - `GET /artists/:artistId`
+  - `GET /artist/preview/:artist_id`
   - `GET /artist/discography/:artist_id`
   - `GET /artist/playlists/:artist_id`
 
@@ -59,75 +57,6 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 - Media
 
   - `GET /play/:track_id`
-  - `GET /image/:image_name`
+  - `GET /image/:image_name` -->
 
 ## Esquemas
-
-### Albums
-
-| Clave       | Tipo         | Descripción                                            |
-| ----------- | ------------ | ------------------------------------------------------ |
-| albumId     | string       | Identificador del disco                                |
-| title       | string       | Título del disco                                       |
-| discType    | string       | Tipo del disco, puede ser: Album, EP, Single o Mixtape |
-| coverArt    | string (url) | Url de la portada (imagen) en esta misma API           |
-| label       | string       | Nombre del sello discográfico                          |
-| releaseDate | string       | Fecha de publicación, formato: AA-MM-DD                |
-| duration    | string       | Duración total del disco, formato: HH-MM-SS            |
-
-```JSON
-GET /album/:albumId
-
-{
-  "albumId": "",
-  "title": "",
-  "artists": {
-    "artistId": "",
-    "name": ""
-  },
-  "discType": "",
-  "coverArt": ""
-}
-```
-
-```JSON
-GET /album/full/albumId
-
-{
-  "albumId": "",
-  "title": "",
-  "artists": {
-    "artistId": "",
-    "name": ""
-  },
-  "discType": "",
-  "coverArt": "url/to/image",
-  "label": "",
-  "releaseDate": "00-00-00",
-  "duration": "00:00:00",
-  "discs": [
-    [
-      {
-        "trackId": "",
-        "title": "",
-        "trackNumber": 0,
-        "artists": [
-          {
-            "artistId": "",
-            "name": ""
-          },
-          // ...other artists
-        ],
-        "duration": "",
-        "isExplicit": false,
-        "plays": 0,
-        "lyrics": "",
-        "sourceFile": ""
-      },
-      // ... other tracks
-    ],
-    // ... other discs
-  ]
-},
-
-```

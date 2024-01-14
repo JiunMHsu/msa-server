@@ -11,10 +11,6 @@ export class ArtistRouter extends BaseRouter<
    }
 
    public routes(): void {
-      // this.router.get('/artist/all', (_, res) => {
-      //    this.controller.getAllArtist(res);
-      // });
-
       this.router.get('/artist/discography/:artistId', (req, res) => {
          this.controller.getDiscography(req, res);
       });

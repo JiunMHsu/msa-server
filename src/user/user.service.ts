@@ -39,7 +39,9 @@ export class UserService {
       // return results;
    }
 
-   public static async getLibrary(userId: string) {}
+   public static async getLibrary(userId: string) {
+      console.log(userId);
+   }
 
    public static async updateUser(userId: string, user: any) {
       return `update User ${userId} with ${user}`;
