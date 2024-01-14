@@ -1,3 +1,4 @@
+import { AlbumTag } from '../album/album.model';
 import { ArtistTag } from '../artist/artist.model';
 
 export interface TrackDB {
@@ -18,6 +19,7 @@ export class Track {
    title: string = '';
    discNumber: number = 0;
    trackNumber: number = 0;
+   albumTag?: AlbumTag;
    artists: ArtistTag[] = [];
    duration: string = '';
    isExplicit: boolean = false;
@@ -25,7 +27,7 @@ export class Track {
    lyrics: string = '';
    sourceFile: string = '';
 
-   constructor(track?: TrackDB, artists?: ArtistTag[]) {
+   constructor(track?: TrackDB, artists?: ArtistTag[], album?: AlbumTag) {
       if (track) {
          this.trackId = track.track_id;
          this.title = track.title;
@@ -36,6 +38,9 @@ export class Track {
          this.plays = track.plays;
          this.lyrics = track.lyrics;
          this.sourceFile = track.source_file;
+      }
+      if (album) {
+         this.albumTag = album;
       }
       if (artists) {
          this.artists = artists;

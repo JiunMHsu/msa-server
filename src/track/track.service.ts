@@ -1,29 +1,22 @@
-import { ArtistTag } from '../artist/artist.model';
+import { AlbumService } from '../album/album.service';
+import { ArtistService } from '../artist/artist.service';
 import { dataBase } from '../shared/service/database';
 import { Track, TrackDB } from './track.model';
 
 export class TrackService {
-   private static async getTrackArtists(trackId: string): Promise<ArtistTag[]> {
-      const artists = await dataBase.selectQuery<{
-         artist_id: string;
-         artist_name: string;
-      }>(
-         `SELECT artist.artist_id, artist_name
-            FROM artist
-            INNER JOIN track_artist
-            ON artist.artist_id = track_artist.artist_id
-            WHERE track_artist.track_id = ?`,
+   public static async getById(trackId: string): Promise<Track> {
+      const dbTrack = await dataBase.selectQuery<TrackDB>(
+         `SELECT *
+            FROM track
+            WHERE track_id = ?`,
          [trackId],
       );
 
-      return artists.map(artist => ({
-         artistId: artist.artist_id,
-         name: artist.artist_name,
-      }));
-   }
-
-   public static async getById(trackId: string) {
-      return `get track by id ${trackId}`;
+      return new Track(
+         dbTrack[0],
+         await ArtistService.getTrackArtists(trackId),
+         await AlbumService.getTrackAlbum(trackId),
+      );
    }
 
    public static async getByAlbum(albumId: string): Promise<Track[][]> {
@@ -41,7 +34,8 @@ export class TrackService {
       for (let i = 0; i < numberOfDiscs; i++) discs.push([]);
 
       for (const dbTrack of dbTracks) {
-         const artists = await TrackService.getTrackArtists(dbTrack.track_id);
+         const album = await AlbumService.getTrackAlbum(dbTrack.track_id);
+         const artists = await ArtistService.getTrackArtists(dbTrack.track_id);
          const newTrack = new Track(dbTrack, artists);
 
          const discNumber = newTrack.discNumber;

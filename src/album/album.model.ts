@@ -14,10 +14,15 @@ export interface AlbumDB {
    duration: string;
 }
 
+export interface AlbumTag {
+   albumId: string;
+   title: string;
+}
+
 export class Album {
    albumId: string = '';
    title: string = '';
-   artist: ArtistTag = { artistId: '', name: ''};
+   artist: ArtistTag = { artistId: '', name: '' };
    discType: DiskType | '' = '';
    coverArt: string = '';
    label: string = '';
@@ -47,7 +52,7 @@ export class Album {
 export class AlbumPreview {
    albumId: string = '';
    title: string = '';
-   artist: ArtistTag = { artistId: '', name: ''};
+   artist: ArtistTag = { artistId: '', name: '' };
    discType: DiskType | '' = '';
    coverArt: string = '';
 
