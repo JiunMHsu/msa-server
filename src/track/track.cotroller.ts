@@ -24,6 +24,17 @@ export class TrackController {
       }
    }
 
+   public async getByPlaylist(req: Request, res: Response) {
+      const playlistId = req.params.playlistId;
+
+      try {
+         const tracks = await TrackService.getByPlaylist(playlistId);
+         res.status(200).json(tracks);
+      } catch (error) {
+         res.status(500).send(`Error produced: ${error}`);
+      }
+   }
+
    public async getCredits(req: Request, res: Response) {
       const trackId = req.params.trackId;
 

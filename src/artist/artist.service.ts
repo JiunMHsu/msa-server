@@ -1,5 +1,6 @@
+import { AlbumPreview } from '../album/album.model';
 import { dataBase } from '../shared';
-import { ArtistTag } from './artist.model';
+import { Artist, ArtistPreview, ArtistTag } from './artist.model';
 
 export class ArtistService {
    public static async getAlbumArtist(albumId: string): Promise<ArtistTag> {
@@ -42,14 +43,39 @@ export class ArtistService {
       }));
    }
 
-   public static async getById(artistId: string) {
-      return `get Artist ${artistId}`;
+   public static async getById(artistId: string): Promise<Artist> {
+      console.log(artistId);
+      return {} as Artist;
    }
 
-   public static async getDiscography(artistId: string) {
-      return `get Discography of ${artistId}`;
+   public static async getPreview(artistId: string): Promise<ArtistPreview> {
+      const results = await dataBase.selectQuery<{
+         artist_id: string;
+         artist_name: string;
+         profile_photo: string;
+      }>(
+         `SELECT artist_id, artist_name, profile_photo
+            FROM artist
+            WHERE artist_id = ?`,
+         [artistId],
+      );
+
+      return {
+         artistId: results[0].artist_id,
+         name: results[0].artist_name,
+         profilePhoto: results[0].profile_photo,
+      } as ArtistPreview;
    }
 
+   // TODO: Implement this method
+   public static async getDiscography(
+      artistId: string,
+   ): Promise<AlbumPreview[]> {
+      console.log(artistId);
+      return [];
+   }
+
+   // TODO: Implement this method
    public static async getPlaylists(artistId: string) {
       return `get Playlists of Artist ${artistId}`;
    }

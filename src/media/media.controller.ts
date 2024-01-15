@@ -12,9 +12,9 @@ export class MediaController extends ServerConfig {
 
    public getImage(req: Request, res: Response) {
       const imageName: string = req.params.imageName;
-      res.send(`get image ${imageName}`);
+      // res.send(`get image ${imageName}`);
 
-      // res.sendFile(join(this.assetsDir, '_images', `${imageName}`));
+      res.sendFile(join(this.assetsDir, '_images', `${imageName}`));
    }
 
    public async playTrack(req: Request, res: Response) {

@@ -16,6 +16,20 @@ export class PlaylistService {
       // return [];
    }
 
+   public static async getPreview(playlistId: string) {
+      return `get Preview of Playlist ${playlistId}`;
+
+      // const query = `
+      //    SELECT *
+      //    FROM playlist
+      //    WHERE created_by = $1
+      // `;
+      // const params = [artistId];
+
+      // const { rows } = await this.query(query, params);
+      // return [];
+   }
+
    public static async getTracks(playlistId: string) {
       return `get Tracks of Playlist ${playlistId}`;
 

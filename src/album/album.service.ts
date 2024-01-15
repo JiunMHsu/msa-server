@@ -5,14 +5,23 @@ import { Album, AlbumDB, AlbumPreview, AlbumTag } from './album.model';
 
 export class AlbumService {
    public static async getTrackAlbum(trackId: string): Promise<AlbumTag> {
-      const results = await dataBase.selectQuery<AlbumTag>(
-         `SELECT album.album_id, album.title
+      const results = await dataBase.selectQuery<{
+         album_id: string;
+         title: string;
+         cover_art: string;
+      }>(
+         `SELECT album.album_id, album.title, album.cover_art
          FROM album
          INNER JOIN track ON album.album_id = track.album_id
          WHERE track.track_id = ?`,
          [trackId],
       );
-      return results[0];
+
+      return {
+         albumId: results[0].album_id,
+         title: results[0].title,
+         coverArt: results[0].cover_art,
+      } as AlbumTag;
    }
 
    private static async getInfo(albumId: string): Promise<AlbumDB> {

@@ -11,6 +11,14 @@ export class ArtistRouter extends BaseRouter<
    }
 
    public routes(): void {
+      this.router.get('/artist/:artistId', (req, res) => {
+         this.controller.getArtist(req, res);
+      });
+
+      this.router.get('/artist/preview/:artistId', (req, res) => {
+         this.controller.getArtistPreview(req, res);
+      });
+
       this.router.get('/artist/discography/:artistId', (req, res) => {
          this.controller.getDiscography(req, res);
       });
@@ -19,8 +27,5 @@ export class ArtistRouter extends BaseRouter<
          this.controller.getPlaylists(req, res);
       });
 
-      this.router.get('/artist/:artistId', (req, res) => {
-         this.controller.getArtist(req, res);
-      });
    }
 }

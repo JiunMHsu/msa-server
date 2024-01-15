@@ -34,7 +34,6 @@ export class TrackService {
       for (let i = 0; i < numberOfDiscs; i++) discs.push([]);
 
       for (const dbTrack of dbTracks) {
-         const album = await AlbumService.getTrackAlbum(dbTrack.track_id);
          const artists = await ArtistService.getTrackArtists(dbTrack.track_id);
          const newTrack = new Track(dbTrack, artists);
 
@@ -48,6 +47,25 @@ export class TrackService {
       }
 
       return discs;
+   }
+
+   public static async getByPlaylist(playlistId: string): Promise<Track[]> {
+      const dbTracks = await dataBase.selectQuery<TrackDB>(
+         `SELECT *
+            FROM track
+            INNER JOIN playlist_track
+            ON track.track_id = playlist_track.track_id
+            WHERE playlist_track.playlist_id = ?`,
+         [playlistId],
+      );
+
+      const tracks = dbTracks.map(async dbTrack => {
+         const album = await AlbumService.getTrackAlbum(dbTrack.track_id);
+         const artists = await ArtistService.getTrackArtists(dbTrack.track_id);
+         return new Track(dbTrack, artists, album);
+      });
+
+      return Promise.all(tracks);
    }
 
    public static async getCredits(trackId: string) {

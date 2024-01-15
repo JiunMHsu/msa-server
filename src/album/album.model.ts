@@ -17,6 +17,7 @@ export interface AlbumDB {
 export interface AlbumTag {
    albumId: string;
    title: string;
+   coverArt?: string;
 }
 
 export class Album {

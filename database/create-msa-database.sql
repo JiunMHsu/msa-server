@@ -98,6 +98,17 @@ CREATE TABLE track_artist (
    FOREIGN KEY (artist_id) REFERENCES artist(artist_id)
 );
 
+-- Liked Track
+CREATE TABLE user_track (
+   user_track_id INTEGER NOT NULL AUTO_INCREMENT,
+   user_id VARCHAR(36) NOT NULL, -- UUID 36
+   track_id VARCHAR(36) NOT NULL, -- UUID 36
+
+   PRIMARY KEY (user_track_id),
+   FOREIGN KEY (user_id) REFERENCES user(user_id),
+   FOREIGN KEY (track_id) REFERENCES track(track_id)
+);
+
 -- Following
 CREATE TABLE user_artist (
    user_artist_id INTEGER NOT NULL AUTO_INCREMENT,
