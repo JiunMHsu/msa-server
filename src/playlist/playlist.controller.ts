@@ -6,7 +6,7 @@ export class PlaylistController {
       const playlistId = req.params.playlistId;
 
       try {
-         const playlist = await PlaylistService.getById(playlistId);
+         const playlist = await PlaylistService.getPlaylist(playlistId);
          res.status(200).json(playlist);
       } catch (error) {
          res.status(500).send(`Error produced: ${error}`);

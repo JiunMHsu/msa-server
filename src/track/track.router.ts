@@ -12,20 +12,16 @@ export class TrackRouter extends BaseRouter<TrackController, TrackMiddleware> {
          this.controller.getTrack(req, res);
       });
 
-      this.router.get('/track/album/:albumId', (req, res) => {
-         this.controller.getByAlbum(req, res);
-      });
+      // this.router.get('/track/credits/:trackId', (req, res) => {
+      //    this.controller.getTrackCredits(req, res);
+      // });
 
-      this.router.get('/track/playlist/:playlistId', (req, res) => {
-         this.controller.getByPlaylist(req, res);
-      });
+      // this.router.get('/track/lyrics/:trackId', (req, res) => {
+      //    this.controller.getTrackLyrics(req, res);
+      // });
 
-      this.router.get('/track/credits/:trackId', (req, res) => {
-         this.controller.getCredits(req, res);
-      });
+      // this.router.get('/track/album/:albumId', (req, res) => {});
 
-      this.router.get('/track/lyrics/:trackId', (req, res) => {
-         this.controller.getLyrics(req, res);
-      });
+      // this.router.get('/track/playlist/:playlistId', (req, res) => {});
    }
 }

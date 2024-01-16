@@ -4,13 +4,13 @@ USE music_streamer;
 
 CREATE TABLE artist (
    artist_id VARCHAR(36) NOT NULL, -- UUID 36
-   artist_name VARCHAR(50) NOT NULL,
+   name VARCHAR(50) NOT NULL,
    verified BOOLEAN NOT NULL,
    followers INTEGER UNSIGNED NOT NULL,
    monthly_listeners INTEGER UNSIGNED NOT NULL,
    profile_photo VARCHAR(255), -- path
-   -- profile_banner VARCHAR(255), -- path
-   -- about VARCHAR(255), -- path
+   profile_banner VARCHAR(255), -- path
+   about TEXT, -- path
 
    PRIMARY KEY (artist_id)
 );
@@ -47,9 +47,9 @@ CREATE TABLE track (
 
 CREATE TABLE user (
    user_id VARCHAR(36) NOT NULL, -- UUID 36
-   user_name VARCHAR(50) NOT NULL,
+   name VARCHAR(50) NOT NULL,
    email VARCHAR(100) UNIQUE NOT NULL,
-   user_password VARCHAR(50) NOT NULL,
+   password TEXT NOT NULL,
    profile_photo VARCHAR(255), -- path
 
    PRIMARY KEY (user_id)
@@ -60,6 +60,7 @@ CREATE TABLE playlist (
    title VARCHAR(255) NOT NULL,
    cover_art VARCHAR(255), -- path
    created_by VARCHAR(36) NOT NULL, -- UUID 36
+   is_public BOOLEAN NOT NULL,
 
    PRIMARY KEY (playlist_id),
    FOREIGN KEY (created_by) REFERENCES user(user_id)

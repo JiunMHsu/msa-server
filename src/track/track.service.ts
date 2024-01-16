@@ -1,10 +1,11 @@
-import { AlbumService } from '../album/album.service';
-import { ArtistService } from '../artist/artist.service';
 import { dataBase } from '../shared/service/database';
 import { Track, TrackDB } from './track.model';
 
+import { AlbumService } from '../album/album.service';
+import { ArtistService } from '../artist/artist.service';
+
 export class TrackService {
-   public static async getById(trackId: string): Promise<Track> {
+   public static async getTrack(trackId: string): Promise<Track> {
       const dbTrack = await dataBase.selectQuery<TrackDB>(
          `SELECT *
             FROM track
@@ -19,7 +20,7 @@ export class TrackService {
       );
    }
 
-   public static async getByAlbum(albumId: string): Promise<Track[][]> {
+   public static async getAlbumTracks(albumId: string): Promise<Track[][]> {
       const dbTracks = await dataBase.selectQuery<TrackDB>(
          `SELECT *
             FROM track
@@ -49,7 +50,7 @@ export class TrackService {
       return discs;
    }
 
-   public static async getByPlaylist(playlistId: string): Promise<Track[]> {
+   public static async getPlaylistTracks(playlistId: string): Promise<Track[]> {
       const dbTracks = await dataBase.selectQuery<TrackDB>(
          `SELECT *
             FROM track
@@ -68,11 +69,11 @@ export class TrackService {
       return Promise.all(tracks);
    }
 
-   public static async getCredits(trackId: string) {
-      return `get credits from track ${trackId}`;
-   }
+   // public static async getCredits(trackId: string) {
+   //    return `get credits from track ${trackId}`;
+   // }
 
-   public static async getLyrics(trackId: string) {
-      return `get lyrics from track ${trackId}`;
-   }
+   // public static async getLyrics(trackId: string) {
+   //    return `get lyrics from track ${trackId}`;
+   // }
 }

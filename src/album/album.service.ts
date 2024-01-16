@@ -1,7 +1,7 @@
-import { ArtistService } from '../artist/artist.service';
 import { dataBase } from '../shared/service/database';
-import { TrackService } from '../track/track.service';
 import { Album, AlbumDB, AlbumPreview, AlbumTag } from './album.model';
+import { ArtistService } from '../artist/artist.service';
+import { TrackService } from '../track/track.service';
 
 export class AlbumService {
    public static async getTrackAlbum(trackId: string): Promise<AlbumTag> {
@@ -36,13 +36,13 @@ export class AlbumService {
 
    public static async getAlbum(albumId: string): Promise<Album> {
       const dbAlbum = await AlbumService.getInfo(albumId);
-      const tracks = await TrackService.getByAlbum(albumId);
+      const tracks = await TrackService.getAlbumTracks(albumId);
       const artist = await ArtistService.getAlbumArtist(albumId);
 
       return new Album(artist, dbAlbum, tracks);
    }
 
-   public static async getAlbumPreview(albumId: string): Promise<AlbumPreview> {
+   public static async getPreview(albumId: string): Promise<AlbumPreview> {
       const dbAlbum = await AlbumService.getInfo(albumId);
       const artist = await ArtistService.getAlbumArtist(albumId);
 

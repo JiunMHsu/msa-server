@@ -1,10 +1,9 @@
-import { CamelizeKeys } from '../shared/utilities';
-
-export type PlaylistDB = {
+export interface PlaylistDB {
    playlist_id: string;
    title: string;
    cover_art: string;
    created_by: string;
-};
+   is_public: boolean;
+}
 
-export type Playlist = CamelizeKeys<PlaylistDB>;
+export class Playlist {}

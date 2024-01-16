@@ -2,7 +2,7 @@
 USE music_streamer;
 
 -- user info
-INSERT INTO user (user_id, user_name, email, user_password, profile_photo)
+INSERT INTO user (user_id, name, email, password, profile_photo)
 VALUES
 ('80b98b16-94da-4246-9996-6e74e9fff286', 'John Doe', 'johndoe0127@gmail.com', 'lyug*&^Fiuef', 'john-doe-profile-photo.png');
 

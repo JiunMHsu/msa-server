@@ -1,7 +1,7 @@
 
 USE music_streamer;
 
-INSERT INTO artist (artist_id, artist_name, verified, followers, monthly_listeners, profile_photo)
+INSERT INTO artist (artist_id, name, verified, followers, monthly_listeners, profile_photo)
 VALUES
 ('9d220c9b-d1b8-41a7-8286-8a1c5b0936f5', 'IU', true, 36473829, 82938475, 'iu-profile-photo.png'),
 ('8b65089c-2a07-47ad-a5e3-9bf8bd612a4e', 'Taeyeon', true, 48594032, 76243895, 'taeyeon-profile-photo.png'),

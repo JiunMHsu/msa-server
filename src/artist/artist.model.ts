@@ -2,7 +2,7 @@ import { AlbumPreview } from '../album/album.model';
 
 export interface ArtistDB {
    artist_id: string;
-   artist_name: string;
+   name: string;
    verified: boolean;
    followers: number;
    monthly_listeners: number;
@@ -41,7 +41,7 @@ export class Artist {
    constructor(artistDB?: ArtistDB, discography?: Discography) {
       if (artistDB) {
          this.artistId = artistDB.artist_id;
-         this.name = artistDB.artist_name;
+         this.name = artistDB.name;
          this.verified = artistDB.verified;
          this.followers = artistDB.followers;
          this.monthlyListeners = artistDB.monthly_listeners;
@@ -61,7 +61,7 @@ export class ArtistPreview {
    constructor(artistDB?: ArtistDB) {
       if (artistDB) {
          this.artistId = artistDB.artist_id;
-         this.name = artistDB.artist_name;
+         this.name = artistDB.name;
          this.profilePhoto = artistDB.profile_photo;
       }
    }

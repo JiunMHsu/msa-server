@@ -1,15 +1,15 @@
-import { AlbumPreview } from '../album/album.model';
 import { dataBase } from '../shared';
 import { Artist, ArtistPreview, ArtistTag } from './artist.model';
+import { AlbumPreview } from '../album/album.model';
 
 export class ArtistService {
    public static async getAlbumArtist(albumId: string): Promise<ArtistTag> {
       const results = await dataBase.selectQuery<{
          artist_id: string;
-         artist_name: string;
+         name: string;
          profile_photo: string;
       }>(
-         `SELECT a.artist_id, a.artist_name, a.profile_photo
+         `SELECT a.artist_id, a.name, a.profile_photo
             FROM artist a
             LEFT JOIN album_artist al_ar
             ON a.artist_id = al_ar.artist_id
@@ -19,7 +19,7 @@ export class ArtistService {
 
       return {
          artistId: results[0].artist_id,
-         name: results[0].artist_name,
+         name: results[0].name,
          profilePhoto: results[0].profile_photo,
       } as ArtistTag;
    }
@@ -27,23 +27,23 @@ export class ArtistService {
    public static async getTrackArtists(trackId: string): Promise<ArtistTag[]> {
       const artists = await dataBase.selectQuery<{
          artist_id: string;
-         artist_name: string;
+         name: string;
       }>(
-         `SELECT artist.artist_id, artist_name
-            FROM artist
-            INNER JOIN track_artist
-            ON artist.artist_id = track_artist.artist_id
-            WHERE track_artist.track_id = ?`,
+         `SELECT a.artist_id, a.name
+            FROM artist a
+            INNER JOIN track_artist t_a
+            ON a.artist_id = t_a.artist_id
+            WHERE t_a.track_id = ?`,
          [trackId],
       );
 
       return artists.map(artist => ({
          artistId: artist.artist_id,
-         name: artist.artist_name,
+         name: artist.name,
       }));
    }
 
-   public static async getById(artistId: string): Promise<Artist> {
+   public static async getArtist(artistId: string): Promise<Artist> {
       console.log(artistId);
       return {} as Artist;
    }
@@ -51,10 +51,10 @@ export class ArtistService {
    public static async getPreview(artistId: string): Promise<ArtistPreview> {
       const results = await dataBase.selectQuery<{
          artist_id: string;
-         artist_name: string;
+         name: string;
          profile_photo: string;
       }>(
-         `SELECT artist_id, artist_name, profile_photo
+         `SELECT artist_id, name, profile_photo
             FROM artist
             WHERE artist_id = ?`,
          [artistId],
@@ -62,7 +62,7 @@ export class ArtistService {
 
       return {
          artistId: results[0].artist_id,
-         name: results[0].artist_name,
+         name: results[0].name,
          profilePhoto: results[0].profile_photo,
       } as ArtistPreview;
    }

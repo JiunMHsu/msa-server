@@ -1,6 +1,11 @@
 ### Get Album
-GET http://192.168.0.49:5000/api/album/7c8da1d1-e7be-4f60-9044-073c2f898d28
+GET http://127.0.0.1:5050/api/album/7c8da1d1-e7be-4f60-9044-073c2f898d28
 
 ### Get Album Preview
-GET http://192.168.0.49:5000/api/album/preview/7c8da1d1-e7be-4f60-9044-073c2f898d28
+GET http://127.0.0.1:5050/api/album/preview/7c8da1d1-e7be-4f60-9044-073c2f898d28
 
+### Get Artist
+GET http://127.0.0.1:5050/api/artist/8b65089c-2a07-47ad-a5e3-9bf8bd612a4e
+
+### Get Artist Preview
+GET http://127.0.0.1:5050/api/artist/preview/9d220c9b-d1b8-41a7-8286-8a1c5b0936f5

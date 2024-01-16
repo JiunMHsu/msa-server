@@ -15,7 +15,7 @@ export class AlbumController {
    public async getAlbumPreview(req: Request, res: Response): Promise<void> {
       const albumId = req.params.albumId;
       try {
-         const preview = await AlbumService.getAlbumPreview(albumId);
+         const preview = await AlbumService.getPreview(albumId);
          res.status(200).json(preview);
       } catch (error) {
          res.status(500).send(`Error produced: ${error}`);
