@@ -74,7 +74,7 @@ e1368a78-830a-431d-8698-fc352baaa023  Time Lapse
 
 ----------------------------------------------------------
 
-88e0b6ea-6203-4efd-a4ce-7900819b7044  INVU - The 3rd Album
+88e0b6ea-6203-4efd-a4ce-7900819b7044  Album INVU - The 3rd Album
 
 ba0537ab-4b0c-475c-9aba-73318fc36130  INVU
 645363de-f582-4224-b076-2979f9a1a16c  Some Nights
@@ -97,7 +97,7 @@ a6132ff9-eda6-4326-a1a9-a980ef71bec1  Ending Credits
 ----------------------------------------------------------
 ----------------------------------------------------------
 
-2958ed40-da38-49ae-af5d-78579f9332a6  Blonde
+2958ed40-da38-49ae-af5d-78579f9332a6  Album Blonde
 
 d93794ec-e5ca-45d8-a71a-473d81072cfd  Nikes
 06e14ad5-a912-48f5-a29e-ce11054a420d  Ivy
@@ -119,7 +119,7 @@ f9537956-b242-4db2-bb36-e1d5b18ad3dd  Seigfried
 
 ----------------------------------------------------------
 
-7c8da1d1-e7be-4f60-9044-073c2f898d28  The Melodic Blue
+7c8da1d1-e7be-4f60-9044-073c2f898d28  Album The Melodic Blue
 
 eb87a77d-3c3e-4e14-a090-cc02f2198c29  trademark usa
 92479d09-77d4-46bf-be40-744a504db387  pink panties
@@ -151,13 +151,43 @@ c3923430-7baa-4fed-ae8d-de7c428f7708  lost souls (with Brent Faiyaz)
 ----------------------------------------------------------
 ----------------------------------------------------------
 
-80b98b16-94da-4246-9996-6e74e9fff286  John Doe
+80b98b16-94da-4246-9996-6e74e9fff286  User John Doe
 
 ==========================================================
 
+e1fb516b-d028-4c20-b3bc-081b1b75bd92  Playlist ...
 
-e1fb516b-d028-4c20-b3bc-081b1b75bd92
-00f6abe1-2395-4517-b73f-3f4c22bcca1e
+227240d4-fc26-4d31-96e3-ca53a5fe25bf  Siren
+af81962b-8b3e-4ded-a4c1-8ec9aae1e5de  Weekend
+435bad1a-705d-4630-8fbe-04f708156f77  Coin
+a7527814-a93d-464c-a9fd-bdc8fce87b5d  Celebrity
+7ecdde2a-1696-4b45-a1e2-666e50789244  BBIBBI
+86f023fb-2608-4c59-820c-41710656037c  The visitor
+82be37dc-fede-47b6-a160-b2a6e047658a  Blueming
+e3b93684-b1cc-4c14-9438-28ba0847e221  Fine
+5ba34102-428b-4bc2-9a5b-8c555f0fa689  Feel So Fine
+8080e765-8b60-43fe-8e1d-ea597d128dec  11:11
+63187b4e-dc87-407e-bfc0-c4e1580a5417  Curtain Call
+ba0537ab-4b0c-475c-9aba-73318fc36130  INVU
+52aa15ee-a364-4669-b0b3-c9763a5e601d  Can't Control Myself
+
+----------------------------------------------------------
+
+00f6abe1-2395-4517-b73f-3f4c22bcca1e  Praise Hiphop
+
+06e14ad5-a912-48f5-a29e-ce11054a420d  Ivy
+9d38a6d1-d977-45c3-b81d-e69253365c6a  Pink + White
+eb87a77d-3c3e-4e14-a090-cc02f2198c29  trademark usa
+92479d09-77d4-46bf-be40-744a504db387  pink panties
+d873e719-d033-48f4-b571-4b48c2d4f929  family ties (with Kendrick Lamar)
+
+----------------------------------------------------------
+----------------------------------------------------------
+----------------------------------------------------------
+
+
+
+
 f01719e0-5ecb-47ed-b8ef-92953d98e6a7
 f6f3bc8e-cc0a-4325-8944-a26d263083c6
 40cf6fff-92e1-4503-bf16-68a5c090082e

@@ -24,45 +24,34 @@ export interface Discography {
 }
 
 export class Artist {
-   artistId: string = '';
-   name: string = '';
-   verified: boolean = false;
-   followers: number = 0;
-   monthlyListeners: number = 0;
-   profilePhoto: string = '';
-   discography: Discography = {
-      popular: [],
-      singles: [],
-      extendedPlays: [],
-      albums: [],
-      compilations: [],
-   };
+   artistId: string;
+   name: string;
+   verified: boolean;
+   followers: number;
+   monthlyListeners: number;
+   profilePhoto: string;
+   discography: Discography;
 
-   constructor(artistDB?: ArtistDB, discography?: Discography) {
-      if (artistDB) {
-         this.artistId = artistDB.artist_id;
-         this.name = artistDB.name;
-         this.verified = artistDB.verified;
-         this.followers = artistDB.followers;
-         this.monthlyListeners = artistDB.monthly_listeners;
-         this.profilePhoto = artistDB.profile_photo;
-      }
-      if (discography) {
-         this.discography = discography;
-      }
+   constructor(dbArtist: ArtistDB, discography: Discography) {
+      this.artistId = dbArtist.artist_id;
+      this.name = dbArtist.name;
+      this.verified = dbArtist.verified;
+      this.followers = dbArtist.followers;
+      this.monthlyListeners = dbArtist.monthly_listeners;
+      this.profilePhoto = dbArtist.profile_photo;
+
+      this.discography = discography;
    }
 }
 
 export class ArtistPreview {
-   artistId: string = '';
-   name: string = '';
-   profilePhoto: string = '';
+   artistId: string;
+   name: string;
+   profilePhoto: string;
 
-   constructor(artistDB?: ArtistDB) {
-      if (artistDB) {
-         this.artistId = artistDB.artist_id;
-         this.name = artistDB.name;
-         this.profilePhoto = artistDB.profile_photo;
-      }
+   constructor(dbArtist: ArtistDB) {
+      this.artistId = dbArtist.artist_id;
+      this.name = dbArtist.name;
+      this.profilePhoto = dbArtist.profile_photo;
    }
 }

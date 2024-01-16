@@ -52,11 +52,11 @@ export class TrackService {
 
    public static async getPlaylistTracks(playlistId: string): Promise<Track[]> {
       const dbTracks = await dataBase.selectQuery<TrackDB>(
-         `SELECT *
-            FROM track
-            INNER JOIN playlist_track
-            ON track.track_id = playlist_track.track_id
-            WHERE playlist_track.playlist_id = ?`,
+         `SELECT t.*
+            FROM track t
+            LEFT JOIN playlist_track p_t
+            ON t.track_id = p_t.track_id
+            WHERE p_t.playlist_id = ?`,
          [playlistId],
       );
 

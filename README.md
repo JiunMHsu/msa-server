@@ -8,10 +8,13 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 
 - [ ] Diseñar e implementar las respuestas para Artist, Track, Playlist y User
 - [ ] Implementar los métodos faltantes (create, update y delete) para todas las entidades
+- [ ] Reorganizar los directorios para la multimedia
+- [ ] Documentar los endpoints, esquemas de respuesta y las interfaces (para typescript)
 
 ## Para tener en cuenta
 
 - [ ] Lectura del `DATE` en MySQL, ahora se esta manejando por string, pero despues del SELECT agrega otra info que no habia insertado (creo q es el timezone)
+- [ ] Modificar el nombrado de los archivos imagen (por id de la entidad relacionada)
 
 ## Endpoints y Methods
 

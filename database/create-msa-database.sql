@@ -71,6 +71,7 @@ CREATE TABLE playlist_track (
    playlist_track_id INTEGER NOT NULL AUTO_INCREMENT,
    playlist_id VARCHAR(36) NOT NULL, -- UUID 36
    track_id VARCHAR(36) NOT NULL, -- UUID 36
+   -- added_at DATE NOT NULL,
 
    PRIMARY KEY (playlist_track_id),
    FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id),

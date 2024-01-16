@@ -44,4 +44,7 @@ VALUES
 ('80b98b16-94da-4246-9996-6e74e9fff286', '68fff186-c5c4-4dd7-8563-95f31e397f77'); -- Jolin Tsai
 
 -- saved playlists
-
+INSERT INTO user_playlist (user_id, playlist_id)
+VALUES
+('80b98b16-94da-4246-9996-6e74e9fff286', 'e1fb516b-d028-4c20-b3bc-081b1b75bd92'), -- ...
+('80b98b16-94da-4246-9996-6e74e9fff286', '00f6abe1-2395-4517-b73f-3f4c22bcca1e'); -- Praise Hiphop

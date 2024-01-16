@@ -1,5 +1,6 @@
 import { dataBase } from '../shared';
 import { Artist, ArtistPreview, ArtistTag } from './artist.model';
+
 import { AlbumPreview } from '../album/album.model';
 
 export class ArtistService {
@@ -43,6 +44,7 @@ export class ArtistService {
       }));
    }
 
+   // TODO: Implement this method
    public static async getArtist(artistId: string): Promise<Artist> {
       console.log(artistId);
       return {} as Artist;

@@ -21,51 +21,44 @@ export interface AlbumTag {
 }
 
 export class Album {
-   albumId: string = '';
-   title: string = '';
-   artist: ArtistTag = { artistId: '', name: '' };
-   discType: DiskType | '' = '';
-   coverArt: string = '';
-   label: string = '';
-   releaseDate: string = '';
-   duration: string = '';
-   discs: Track[][] = [];
+   albumId: string;
+   title: string;
+   artist: ArtistTag;
+   discType: DiskType;
+   coverArt: string;
+   label: string;
+   releaseDate: string;
+   duration: string;
+   discs: Track[][];
 
-   constructor(artist?: ArtistTag, albumDB?: AlbumDB, tracks?: Track[][]) {
-      if (albumDB) {
-         this.albumId = albumDB.album_id;
-         this.title = albumDB.title;
-         this.discType = albumDB.disc_type as DiskType;
-         this.coverArt = albumDB.cover_art;
-         this.label = albumDB.label;
-         this.releaseDate = albumDB.release_date;
-         this.duration = albumDB.duration;
-      }
-      if (artist) {
-         this.artist = artist;
-      }
-      if (tracks) {
-         this.discs = tracks;
-      }
+   constructor(dbAlbum: AlbumDB, artist: ArtistTag, tracks: Track[][]) {
+      this.albumId = dbAlbum.album_id;
+      this.title = dbAlbum.title;
+      this.discType = dbAlbum.disc_type as DiskType;
+      this.coverArt = dbAlbum.cover_art;
+      this.label = dbAlbum.label;
+      this.releaseDate = dbAlbum.release_date;
+      this.duration = dbAlbum.duration;
+
+      this.artist = artist;
+
+      this.discs = tracks;
    }
 }
 
 export class AlbumPreview {
-   albumId: string = '';
-   title: string = '';
-   artist: ArtistTag = { artistId: '', name: '' };
-   discType: DiskType | '' = '';
-   coverArt: string = '';
+   albumId: string;
+   title: string;
+   artist: ArtistTag;
+   discType: DiskType;
+   coverArt: string;
 
-   constructor(artist?: ArtistTag, albumDB?: AlbumDB) {
-      if (albumDB) {
-         this.albumId = albumDB.album_id;
-         this.title = albumDB.title;
-         this.discType = albumDB.disc_type as DiskType;
-         this.coverArt = albumDB.cover_art;
-      }
-      if (artist) {
-         this.artist = artist;
-      }
+   constructor(dbAlbum: AlbumDB, artist: ArtistTag) {
+      this.albumId = dbAlbum.album_id;
+      this.title = dbAlbum.title;
+      this.discType = dbAlbum.disc_type as DiskType;
+      this.coverArt = dbAlbum.cover_art;
+
+      this.artist = artist;
    }
 }
