@@ -6,6 +6,7 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 
 ## TODO
 
+- [ ] Refactorizar los `Preview` y `Tag`, hacer uno generico, para así poder tratar en el front de forma uniforme a todos los preview (tener una sola interfaz)
 - [ ] Diseñar e implementar las respuestas para Artist, Track, Playlist y User
 - [ ] Implementar los métodos faltantes (create, update y delete) para todas las entidades
 - [ ] Reorganizar los directorios para la multimedia
