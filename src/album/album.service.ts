@@ -1,12 +1,13 @@
 import { dataBase } from '../shared/service/database';
-import { Album, AlbumDB, AlbumPreview, AlbumTag } from './album.model';
+import { Album, AlbumDB, AlbumPreview } from './album.model';
 
 import { ArtistService } from '../artist/artist.service';
 import { TrackService } from '../track/track.service';
+import { Tag } from '../shared';
 
 export class AlbumService {
-   public static async getTrackAlbum(trackId: string): Promise<AlbumTag> {
-      const results = await dataBase.selectQuery<{
+   public static async getTrackAlbum(trackId: string): Promise<Tag> {
+      const [{ album_id, title, cover_art }] = await dataBase.selectQuery<{
          album_id: string;
          title: string;
          cover_art: string;
@@ -18,21 +19,17 @@ export class AlbumService {
          [trackId],
       );
 
-      return {
-         albumId: results[0].album_id,
-         title: results[0].title,
-         coverArt: results[0].cover_art,
-      } as AlbumTag;
+      return new Tag(title, 'album', album_id, cover_art);
    }
 
    private static async getInfo(albumId: string): Promise<AlbumDB> {
-      const results = await dataBase.selectQuery<AlbumDB>(
+      const [info] = await dataBase.selectQuery<AlbumDB>(
          `SELECT *
          FROM album
          WHERE album_id = ?`,
          [albumId],
       );
-      return results[0];
+      return info;
    }
 
    public static async getAlbum(albumId: string): Promise<Album> {

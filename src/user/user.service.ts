@@ -1,9 +1,8 @@
-import { dataBase } from '../shared';
-import { User, UserTag, UserDB } from './user.model';
+import { Tag, dataBase } from '../shared';
 
 export class UserService {
-   public static async getPlaylistOwner(playlistId: string): Promise<UserTag> {
-      const results = await dataBase.selectQuery<{
+   public static async getPlaylistOwner(playlistId: string): Promise<Tag> {
+      const [{ user_id, name, profile_photo }] = await dataBase.selectQuery<{
          user_id: string;
          name: string;
          profile_photo: string;
@@ -18,15 +17,15 @@ export class UserService {
          [playlistId],
       );
 
-      return {
-         userId: results[0].user_id,
-         name: results[0].name,
-         profilePhoto: results[0].profile_photo,
-      } as UserTag;
+      return new Tag(name, 'user', user_id, profile_photo);
    }
 
-   public static async getById(userId: string) {
+   public static async getUser(userId: string) {
       return `get User ${userId}`;
+   }
+
+   public static async getPreview(userId: string) {
+      return `get User Preview ${userId}`;
    }
 
    public static async createUser(user: any) {

@@ -1,11 +1,11 @@
-import { dataBase } from '../shared';
-import { Artist, ArtistPreview, ArtistTag } from './artist.model';
+import { Tag, dataBase } from '../shared';
+import { Artist, ArtistDB, ArtistPreview } from './artist.model';
 
 import { AlbumPreview } from '../album/album.model';
 
 export class ArtistService {
-   public static async getAlbumArtist(albumId: string): Promise<ArtistTag> {
-      const results = await dataBase.selectQuery<{
+   public static async getAlbumArtist(albumId: string): Promise<Tag> {
+      const [{ artist_id, name, profile_photo }] = await dataBase.selectQuery<{
          artist_id: string;
          name: string;
          profile_photo: string;
@@ -18,14 +18,10 @@ export class ArtistService {
          [albumId],
       );
 
-      return {
-         artistId: results[0].artist_id,
-         name: results[0].name,
-         profilePhoto: results[0].profile_photo,
-      } as ArtistTag;
+      return new Tag(name, 'artist', artist_id, profile_photo);
    }
 
-   public static async getTrackArtists(trackId: string): Promise<ArtistTag[]> {
+   public static async getTrackArtists(trackId: string): Promise<Tag[]> {
       const artists = await dataBase.selectQuery<{
          artist_id: string;
          name: string;
@@ -38,10 +34,19 @@ export class ArtistService {
          [trackId],
       );
 
-      return artists.map(artist => ({
-         artistId: artist.artist_id,
-         name: artist.name,
-      }));
+      return artists.map(
+         artist => new Tag(artist.name, 'artist', artist.artist_id),
+      );
+   }
+
+   public static async getInfo(albumId: string): Promise<ArtistDB> {
+      const [info] = await dataBase.selectQuery<ArtistDB>(
+         `SELECT *
+            FROM artist
+            WHERE artist_id = ?`,
+         [albumId],
+      );
+      return info;
    }
 
    // TODO: Implement this method
@@ -51,22 +56,9 @@ export class ArtistService {
    }
 
    public static async getPreview(artistId: string): Promise<ArtistPreview> {
-      const results = await dataBase.selectQuery<{
-         artist_id: string;
-         name: string;
-         profile_photo: string;
-      }>(
-         `SELECT artist_id, name, profile_photo
-            FROM artist
-            WHERE artist_id = ?`,
-         [artistId],
-      );
-
-      return {
-         artistId: results[0].artist_id,
-         name: results[0].name,
-         profilePhoto: results[0].profile_photo,
-      } as ArtistPreview;
+      const artist = await ArtistService.getInfo(artistId);
+      
+      return new ArtistPreview(artist);
    }
 
    // TODO: Implement this method

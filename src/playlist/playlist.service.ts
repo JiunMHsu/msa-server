@@ -6,13 +6,13 @@ import { UserService } from '../user/user.service';
 
 export class PlaylistService {
    private static async getInfo(playlistId: string): Promise<PlaylistDB> {
-      const results = await dataBase.selectQuery<PlaylistDB>(
+      const [playlist] = await dataBase.selectQuery<PlaylistDB>(
          `SELECT *
          FROM playlist
          WHERE playlist_id = ?`,
          [playlistId],
       );
-      return results[0];
+      return playlist;
    }
 
    public static async getPlaylist(playlistId: string) {

@@ -1,5 +1,5 @@
+import { Preview, Tag } from '../shared';
 import { Track } from '../track/track.model';
-import { UserTag } from '../user/user.model';
 
 export interface PlaylistDB {
    playlist_id: string;
@@ -13,11 +13,11 @@ export class Playlist {
    playlistId: string;
    title: string;
    coverArt: string;
-   owner: UserTag;
+   owner: Tag;
    isPublic: boolean;
    tracks: Track[];
 
-   constructor(dbPlaylist: PlaylistDB, owner: UserTag, tracks: Track[]) {
+   constructor(dbPlaylist: PlaylistDB, owner: Tag, tracks: Track[]) {
       this.playlistId = dbPlaylist.playlist_id;
       this.title = dbPlaylist.title;
       this.coverArt = dbPlaylist.cover_art;
@@ -29,17 +29,14 @@ export class Playlist {
    }
 }
 
-export class PlaylistPreview {
-   playlistId: string;
-   title: string;
-   owner: UserTag;
-   coverArt: string;
-
-   constructor(dbPlaylist: PlaylistDB, owner: UserTag) {
-      this.playlistId = dbPlaylist.playlist_id;
-      this.title = dbPlaylist.title;
-      this.coverArt = dbPlaylist.cover_art;
-
-      this.owner = owner;
+export class PlaylistPreview extends Preview {
+   constructor(dbPlaylist: PlaylistDB, owner: Tag) {
+      super(
+         dbPlaylist.playlist_id,
+         dbPlaylist.title,
+         owner,
+         dbPlaylist.cover_art,
+         'playlist',
+      );
    }
 }

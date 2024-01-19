@@ -1,4 +1,5 @@
 import { AlbumPreview } from '../album/album.model';
+import { Preview, Tag } from '../shared';
 
 export interface ArtistDB {
    artist_id: string;
@@ -7,12 +8,6 @@ export interface ArtistDB {
    followers: number;
    monthly_listeners: number;
    profile_photo: string;
-}
-
-export interface ArtistTag {
-   artistId: string;
-   name: string;
-   profilePhoto?: string;
 }
 
 export interface Discography {
@@ -44,14 +39,14 @@ export class Artist {
    }
 }
 
-export class ArtistPreview {
-   artistId: string;
-   name: string;
-   profilePhoto: string;
-
+export class ArtistPreview extends Preview {
    constructor(dbArtist: ArtistDB) {
-      this.artistId = dbArtist.artist_id;
-      this.name = dbArtist.name;
-      this.profilePhoto = dbArtist.profile_photo;
+      super(
+         dbArtist.artist_id,
+         dbArtist.name,
+         new Tag('Artist', 'artist'),
+         dbArtist.profile_photo,
+         'artist',
+      );
    }
 }

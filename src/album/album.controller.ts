@@ -21,4 +21,21 @@ export class AlbumController {
          res.status(500).send(`Error produced: ${error}`);
       }
    }
+
+   // !!
+
+   public async publishAlbum(req: Request, res: Response): Promise<void> {
+      console.log(req.body);
+      res.status(200).send({ message: 'publishAlbum' });
+   }
+
+   public async unpublishAlbum(req: Request, res: Response): Promise<void> {
+      console.log(req.body);
+      res.status(200).send({ message: 'unpublishAlbum' });
+   }
+
+   public async updateAlbum(req: Request, res: Response): Promise<void> {
+      console.log(req.body);
+      res.status(200).send({ message: 'updateAlbum' });
+   }
 }

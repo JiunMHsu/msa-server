@@ -1,5 +1,4 @@
-import { AlbumTag } from '../album/album.model';
-import { ArtistTag } from '../artist/artist.model';
+import { Tag } from '../shared';
 
 export interface TrackDB {
    track_id: string;
@@ -19,15 +18,15 @@ export class Track {
    title: string;
    discNumber: number;
    trackNumber: number;
-   albumTag?: AlbumTag;
-   artists: ArtistTag[];
+   albumTag?: Tag;
+   artists: Tag[];
    duration: string;
    isExplicit: boolean;
    plays: number;
    lyrics: string;
    sourceFile: string;
 
-   constructor(track: TrackDB, artists: ArtistTag[], album?: AlbumTag) {
+   constructor(track: TrackDB, artists: Tag[], album?: Tag) {
       this.trackId = track.track_id;
       this.title = track.title;
       this.discNumber = track.disc_number;

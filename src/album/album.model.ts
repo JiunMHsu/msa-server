@@ -1,4 +1,4 @@
-import { ArtistTag } from '../artist/artist.model';
+import { Preview, Tag } from '../shared';
 import { Track } from '../track/track.model';
 
 export type DiskType = 'Album' | 'EP' | 'Single' | 'Mixtape' | 'Compilation';
@@ -14,16 +14,10 @@ export interface AlbumDB {
    duration: string;
 }
 
-export interface AlbumTag {
-   albumId: string;
-   title: string;
-   coverArt?: string;
-}
-
 export class Album {
    albumId: string;
    title: string;
-   artist: ArtistTag;
+   artist: Tag;
    discType: DiskType;
    coverArt: string;
    label: string;
@@ -31,7 +25,7 @@ export class Album {
    duration: string;
    discs: Track[][];
 
-   constructor(dbAlbum: AlbumDB, artist: ArtistTag, tracks: Track[][]) {
+   constructor(dbAlbum: AlbumDB, artist: Tag, tracks: Track[][]) {
       this.albumId = dbAlbum.album_id;
       this.title = dbAlbum.title;
       this.discType = dbAlbum.disc_type as DiskType;
@@ -46,19 +40,14 @@ export class Album {
    }
 }
 
-export class AlbumPreview {
-   albumId: string;
-   title: string;
-   artist: ArtistTag;
-   discType: DiskType;
-   coverArt: string;
-
-   constructor(dbAlbum: AlbumDB, artist: ArtistTag) {
-      this.albumId = dbAlbum.album_id;
-      this.title = dbAlbum.title;
-      this.discType = dbAlbum.disc_type as DiskType;
-      this.coverArt = dbAlbum.cover_art;
-
-      this.artist = artist;
+export class AlbumPreview extends Preview {
+   constructor(dbAlbum: AlbumDB, artist: Tag) {
+      super(
+         dbAlbum.album_id,
+         dbAlbum.title,
+         artist,
+         dbAlbum.cover_art,
+         'album',
+      );
    }
 }
