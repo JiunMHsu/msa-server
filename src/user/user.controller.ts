@@ -13,9 +13,35 @@ export class UserController {
 
          res.send(userId); // 80b98b16-94da-4246-9996-6e74e9fff286
 
-         const user = await UserService.getById(userId);
+         const user = await UserService.getUser(userId);
          const library = await UserService.getLibrary(userId);
 
+         res.status(200).json(user);
+      } catch (error) {
+         res.status(500).send(`Error produced: ${error}`);
+      }
+   }
+
+   public async getUserPreview(req: Request, res: Response) {
+      const userId = req.params.userId;
+
+      try {
+         const user = await UserService.getPreview(userId);
+         res.status(200).json(user);
+      } catch (error) {
+         res.status(500).send(`Error produced: ${error}`);
+      }
+   }
+
+   public async getUserProfile(req: Request, res: Response) {
+      const accessToken = req.headers.authorization ?? '';
+
+      try {
+         const { userId } = (await new JWTHandler().validateToken(
+            accessToken,
+         )) as { userId: string };
+
+         const user = await UserService.getProfile(userId);
          res.status(200).json(user);
       } catch (error) {
          res.status(500).send(`Error produced: ${error}`);

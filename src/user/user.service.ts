@@ -28,6 +28,10 @@ export class UserService {
       return `get User Preview ${userId}`;
    }
 
+   public static async getProfile(userId: string) {
+      return `get User Profile ${userId}`;
+   }
+
    public static async createUser(user: any) {
       return `create User ${user}`;
    }

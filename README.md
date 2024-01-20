@@ -6,9 +6,10 @@ El presente proyecto consiste en la construcción de una API para plataformas de
 
 ## TODO
 
-- [ ] Refactorizar los `Preview` y `Tag`, hacer uno generico, para así poder tratar en el front de forma uniforme a todos los preview (tener una sola interfaz)
-- [ ] Diseñar e implementar las respuestas para Artist, Track, Playlist y User
-- [ ] Implementar los métodos faltantes (create, update y delete) para todas las entidades
+- [X] Refactorizar los `Preview` y `Tag`, hacer uno generico, para así poder tratar en el front de forma uniforme a todos los preview (tener una sola interfaz)
+- [ ] Implementar validación de datos
+- [ ] Implementar caso de uso `unpublish`, en teoría no es borrar todo, sino marcar como `unavailable`; (asi que habría que modificar la db para Track y Album).
+- [ ] Implementar funcionalidad de subir archivos, (publicar albums)
 - [ ] Reorganizar los directorios para la multimedia
 - [ ] Documentar los endpoints, esquemas de respuesta y las interfaces (para typescript)
 

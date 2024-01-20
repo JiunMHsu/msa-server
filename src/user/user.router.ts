@@ -8,9 +8,32 @@ export class UserRouter extends BaseRouter<UserController, UserMiddleware> {
    }
 
    public routes(): void {
-      this.router.get('/user', (req, res) => {
-         this.controller.getUser(req, res);
-      });
+      this.router.get(
+         '/user/:userId',
+         (req, res, next) => [
+            this.middleware.verifyAccessToken(req, res, next),
+         ],
+         (req, res) => {
+            this.controller.getUser(req, res);
+         },
+      );
+
+      this.router.get(
+         '/user/preview/:userId',
+         (req, res) => {
+            this.controller.getUserPreview(req, res);
+         },
+      );
+
+      this.router.get(
+         '/user/profile/:userId',
+         (req, res, next) => [
+            this.middleware.verifyAccessToken(req, res, next),
+         ],
+         (req, res) => {
+            this.controller.getUserProfile(req, res);
+         },
+      );
 
       this.router.post(
          '/user/login',
@@ -25,7 +48,7 @@ export class UserRouter extends BaseRouter<UserController, UserMiddleware> {
       this.router.post(
          '/user/register',
          (req, res, next) => [
-            this.middleware.validateCredential(req, res, next),
+            this.middleware.validateUserData(req, res, next),
          ],
          (req, res) => {
             this.controller.createUser(req, res);
