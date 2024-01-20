@@ -21,12 +21,12 @@ export class JWTHandler extends ServerConfig {
       }
    }
 
-   public async validateToken(token: string) {
+   public async validateToken(token: string): Promise<string | jwt.JwtPayload> {
       try {
          if (!token) throw new Error('No token provided');
 
-         const jwtData = jwt.verify(token, this.secret);
-         return jwtData;
+         const decoded = jwt.verify(token, this.secret);
+         return decoded;
       } catch (error) {
          throw error;
       }

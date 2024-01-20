@@ -4,19 +4,19 @@ import { JWTHandler } from '../shared';
 
 export class UserController {
    public async getUser(req: Request, res: Response) {
-      const accessToken = req.headers.authorization ?? '';
+      const { userId } = req.body;
 
       try {
-         const { userId } = (await new JWTHandler().validateToken(
-            accessToken,
-         )) as { userId: string };
+         // const { userId } = (await new JWTHandler().validateToken(
+         //    accessToken,
+         // )) as { userId: string };
 
-         res.send(userId); // 80b98b16-94da-4246-9996-6e74e9fff286
+         // res.send(userId); // 80b98b16-94da-4246-9996-6e74e9fff286
 
-         const user = await UserService.getUser(userId);
-         const library = await UserService.getLibrary(userId);
+         // const user = await UserService.getUser(userId);
+         // const library = await UserService.getLibrary(userId);
 
-         res.status(200).json(user);
+         res.status(200).json(userId);
       } catch (error) {
          res.status(500).send(`Error produced: ${error}`);
       }

@@ -1,22 +1,40 @@
 import { Request, Response, NextFunction } from 'express';
+import * as jwt from 'jsonwebtoken';
 
-export class UserMiddleware {
+import { ServerConfig } from '../config/config';
+
+export class UserMiddleware extends ServerConfig {
+   constructor() {
+      super();
+   }
+
+   private get secret(): jwt.Secret {
+      const key = this.getEnviroment('JWT_SECRET') ?? 'secret';
+      return key;
+   }
+
+   /**
+    * funca :D
+    */
    public async verifyAccessToken(
       req: Request,
       res: Response,
       next: NextFunction,
-   ) {
-      const token = req.headers.authorization;
+   ): Promise<void> {
+      const token = req.headers.authorization ?? '';
 
       if (!token) {
-         // caso no autorizado
-         res.status(401).send({ message: 'No token provided' });
+         res.status(401).json({ message: 'No token provided' });
+         return;
       }
 
       try {
-      } catch (error) {}
-
-      next();
+         const decoded = jwt.verify(token, this.secret);
+         req.body = decoded;
+         next();
+      } catch (error) {
+         res.status(401).json({ message: 'Invalid token' });
+      }
    }
 
    public async validateCredential(

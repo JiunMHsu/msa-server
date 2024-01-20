@@ -9,7 +9,7 @@ export class UserRouter extends BaseRouter<UserController, UserMiddleware> {
 
    public routes(): void {
       this.router.get(
-         '/user/:userId',
+         '/user/',
          (req, res, next) => [
             this.middleware.verifyAccessToken(req, res, next),
          ],
