@@ -1,4 +1,4 @@
-import { dataBase } from '../shared/service/database';
+import { dataBase } from '../shared/repository/database';
 import { Album, AlbumDB, AlbumPreview } from './album.model';
 
 import { ArtistService } from '../artist/artist.service';
@@ -29,6 +29,7 @@ export class AlbumService {
          WHERE album_id = ?`,
          [albumId],
       );
+
       return info;
    }
 
@@ -45,5 +46,23 @@ export class AlbumService {
       const artist = await ArtistService.getAlbumArtist(albumId);
 
       return new AlbumPreview(dbAlbum, artist);
+   }
+
+   public static async getPreviews(
+      albumIds: string[],
+   ): Promise<AlbumPreview[]> {
+      const dbAlbums = await dataBase.selectQuery<AlbumDB>(
+         `SELECT *
+         FROM album
+         WHERE album_id IN (?)`,
+         [albumIds],
+      );
+
+      const previews = dbAlbums.map(async dbAlbum => {
+         const artist = await ArtistService.getAlbumArtist(dbAlbum.album_id);
+         return new AlbumPreview(dbAlbum, artist);
+      });
+
+      return Promise.all(previews);
    }
 }

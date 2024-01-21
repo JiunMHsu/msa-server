@@ -18,7 +18,7 @@ export class DataBase extends ServerConfig {
       const connection = await this.pool.getConnection();
 
       try {
-         const [results] = await connection.execute(query, values);
+         const [results] = await connection.query(query, values);
          return results as T[];
 
          // se podría manejar un error custom aca,

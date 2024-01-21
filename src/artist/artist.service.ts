@@ -57,8 +57,21 @@ export class ArtistService {
 
    public static async getPreview(artistId: string): Promise<ArtistPreview> {
       const artist = await ArtistService.getInfo(artistId);
-      
+
       return new ArtistPreview(artist);
+   }
+
+   public static async getPreviews(
+      artistIds: string[],
+   ): Promise<ArtistPreview[]> {
+      const dbArtists = await dataBase.selectQuery<ArtistDB>(
+         `SELECT *
+            FROM artist
+            WHERE artist_id IN (?)`,
+         [artistIds],
+      );
+
+      return dbArtists.map(dbArtist => new ArtistPreview(dbArtist));
    }
 
    // TODO: Implement this method

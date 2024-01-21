@@ -13,9 +13,6 @@ export class UserMiddleware extends ServerConfig {
       return key;
    }
 
-   /**
-    * funca :D
-    */
    public async verifyAccessToken(
       req: Request,
       res: Response,
@@ -37,6 +34,7 @@ export class UserMiddleware extends ServerConfig {
       }
    }
 
+   // TODO: Implementar
    public async validateCredential(
       req: Request,
       res: Response,
@@ -47,6 +45,7 @@ export class UserMiddleware extends ServerConfig {
       next();
    }
 
+   // TODO: Implementar
    public async validateUserData(
       req: Request,
       res: Response,

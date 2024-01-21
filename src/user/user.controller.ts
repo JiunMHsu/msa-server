@@ -7,16 +7,9 @@ export class UserController {
       const { userId } = req.body;
 
       try {
-         // const { userId } = (await new JWTHandler().validateToken(
-         //    accessToken,
-         // )) as { userId: string };
+         const user = await UserService.getUser(userId);
 
-         // res.send(userId); // 80b98b16-94da-4246-9996-6e74e9fff286
-
-         // const user = await UserService.getUser(userId);
-         // const library = await UserService.getLibrary(userId);
-
-         res.status(200).json(userId);
+         res.status(200).json(user);
       } catch (error) {
          res.status(500).send(`Error produced: ${error}`);
       }
@@ -50,10 +43,11 @@ export class UserController {
 
    public async loginUser(req: Request, res: Response) {
       const jwt = new JWTHandler();
-      const { email, password } = req.body;
+      console.log(req.body)
+      // const { email, password } = req.body;
       try {
-         // 80b98b16-94da-4246-9996-6e74e9fff286
-         const userId = await UserService.resolveToId(email, password);
+         const userId = '80b98b16-94da-4246-9996-6e74e9fff286';
+         // const userId = await UserService.resolveToId(email, password);
          const token = await jwt.generateToken(userId);
          res.status(200).json({ accessToken: token });
       } catch (error) {
@@ -61,15 +55,18 @@ export class UserController {
       }
    }
 
+   // TODO: Complete this method
    public async createUser(req: Request, res: Response) {
-      const user = req.body;
+      // since the body contains sensitive information,
+      // it should decoded and validated.
+      const { name, email, password } = req.body;
 
       try {
-         const result = await UserService.createUser(user);
+         const userId = await UserService.createUser(name, email, password);
 
          // should redirect after creating an user
          // res.redirect(303, `/api/user/${result.id}`);
-         res.status(303).json(result);
+         res.status(303).json({});
       } catch (error) {
          res.status(500).send(`Error produced: ${error}`);
       }
