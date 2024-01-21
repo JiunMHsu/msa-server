@@ -40,19 +40,25 @@ export class UserMiddleware extends ServerConfig {
       res: Response,
       next: NextFunction,
    ) {
-      console.log(req);
-      console.log(res);
+      const { email, password } = req.body;
+      if (!email || !password) {
+         res.status(400).json({ message: 'Missing data' });
+         return;
+      }
       next();
    }
 
    // TODO: Implementar
-   public async validateUserData(
+   public async validateSignUpData(
       req: Request,
       res: Response,
       next: NextFunction,
    ) {
-      console.log(req);
-      console.log(res);
+      const { name, email, password } = req.body;
+      if (!name || !email || !password) {
+         res.status(400).json({ message: 'Missing data' });
+         return;
+      }
       next();
    }
 }

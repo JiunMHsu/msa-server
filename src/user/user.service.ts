@@ -31,7 +31,7 @@ export class UserService {
       return new Tag(name, 'user', user_id, profile_photo);
    }
 
-   public static async getInfo(userId: string): Promise<UserDB> {
+   private static async getInfo(userId: string): Promise<UserDB> {
       const [info] = await dataBase.selectQuery<UserDB>(
          `SELECT *
          FROM user
@@ -42,9 +42,9 @@ export class UserService {
    }
 
    public static async getUser(userId: string): Promise<User> {
-      const userInfo = await UserService.getInfo(userId);
+      const info = await UserService.getInfo(userId);
       const library = await UserService.getLibrary(userId);
-      return new User(userInfo, library);
+      return new User(info, library);
    }
 
    public static async getPreview(userId: string): Promise<UserPreview> {
@@ -52,6 +52,10 @@ export class UserService {
       return new UserPreview(user);
    }
 
+   // TODO: implementar
+   // igual no deberia ir aca el detProfile completo,
+   // sino que en el controller, aca simplemente le doy
+   // partes del perfil
    public static async getProfile(userId: string) {
       return `get User Profile ${userId}`;
    }
@@ -72,9 +76,7 @@ export class UserService {
       );
    }
 
-   private static async getSavedAlbums(
-      userId: string,
-   ): Promise<AlbumPreview[]> {
+   public static async getSavedAlbums(userId: string): Promise<AlbumPreview[]> {
       const dbIds = await dataBase.selectQuery<{
          album_id: string;
       }>(
@@ -84,10 +86,12 @@ export class UserService {
          [userId],
       );
 
-      return AlbumService.getPreviews(dbIds.map(({ album_id }) => album_id));
+      return dbIds.length
+         ? AlbumService.getPreviews(dbIds.map(({ album_id }) => album_id))
+         : [];
    }
 
-   private static async getSavedPlaylists(
+   public static async getSavedPlaylists(
       userId: string,
    ): Promise<PlaylistPreview[]> {
       const dbIds = await dataBase.selectQuery<{
@@ -99,12 +103,14 @@ export class UserService {
          [userId],
       );
 
-      return PlaylistService.getPreviews(
-         dbIds.map(({ playlist_id }) => playlist_id),
-      );
+      return dbIds.length
+         ? PlaylistService.getPreviews(
+              dbIds.map(({ playlist_id }) => playlist_id),
+           )
+         : [];
    }
 
-   private static async getFollowedArtists(
+   public static async getFollowedArtists(
       userId: string,
    ): Promise<ArtistPreview[]> {
       const dbIds = await dataBase.selectQuery<{
@@ -116,10 +122,12 @@ export class UserService {
          [userId],
       );
 
-      return ArtistService.getPreviews(dbIds.map(({ artist_id }) => artist_id));
+      return dbIds.length
+         ? ArtistService.getPreviews(dbIds.map(({ artist_id }) => artist_id))
+         : [];
    }
 
-   private static async getLikedTracks(userId: string): Promise<Track[]> {
+   public static async getLikedTracks(userId: string): Promise<Track[]> {
       const dbIds = await dataBase.selectQuery<{
          track_id: string;
       }>(
@@ -129,7 +137,9 @@ export class UserService {
          [userId],
       );
 
-      return TrackService.getTracks(dbIds.map(({ track_id }) => track_id));
+      return dbIds.length
+         ? TrackService.getTracks(dbIds.map(({ track_id }) => track_id))
+         : [];
    }
 
    /**
@@ -201,10 +211,12 @@ export class UserService {
       }
    }
 
+   // TODO: implementar
    public static async updateUser(userId: string, user: any) {
       return `update User ${userId} with ${user}`;
    }
 
+   // TODO: implementar
    public static async deleteUser(userId: string) {
       return `delete User ${userId}`;
    }

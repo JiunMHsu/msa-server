@@ -18,7 +18,7 @@ export class Track {
    title: string;
    discNumber: number;
    trackNumber: number;
-   albumTag?: Tag;
+   album?: Tag;
    artists: Tag[];
    duration: string;
    isExplicit: boolean;
@@ -39,6 +39,6 @@ export class Track {
 
       this.artists = artists;
 
-      this.albumTag = album;
+      this.album = album;
    }
 }

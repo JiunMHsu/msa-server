@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS music_streamer;
-CREATE DATABASE music_streamer;
-USE music_streamer;
+DROP DATABASE IF EXISTS msa;
+CREATE DATABASE msa;
+USE msa;
 
 CREATE TABLE artist (
    artist_id VARCHAR(36) NOT NULL, -- UUID 36

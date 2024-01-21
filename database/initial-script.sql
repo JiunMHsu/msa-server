@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS music_streamer;
-CREATE DATABASE music_streamer;
-USE music_streamer;
+DROP DATABASE IF EXISTS msa;
+CREATE DATABASE msa;
+USE msa;
 
 -- ==================================================
--- CREATE DATABASE music_streamer;
+-- CREATE DATABASE msa;
 -- ==================================================
 
 CREATE TABLE artist (
@@ -148,7 +148,7 @@ CREATE TABLE user_playlist (
    FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id)
 );
 
-USE music_streamer;
+USE msa;
 
 -- ==================================================
 -- INSERT ARTISTS

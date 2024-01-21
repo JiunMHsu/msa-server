@@ -7,10 +7,10 @@ export class DataBase extends ServerConfig {
    constructor() {
       super();
       this.pool = createPool({
-         host: this.database.host,
-         user: this.database.user,
-         password: this.database.password,
-         database: this.database.name,
+         host: this.database.host ?? 'localhost',
+         user: this.database.user ?? 'root',
+         password: this.database.password ?? 'root',
+         database: this.database.name ?? 'msa',
       });
    }
 

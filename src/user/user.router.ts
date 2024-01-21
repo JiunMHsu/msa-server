@@ -35,6 +35,7 @@ export class UserRouter extends BaseRouter<UserController, UserMiddleware> {
          },
       );
 
+      // A considerar: implementar el middleware para desencriptar las credenciales
       this.router.post(
          '/user/login',
          (req, res, next) => [
@@ -48,7 +49,7 @@ export class UserRouter extends BaseRouter<UserController, UserMiddleware> {
       this.router.post(
          '/user/register',
          (req, res, next) => [
-            this.middleware.validateUserData(req, res, next),
+            this.middleware.validateSignUpData(req, res, next),
          ],
          (req, res) => {
             this.controller.createUser(req, res);
