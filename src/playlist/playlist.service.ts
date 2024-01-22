@@ -2,7 +2,7 @@ import { dataBase } from '../shared/repository/database';
 import { Playlist, PlaylistDB, PlaylistPreview } from './playlist.model';
 
 import { TrackService } from '../track/track.service';
-import { UserService } from '../user/user.service';
+import { UserService } from '../user/services/user.service';
 
 export class PlaylistService {
    private static async getInfo(playlistId: string): Promise<PlaylistDB> {

@@ -16,6 +16,6 @@ export class AlbumRouter extends BaseRouter<AlbumController, AlbumMiddleware> {
          this.controller.getAlbumPreview(req, res);
       });
 
-      // this.router.post('/album/:userId', (req, res) => {});
+      // this.router.post('/album/:artistId', (req, res) => {});
    }
 }
