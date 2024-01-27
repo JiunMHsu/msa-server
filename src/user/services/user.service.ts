@@ -22,7 +22,7 @@ export class UserService {
          [playlistId],
       );
 
-      return new Tag(name, 'user', user_id, profile_photo);
+      return new Tag(name, 'User', user_id, profile_photo);
    }
 
    private static async getInfo(userId: string): Promise<UserDB> {

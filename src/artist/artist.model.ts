@@ -44,9 +44,8 @@ export class ArtistPreview extends Preview {
       super(
          dbArtist.artist_id,
          dbArtist.name,
-         new Tag('Artist', 'artist'),
          dbArtist.profile_photo,
-         'artist',
+         'Artist',
       );
    }
 }

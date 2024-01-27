@@ -43,9 +43,8 @@ export class UserPreview extends Preview {
       super(
          user.user_id,
          user.name,
-         new Tag('Profile', 'user'),
          user.profile_photo,
-         'user',
+         'Profile',
       );
    }
 }

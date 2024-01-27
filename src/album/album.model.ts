@@ -1,7 +1,7 @@
 import { Preview, Tag } from '../shared';
 import { Track } from '../track/track.model';
 
-export type DiskType = 'Album' | 'EP' | 'Single' | 'Mixtape' | 'Compilation';
+export type DiskType = 'Album' | 'EP' | 'Single' | 'Mixtape';
 
 export interface AlbumDB {
    album_id: string;
@@ -45,9 +45,9 @@ export class AlbumPreview extends Preview {
       super(
          dbAlbum.album_id,
          dbAlbum.title,
-         artist,
          dbAlbum.cover_art,
-         'album',
+         dbAlbum.disc_type as DiskType,
+         artist,
       );
    }
 }

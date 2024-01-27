@@ -18,7 +18,7 @@ export class ArtistService {
          [albumId],
       );
 
-      return new Tag(name, 'artist', artist_id, profile_photo);
+      return new Tag(name, 'Artist', artist_id, profile_photo);
    }
 
    public static async getTrackArtists(trackId: string): Promise<Tag[]> {
@@ -35,7 +35,7 @@ export class ArtistService {
       );
 
       return artists.map(
-         artist => new Tag(artist.name, 'artist', artist.artist_id),
+         artist => new Tag(artist.name, 'Artist', artist.artist_id),
       );
    }
 

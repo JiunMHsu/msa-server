@@ -34,9 +34,9 @@ export class PlaylistPreview extends Preview {
       super(
          dbPlaylist.playlist_id,
          dbPlaylist.title,
-         owner,
          dbPlaylist.cover_art,
-         'playlist',
+         'Playlist',
+         owner,
       );
    }
 }
