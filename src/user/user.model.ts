@@ -40,11 +40,6 @@ export class UserLibrary {
 
 export class UserPreview extends Preview {
    constructor(user: UserDB) {
-      super(
-         user.user_id,
-         user.name,
-         user.profile_photo,
-         'Profile',
-      );
+      super(user.user_id, user.name, user.profile_photo, 'Profile');
    }
 }

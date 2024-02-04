@@ -18,12 +18,9 @@ export class UserRouter extends BaseRouter<UserController, UserMiddleware> {
          },
       );
 
-      this.router.get(
-         '/user/preview/:userId',
-         (req, res) => {
-            this.controller.getUserPreview(req, res);
-         },
-      );
+      this.router.get('/user/preview/:userId', (req, res) => {
+         this.controller.getUserPreview(req, res);
+      });
 
       this.router.get(
          '/user/profile/:userId',

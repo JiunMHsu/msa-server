@@ -4,7 +4,6 @@ import { Tag, dataBase } from '../../shared';
 import { User, UserDB, UserPreview } from '../user.model';
 import { LibraryService } from './library.service';
 
-
 export class UserService {
    public static async getPlaylistOwner(playlistId: string): Promise<Tag> {
       const [{ user_id, name, profile_photo }] = await dataBase.selectQuery<{
