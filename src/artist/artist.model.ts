@@ -39,13 +39,13 @@ export class Artist {
    }
 }
 
-export class ArtistPreview extends Preview {
-   constructor(dbArtist: ArtistDB) {
-      super(
-         dbArtist.artist_id,
-         dbArtist.name,
-         dbArtist.profile_photo,
-         'Artist',
-      );
-   }
-}
+// export class ArtistPreview extends Preview {
+//    constructor(dbArtist: ArtistDB) {
+//       super(
+//          dbArtist.artist_id,
+//          dbArtist.name,
+//          dbArtist.profile_photo,
+//          'Artist',
+//       );
+//    }
+// }

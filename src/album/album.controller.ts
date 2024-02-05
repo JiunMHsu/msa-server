@@ -2,6 +2,11 @@ import { Request, Response } from 'express';
 import { AlbumService } from './album.service';
 
 export class AlbumController {
+   /**
+    *
+    * @param req
+    * @param res
+    */
    public async getAlbum(req: Request, res: Response): Promise<void> {
       const albumId = req.params.albumId;
       try {
@@ -12,6 +17,7 @@ export class AlbumController {
       }
    }
 
+   // !! not sure what for
    public async getAlbumPreview(req: Request, res: Response): Promise<void> {
       const albumId = req.params.albumId;
       try {

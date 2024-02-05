@@ -29,14 +29,14 @@ export class Playlist {
    }
 }
 
-export class PlaylistPreview extends Preview {
-   constructor(dbPlaylist: PlaylistDB, owner: Tag) {
-      super(
-         dbPlaylist.playlist_id,
-         dbPlaylist.title,
-         dbPlaylist.cover_art,
-         'Playlist',
-         owner,
-      );
-   }
-}
+// export class PlaylistPreview extends Preview {
+//    constructor(dbPlaylist: PlaylistDB, owner: Tag) {
+//       super(
+//          dbPlaylist.playlist_id,
+//          dbPlaylist.title,
+//          dbPlaylist.cover_art,
+//          'Playlist',
+//          owner,
+//       );
+//    }
+// }
