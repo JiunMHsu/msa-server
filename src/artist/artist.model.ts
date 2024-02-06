@@ -1,5 +1,5 @@
-import { AlbumPreview } from '../album/album.model';
 import { Preview, Tag } from '../shared';
+import { AlbumPreview } from '../album/album.model';
 
 export interface ArtistDB {
    artist_id: string;
@@ -39,13 +39,8 @@ export class Artist {
    }
 }
 
-// export class ArtistPreview extends Preview {
-//    constructor(dbArtist: ArtistDB) {
-//       super(
-//          dbArtist.artist_id,
-//          dbArtist.name,
-//          dbArtist.profile_photo,
-//          'Artist',
-//       );
-//    }
-// }
+export class ArtistPreview extends Preview {
+   constructor({ artist_id, name, profile_photo }: ArtistDB) {
+      super(artist_id, name, profile_photo, 'artist');
+   }
+}

@@ -58,6 +58,7 @@ CREATE TABLE user (
 CREATE TABLE playlist (
    playlist_id VARCHAR(36) NOT NULL, -- UUID 36
    title VARCHAR(255) NOT NULL,
+   description TEXT,
    cover_art VARCHAR(255), -- path
    created_by VARCHAR(36) NOT NULL, -- UUID 36
    is_public BOOLEAN NOT NULL,

@@ -21,7 +21,7 @@ export class UserService {
          [playlistId],
       );
 
-      return new Tag(name, 'User', user_id, profile_photo);
+      return new Tag(user_id, name, 'user', profile_photo);
    }
 
    private static async getInfo(userId: string): Promise<UserDB> {
@@ -46,7 +46,7 @@ export class UserService {
    }
 
    // TODO: implementar
-   // igual no deberia ir aca el detProfile completo,
+   // igual no deberia ir aca el getProfile completo,
    // sino que en el controller, aca simplemente le doy
    // partes del perfil
    public static async getProfile(userId: string) {

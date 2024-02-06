@@ -19,7 +19,7 @@ export class AlbumService {
          [trackId],
       );
 
-      return new Tag(title, 'Album', album_id, cover_art);
+      return new Tag(album_id, title, 'album', cover_art);
    }
 
    private static async getInfo(albumId: string): Promise<AlbumDB> {

@@ -40,14 +40,8 @@ export class Album {
    }
 }
 
-// export class AlbumPreview extends Preview {
-//    constructor(dbAlbum: AlbumDB, artist: Tag) {
-//       super(
-//          dbAlbum.album_id,
-//          dbAlbum.title,
-//          dbAlbum.cover_art,
-//          dbAlbum.disc_type as DiskType,
-//          artist,
-//       );
-//    }
-// }
+export class AlbumPreview extends Preview {
+   constructor({ album_id, title, cover_art }: AlbumDB, artist: Tag) {
+      super(album_id, title, cover_art, 'album', artist);
+   }
+}

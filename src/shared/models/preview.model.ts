@@ -11,12 +11,13 @@ export class Tag {
 
 export type PreviewType = TagType | 'playlist';
 
-export class Preview {
+export abstract class Preview {
    constructor(
       public readonly id: string,
       public readonly title: string,
-      public readonly description: any,
       public readonly image: string,
       public readonly type: PreviewType,
+      public readonly tag?: Tag,
+      public readonly description?: string,
    ) {}
 }

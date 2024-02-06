@@ -4,6 +4,7 @@ import { Track } from '../track/track.model';
 export interface PlaylistDB {
    playlist_id: string;
    title: string;
+   description: string;
    cover_art: string;
    created_by: string;
    is_public: boolean;
@@ -29,14 +30,11 @@ export class Playlist {
    }
 }
 
-// export class PlaylistPreview extends Preview {
-//    constructor(dbPlaylist: PlaylistDB, owner: Tag) {
-//       super(
-//          dbPlaylist.playlist_id,
-//          dbPlaylist.title,
-//          dbPlaylist.cover_art,
-//          'Playlist',
-//          owner,
-//       );
-//    }
-// }
+export class PlaylistPreview extends Preview {
+   constructor(
+      { playlist_id, title, description, cover_art }: PlaylistDB,
+      owner: Tag,
+   ) {
+      super(playlist_id, title, cover_art, 'playlist', owner, description);
+   }
+}
