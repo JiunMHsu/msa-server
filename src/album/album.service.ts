@@ -33,6 +33,9 @@ export class AlbumService {
       return info;
    }
 
+   /**
+    * Recibe un id de album y retorna el album completo
+    */
    public static async getAlbum(albumId: string): Promise<Album> {
       const dbAlbum = await AlbumService.getInfo(albumId);
       const tracks = await TrackService.getAlbumTracks(albumId);

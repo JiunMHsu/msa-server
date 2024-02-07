@@ -12,6 +12,7 @@ export class AlbumRouter extends BaseRouter<AlbumController, AlbumMiddleware> {
          this.controller.getAlbum(req, res);
       });
 
+      // no tiene tanto sentido que se quiera obtener un solo album preview
       this.router.get('/album/preview/:albumId', (req, res) => {
          this.controller.getAlbumPreview(req, res);
       });

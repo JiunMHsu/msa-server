@@ -3,6 +3,7 @@ import { AlbumService } from './album.service';
 
 export class AlbumController {
    /**
+    * Genera la respuesta de un album completo
     *
     * @param req
     * @param res

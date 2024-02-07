@@ -23,7 +23,7 @@ export class Album {
    label: string;
    releaseDate: string;
    duration: string;
-   discs: Track[][];
+   tracks: Track[][];
 
    constructor(dbAlbum: AlbumDB, artist: Tag, tracks: Track[][]) {
       this.albumId = dbAlbum.album_id;
@@ -36,7 +36,7 @@ export class Album {
 
       this.artist = artist;
 
-      this.discs = tracks;
+      this.tracks = tracks;
    }
 }
 
@@ -63,9 +63,3 @@ export class DiskPreview extends Preview {
       this.releaseDate = release_date;
    }
 }
-
-// export class AlbumTag extends Tag {
-//    constructor({ album_id, title, cover_art }: AlbumDB) {
-//       super(album_id, title, 'album', cover_art);
-//    }
-// }

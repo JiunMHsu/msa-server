@@ -52,6 +52,12 @@ export class ArtistService {
    // TODO: Implement this method
    public static async getArtist(artistId: string): Promise<Artist> {
       console.log(artistId);
+
+      // Basic info (name, photo, followers, monthly listeners)
+      // Popular (10 top tracks)
+      // Discography (Albums, EPs, Singles, Mixtapes)
+      // Playlists
+      // About
       return {} as Artist;
    }
 

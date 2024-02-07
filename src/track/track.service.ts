@@ -41,6 +41,12 @@ export class TrackService {
       return TrackService.dbToTrack(dbTracks);
    }
 
+   /**
+    * Recibe un id de album y retorna los tracks del album en un array de arrays,
+    * siendo cada subarray un disco.
+    *
+    * para el caso de un album que tiene un solo disco, el array sera simple (unidimensional).
+    */
    public static async getAlbumTracks(albumId: string): Promise<Track[][]> {
       const dbTracks = await dataBase.selectQuery<TrackDB>(
          `SELECT *
