@@ -45,3 +45,27 @@ export class AlbumPreview extends Preview {
       super(album_id, title, cover_art, 'album', artist);
    }
 }
+
+export class DiskPreview extends Preview {
+   diskType: DiskType;
+   releaseDate: string;
+
+   constructor({
+      album_id,
+      title,
+      disc_type,
+      cover_art,
+      release_date,
+   }: AlbumDB) {
+      super(album_id, title, cover_art, 'album');
+
+      this.diskType = disc_type as DiskType;
+      this.releaseDate = release_date;
+   }
+}
+
+// export class AlbumTag extends Tag {
+//    constructor({ album_id, title, cover_art }: AlbumDB) {
+//       super(album_id, title, 'album', cover_art);
+//    }
+// }
