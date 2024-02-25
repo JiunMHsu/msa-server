@@ -26,10 +26,11 @@ export abstract class ServerConfig {
 
    public get database() {
       return {
-         host: this.getEnviroment('DB_HOST'),
-         user: this.getEnviroment('DB_USER'),
-         password: this.getEnviroment('DB_PASSWORD'),
-         name: this.getEnviroment('DB_DATABASE'),
+         host: this.getEnviroment('DB_HOST') ?? 'localhost',
+         port: this.getNumberEnv('DB_PORT') ?? 3306,
+         user: this.getEnviroment('DB_USER') ?? 'root',
+         password: this.getEnviroment('DB_PASSWORD') ?? 'root',
+         name: this.getEnviroment('DB_DATABASE') ?? 'msa',
       };
    }
 }
