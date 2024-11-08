@@ -29,6 +29,7 @@ async function bootstrap() {
 
     const logger = app.get(Logger);
     logger.log(`Server running on http://${host}:${apiPort}`);
+    logger.log(`See documentation on http://${host}:${apiPort}/docs`);
 }
 
-bootstrap();
+bootstrap().then();
