@@ -14,7 +14,7 @@ async function bootstrap() {
     const configService = app.get(ConfigService);
 
     const host = configService.get<string>('HOST', '127.0.0.1');
-    const apiPort = configService.get<string>('API_PORT', '3000');
+    const apiPort = configService.get<string>('PORT', '3000');
 
     const config = new DocumentBuilder()
         .setTitle('Sakura API')
