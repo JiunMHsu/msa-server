@@ -47,17 +47,18 @@ export class Album extends PersistentEntity {
     @Column(() => Duration)
     public duration: Duration;
 
-    @Column('int', { name: 'tracks' })
-    public tracks: number;
+    @Column('smallint', { name: 'total_tracks' })
+    public totalTracks: number;
 
-    @Column('int', { name: 'discs' })
+    @Column('smallint', { name: 'discs' })
     public discs: number;
 
-    @Column('text', { name: 'record_label' })
-    public recordLabel: string;
+    @Column('text', { name: 'copyright' })
+    public copyright: string;
 
-    // Quizás hacer un phonographicCopyright
+    @Column('text', { name: 'phonographic_copyright' })
+    public phonographicCopyright: string;
 
-    @Column('long', { name: 'saves' })
+    @Column('bigint', { name: 'saves' })
     public saves: number;
 }

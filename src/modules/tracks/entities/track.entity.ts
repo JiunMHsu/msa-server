@@ -23,17 +23,20 @@ export class Track extends PersistentEntity {
     @Column(() => Duration)
     public duration: Duration;
 
-    @Column('int', { name: 'disck_number' })
+    @Column('smallint', { name: 'disck_number' })
     public disc: number;
 
-    @Column('int', { name: 'track_number' })
+    @Column('smallint', { name: 'track_number' })
     public index: number;
 
     @Column('boolean', { name: 'is_explicit' })
     public isExplicit: boolean;
 
-    @Column('long', { name: 'plays' })
-    public plays: number;
+    @Column('bigint', { name: 'playbacks' })
+    public playbacks: number;
+
+    @Column('bigint', { name: 'likes' })
+    public likes: number;
 
     @Column('simple-array', { name: 'performers' })
     public performers: string[];
@@ -43,7 +46,4 @@ export class Track extends PersistentEntity {
 
     @Column('simple-array', { name: 'producers' })
     public producers: string[];
-
-    @Column('long', { name: 'likes' })
-    public likes: number;
 }
