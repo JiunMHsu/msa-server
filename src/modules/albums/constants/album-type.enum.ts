@@ -1,0 +1,7 @@
+export enum AlbumType {
+    SINGLE = 'SINGLE',
+    EXTENDED_PLAY = 'EXTENDED_PLAY',
+    ALBUM = 'ALBUM',
+    MIXTAPE = 'MIXTAPE',
+    COMPILATION = 'COMPILATION',
+}
