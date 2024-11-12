@@ -50,6 +50,9 @@ export class Album extends PersistentEntity {
     @Column('int', { name: 'tracks' })
     public tracks: number;
 
+    @Column('int', { name: 'discs' })
+    public discs: number;
+
     @Column('text', { name: 'record_label' })
     public recordLabel: string;
 
