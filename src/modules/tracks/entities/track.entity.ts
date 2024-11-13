@@ -1,9 +1,17 @@
 import { PersistentEntity } from '../../../common/entities';
 import { Album } from '../../albums/entities/album.entity';
-import { Column, JoinColumn, JoinTable, ManyToMany, ManyToOne } from 'typeorm';
+import {
+    Column,
+    Entity,
+    JoinColumn,
+    JoinTable,
+    ManyToMany,
+    ManyToOne,
+} from 'typeorm';
 import { Artist } from '../../artists/entities/artist.entity';
 import { Duration } from '../../../common/helpers/duration';
 
+@Entity({ name: 'track' })
 export class Track extends PersistentEntity {
     @Column('varchar', { name: 'title', length: 255 })
     public title: string;

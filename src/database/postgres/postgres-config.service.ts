@@ -16,8 +16,8 @@ export class PostgresConfigService implements TypeOrmOptionsFactory {
             username: this.configService.get<string>('database.username'),
             password: this.configService.get<string>('database.password'),
             database: this.configService.get<string>('database.name'),
-            // entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
-            entities: [process.cwd() + '/dist/**/*.entity{.ts,.js}'],
+            entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
+            // entities: [process.cwd() + '/dist/**/*.entity{.ts,.js}'],
             logging: true,
             synchronize: this.configService.get<boolean>('database.sync'),
         };
