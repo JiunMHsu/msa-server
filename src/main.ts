@@ -17,8 +17,8 @@ async function bootstrap() {
     const apiPort = configService.get<string>('port', '3000');
 
     const config = new DocumentBuilder()
-        .setTitle('Sakura API')
-        .setDescription('Sakura Music Streaming API description')
+        .setTitle('MSA API')
+        .setDescription('Music Streaming Application API description')
         .setVersion('1.0')
         .build();
     SwaggerModule.setup('docs', app, () =>

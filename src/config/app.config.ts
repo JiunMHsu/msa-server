@@ -1,6 +1,6 @@
 export default () => ({
-    host: process.env.HOST || '127.0.0.1',
-    port: parseInt(process.env.PORT || '3000', 10),
+    host: process.env.APP_HOST || '127.0.0.1',
+    port: parseInt(process.env.APP_PORT || '3524', 10),
 
     jwtPrivate: process.env.JWT_PRIVATE || '',
 
@@ -9,7 +9,7 @@ export default () => ({
         port: parseInt(process.env.DB_PORT || '5432', 10),
         username: process.env.DB_USER || 'postgres',
         password: process.env.DB_PASSWORD || 'postgres',
-        name: process.env.DB_NAME || 'msadb',
+        name: process.env.DB_NAME || 'msa_db',
         sync: Boolean(process.env.DB_SYNC || 'false'),
     },
 });
