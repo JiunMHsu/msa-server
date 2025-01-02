@@ -1,10 +1,10 @@
 import { Column } from 'typeorm';
 
 export class Duration {
-    @Column('int', { name: 'seconds' })
+    @Column('smallint', { name: 'seconds' })
     public seconds: number;
 
-    @Column('int', { name: 'minutes' })
+    @Column('smallint', { name: 'minutes' })
     public minutes: number;
 
     @Column('int', { name: 'hours' })

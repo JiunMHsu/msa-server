@@ -13,13 +13,14 @@ import { Duration } from '../../../common/helpers/duration';
 
 @Entity({ name: 'track' })
 export class Track extends PersistentEntity {
-    @Column('varchar', { name: 'title', length: 255 })
+    @Column('varchar', { name: 'title', length: 255, nullable: false })
     public title: string;
 
     @ManyToOne(() => Album)
     @JoinColumn({ name: 'album_id' })
     public album: Album;
 
+    // TODO: Check if this is mapped correctly
     @ManyToMany(() => Artist)
     @JoinTable({
         name: 'track_artists',

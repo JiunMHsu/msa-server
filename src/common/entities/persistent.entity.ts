@@ -1,21 +1,26 @@
-import { Column, CreateDateColumn, PrimaryGeneratedColumn } from 'typeorm';
+import {
+    Column,
+    CreateDateColumn,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn,
+} from 'typeorm';
 
 export abstract class PersistentEntity {
-    @PrimaryGeneratedColumn('uuid')
-    public readonly id: string;
+    @PrimaryGeneratedColumn('uuid', { name: 'id' })
+    public id: string;
 
     @CreateDateColumn({
         type: 'timestamp',
         name: 'created_at',
     })
-    public readonly createdAt: Date;
+    public createdAt: Date;
 
-    @CreateDateColumn({
+    @UpdateDateColumn({
         type: 'timestamp',
         name: 'updated_at',
     })
     public updatedAt: Date;
 
-    @Column('boolean', { name: 'is_active' })
+    @Column('boolean', { name: 'is_active', default: true, nullable: false })
     public isActive: boolean;
 }

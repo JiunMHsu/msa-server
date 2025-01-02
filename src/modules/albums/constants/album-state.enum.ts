@@ -1,4 +1,5 @@
 export enum AlbumState {
+    PRE_RELEASE = 'PRE_RELEASE',
     AVAILABLE = 'AVAILABLE',
     UNAVAILABLE = 'UNAVAILABLE',
 }
