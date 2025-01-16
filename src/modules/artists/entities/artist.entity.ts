@@ -1,7 +1,7 @@
-import { Track } from 'src/modules/tracks/entities/track.entity';
-import { PersistentEntity } from '../../../commons/entities';
-import { ArtistManager } from '../../artist-managers/entities/artist-manager.entity';
-import { Image } from '../../images/entities/image.entity';
+import { Track } from '@modules/tracks/entities/track.entity';
+import { PersistentEntity } from '@commons/entities';
+import { ArtistManager } from '@modules/artist-managers/entities/artist-manager.entity';
+import { Image } from '@modules/images/entities/image.entity';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 @Entity({ name: 'artist' })

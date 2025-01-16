@@ -1,5 +1,5 @@
-import { PersistentEntity } from '../../../commons/entities';
-import { Album } from '../../albums/entities/album.entity';
+import { PersistentEntity } from '@commons/entities';
+import { Album } from '@modules/albums/entities/album.entity';
 import {
     Column,
     Entity,
@@ -8,8 +8,8 @@ import {
     ManyToMany,
     ManyToOne,
 } from 'typeorm';
-import { Artist } from '../../artists/entities/artist.entity';
-import { Duration } from '../../../commons/helpers/duration';
+import { Artist } from '@modules/artists/entities/artist.entity';
+import { Duration } from '@commons/helpers/duration';
 
 @Entity({ name: 'track' })
 export class Track extends PersistentEntity {
