@@ -1,4 +1,4 @@
-import { Duration } from '../../../../src/common/helpers/duration';
+import { Duration } from '../../../../src/commons/helpers/duration';
 
 describe('Duration', () => {
     let duration: Duration;

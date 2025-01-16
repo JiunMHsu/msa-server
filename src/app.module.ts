@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { HealthModule } from './health/health.module';
-import { LoggerModule } from './common/logger/logger.module';
+import { LoggerModule } from './commons/logger/logger.module';
 import configuration from './config/app.config';
 import { UsersModule } from './modules/users/users.module';
 import { AlbumsModule } from './modules/albums/albums.module';

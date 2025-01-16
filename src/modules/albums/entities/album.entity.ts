@@ -1,9 +1,9 @@
-import { PersistentEntity } from '../../../common/entities';
+import { PersistentEntity } from '../../../commons/entities';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { AlbumType } from '../constants/album-type.enum';
 import { Artist } from '../../artists/entities/artist.entity';
 import { Image } from '../../images/entities/image.entity';
-import { Duration } from '../../../common/helpers/duration';
+import { Duration } from '../../../commons/helpers/duration';
 import { AlbumState } from '../constants/album-state.enum';
 
 @Entity({ name: 'album' })

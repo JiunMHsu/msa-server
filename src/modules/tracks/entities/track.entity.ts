@@ -1,4 +1,4 @@
-import { PersistentEntity } from '../../../common/entities';
+import { PersistentEntity } from '../../../commons/entities';
 import { Album } from '../../albums/entities/album.entity';
 import {
     Column,
@@ -9,7 +9,7 @@ import {
     ManyToOne,
 } from 'typeorm';
 import { Artist } from '../../artists/entities/artist.entity';
-import { Duration } from '../../../common/helpers/duration';
+import { Duration } from '../../../commons/helpers/duration';
 
 @Entity({ name: 'track' })
 export class Track extends PersistentEntity {

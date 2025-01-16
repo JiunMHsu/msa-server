@@ -1,4 +1,4 @@
-import { PersistentEntity } from '../../../common/entities';
+import { PersistentEntity } from '../../../commons/entities';
 import { Entity } from 'typeorm';
 
 @Entity({ name: 'playlist' })
