@@ -19,10 +19,9 @@ export class Album extends PersistentEntity {
     })
     public type: AlbumType;
 
-    @ManyToOne(() => Artist)
+    @ManyToOne(() => Artist, { onDelete: 'CASCADE', nullable: false })
     @JoinColumn({
         name: 'artist_id',
-        referencedColumnName: 'id',
     })
     public artist: Artist;
 

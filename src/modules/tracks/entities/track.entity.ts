@@ -16,16 +16,13 @@ export class Track extends PersistentEntity {
     @Column('varchar', { name: 'title', length: 255, nullable: false })
     public title: string;
 
-    @ManyToOne(() => Album)
+    @ManyToOne(() => Album, { onDelete: 'CASCADE', nullable: false })
     @JoinColumn({ name: 'album_id' })
     public album: Album;
 
-    // TODO: Check if this is mapped correctly
     @ManyToMany(() => Artist)
     @JoinTable({
         name: 'track_artists',
-        joinColumn: { name: 'track_id' },
-        inverseJoinColumn: { name: 'artist_id' },
     })
     public artists: Artist[];
 

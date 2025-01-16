@@ -10,6 +10,9 @@ export default () => ({
         username: process.env.DB_USER || 'postgres',
         password: process.env.DB_PASSWORD || 'postgres',
         name: process.env.DB_NAME || 'msa_db',
+        log: Boolean(process.env.DB_LOG || 'false'),
         sync: Boolean(process.env.DB_SYNC || 'false'),
+        dropSchema: Boolean(process.env.DB_DROP_SCHEMA || 'false'),
+        seed: Boolean(process.env.DB_SEED || 'false'),
     },
 });
