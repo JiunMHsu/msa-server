@@ -7,15 +7,15 @@ import { Playlist } from './playlist.entity';
 export class PlaylistTrack extends PersistentEntity {
     @ManyToOne(() => Playlist, { onDelete: 'CASCADE', nullable: false })
     @JoinColumn({ name: 'playlist_id' })
-    playlist: Playlist;
+    public playlist: Playlist;
 
     @ManyToOne(() => Track, { onDelete: 'CASCADE', nullable: false })
     @JoinColumn({ name: 'track_id' })
-    track: Track;
+    public track: Track;
 
     @Column('smallint', { name: 'index' })
-    index: number;
+    public index: number;
 
     @Column('timestamp', { name: 'added_at' })
-    addedAt: Date;
+    public addedAt: Date;
 }

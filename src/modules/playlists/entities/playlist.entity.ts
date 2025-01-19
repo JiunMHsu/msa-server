@@ -8,27 +8,27 @@ import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 export class Playlist extends PersistentEntity {
     @ManyToOne(() => Account, { onDelete: 'CASCADE', nullable: false })
     @JoinColumn({ name: 'owner_id' })
-    owner: Account;
+    public owner: Account;
 
     // TODO: map relation
     // @ManyToMany(() => Account)
-    collaborators: Account[];
+    public collaborators: Account[];
 
     @Column('varchar', { name: 'title', length: 255, nullable: false })
-    title: string;
+    public title: string;
 
     @Column('text', { name: 'description' })
-    description: string;
+    public description: string;
 
     @Column(() => Image)
-    cover: Image;
+    public cover: Image;
 
     @Column(() => Duration)
-    duration: Duration;
+    public duration: Duration;
 
     @Column('boolean', { name: 'is_private', default: false, nullable: false })
-    isPrivate: boolean;
+    public isPrivate: boolean;
 
     @Column('int', { name: 'saves', nullable: false })
-    saves: number;
+    public saves: number;
 }
