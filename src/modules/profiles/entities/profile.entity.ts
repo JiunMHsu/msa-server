@@ -1,4 +1,4 @@
-import { PersistentEntity } from '@commons/entities';
+import { PersistentEntity } from '@src/commons/abstracts';
 import { Column, Entity } from 'typeorm';
 
 @Entity({ name: 'profile' })

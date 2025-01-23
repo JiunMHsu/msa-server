@@ -1,4 +1,4 @@
-import { PersistentEntity } from '@commons/entities';
+import { PersistentEntity } from '@src/commons/abstracts';
 import { Account } from '@modules/accounts/entities/account.entity';
 import { Image } from '@modules/images/entities/image.entity';
 import { Duration } from '@commons/helpers/duration';

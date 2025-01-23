@@ -1,4 +1,4 @@
-import { PersistentEntity } from '@commons/entities';
+import { PersistentEntity } from '@src/commons/abstracts';
 import { Account } from '@modules/accounts/entities/account.entity';
 import { Album } from './album.entity';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';

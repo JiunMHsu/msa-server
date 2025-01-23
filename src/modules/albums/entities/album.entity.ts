@@ -1,4 +1,4 @@
-import { PersistentEntity } from '@commons/entities';
+import { PersistentEntity } from '@src/commons/abstracts';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { AlbumType } from '../constants/album-type.enum';
 import { Artist } from '@modules/artists/entities/artist.entity';

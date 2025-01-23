@@ -1,5 +1,5 @@
 import { Track } from '@modules/tracks/entities/track.entity';
-import { PersistentEntity } from '@commons/entities';
+import { PersistentEntity } from '@src/commons/abstracts';
 import { ArtistManager } from '@modules/artist-managers/entities/artist-manager.entity';
 import { Image } from '@modules/images/entities/image.entity';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';

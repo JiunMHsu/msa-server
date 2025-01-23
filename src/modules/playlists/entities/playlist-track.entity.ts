@@ -1,5 +1,5 @@
 import { Track } from '@modules/tracks/entities/track.entity';
-import { PersistentEntity } from '@commons/entities';
+import { PersistentEntity } from '@src/commons/abstracts';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { Playlist } from './playlist.entity';
 
