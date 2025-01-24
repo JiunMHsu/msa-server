@@ -1,4 +1,10 @@
 import { Module } from '@nestjs/common';
+import { AlbumsModule } from './albums/albums.module';
+import { TracksModule } from './tracks/tracks.module';
 
-@Module({})
+@Module({
+    imports: [AlbumsModule, TracksModule],
+    controllers: [],
+    providers: [],
+})
 export class MusicModule {}

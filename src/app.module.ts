@@ -7,10 +7,11 @@ import { PlaylistsModule } from '@modules/playlists/playlists.module';
 import { ArtistManagersModule } from '@modules/artist-managers/artist-managers.module';
 import { DatabaseModule } from '@database/database.module';
 import { AuthModule } from '@modules/auth/auth.module';
-import { CoreModule } from './modules/core/core.module';
-import { MusicModule } from './modules/music/music.module';
-import { BillingModule } from './modules/billing/billing.module';
-import { SubscriptionsModule } from './modules/subscriptions/subscriptions.module';
+import { CoreModule } from '@modules/core/core.module';
+import { MusicModule } from '@modules/music/music.module';
+import { BillingModule } from '@modules/billing/billing.module';
+import { SubscriptionsModule } from '@modules/subscriptions/subscriptions.module';
+import { InteractionModule } from '@modules/interaction/interaction.module';
 
 @Module({
     imports: [
@@ -27,6 +28,7 @@ import { SubscriptionsModule } from './modules/subscriptions/subscriptions.modul
         MusicModule,
         BillingModule,
         SubscriptionsModule,
+        InteractionModule,
         // ver como manejar los siguientes
         PlaylistsModule,
         ArtistManagersModule,

@@ -15,4 +15,6 @@ export default () => ({
         dropSchema: Boolean(process.env.DB_DROP_SCHEMA || 'false'),
         seed: Boolean(process.env.DB_SEED || 'false'),
     },
+
+    seeds: (process.env.SEEDS ?? '').split(' '),
 });
