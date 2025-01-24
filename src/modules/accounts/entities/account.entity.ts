@@ -1,5 +1,5 @@
 import { PersistentEntity } from '@src/commons/abstracts';
-import { User } from '@modules/users/entities/user.entity';
+import { User } from '@src/modules/auth/users/entities/user.entity';
 import { Profile } from '@modules/profiles/entities/profile.entity';
 import { Entity, JoinColumn, OneToOne } from 'typeorm';
 

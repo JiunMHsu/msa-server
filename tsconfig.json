@@ -21,8 +21,8 @@
         "@src/*": ["src/*"],
         "@commons/*": ["src/commons/*"],
         "@modules/*": ["src/modules/*"],
-        "@database/*": ["database/*"],
-        "@config/*": ["config/*"],
+        "@database/*": ["src/database/*"],
+        "@config/*": ["src/config/*"],
     },    
   }
 }
