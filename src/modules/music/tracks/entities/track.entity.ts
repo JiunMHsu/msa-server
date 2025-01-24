@@ -1,5 +1,5 @@
 import { PersistentEntity } from '@src/commons/abstracts';
-import { Album } from '@modules/albums/entities/album.entity';
+import { Album } from '@src/modules/music/albums/entities/album.entity';
 import {
     Column,
     Entity,

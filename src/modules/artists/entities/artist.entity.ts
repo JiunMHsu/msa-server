@@ -1,4 +1,4 @@
-import { Track } from '@modules/tracks/entities/track.entity';
+import { Track } from '@src/modules/music/tracks/entities/track.entity';
 import { PersistentEntity } from '@src/commons/abstracts';
 import { ArtistManager } from '@modules/artist-managers/entities/artist-manager.entity';
 import { Image } from '@modules/images/entities/image.entity';
