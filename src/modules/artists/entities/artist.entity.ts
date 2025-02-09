@@ -1,8 +1,8 @@
-import { Track } from '@src/modules/music/tracks/entities/track.entity';
-import { PersistentEntity } from '@src/commons/abstracts';
+import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import { Track } from '@modules/collections/tracks/entities/track.entity';
+import { PersistentEntity } from '@commons/abstracts';
 import { ArtistManager } from '@modules/artist-managers/entities/artist-manager.entity';
 import { Image } from '@modules/images/entities/image.entity';
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 @Entity({ name: 'artist' })
 export class Artist extends PersistentEntity {

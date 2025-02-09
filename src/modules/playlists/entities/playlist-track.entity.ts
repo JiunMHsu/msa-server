@@ -1,6 +1,6 @@
-import { Track } from '@src/modules/music/tracks/entities/track.entity';
-import { PersistentEntity } from '@src/commons/abstracts';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import { Track } from '@modules/collections/tracks/entities/track.entity';
+import { PersistentEntity } from '@commons/abstracts';
 import { Playlist } from './playlist.entity';
 
 @Entity({ name: 'playlist_track' })
