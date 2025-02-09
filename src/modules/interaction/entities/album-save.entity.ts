@@ -1,6 +1,6 @@
 import { PersistentEntity } from '@commons/abstracts';
 import { Account } from '@modules/core/accounts/entities/account.entity';
-import { Album } from '@src/modules/collections/albums/entities/album.entity';
+import { Album } from '@modules/collection/albums/entities/album.entity';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 @Entity({ name: 'album_save' })

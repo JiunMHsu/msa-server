@@ -10,8 +10,8 @@ import { AuthModule } from '@modules/auth/auth.module';
 import { CoreModule } from '@modules/core/core.module';
 import { BillingModule } from '@modules/billing/billing.module';
 import { SubscriptionsModule } from '@modules/subscriptions/subscriptions.module';
-import { CollectionsModule } from '@modules/collections/collections.module';
-import { InteractionsModule } from '@modules/interactions/interactions.module';
+import { CollectionModule } from '@modules/collection/collection.module';
+import { InteractionModule } from '@modules/interaction/interaction.module';
 
 @Module({
     imports: [
@@ -25,10 +25,10 @@ import { InteractionsModule } from '@modules/interactions/interactions.module';
         HealthModule,
         AuthModule,
         CoreModule,
-        CollectionsModule,
+        CollectionModule,
         BillingModule,
         SubscriptionsModule,
-        InteractionsModule,
+        InteractionModule,
         // ver como manejar los siguientes
         PlaylistsModule,
         ArtistManagersModule,

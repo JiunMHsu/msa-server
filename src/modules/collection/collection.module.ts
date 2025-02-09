@@ -7,4 +7,4 @@ import { AlbumsModule } from './albums/albums.module';
     controllers: [],
     providers: [],
 })
-export class CollectionsModule {}
+export class CollectionModule {}
