@@ -18,7 +18,10 @@ export class PostgresConfigService implements TypeOrmOptionsFactory {
             database: this.configService.get<string>('database.name'),
             // entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
             // entities: [process.cwd() + '/dist/**/*.entity{.ts,.js}'],
-            entities: ['dist/modules/**/entities/*.entity.js'],
+            // entities: ['dist/modules/**/entities/*.entity.js'],
+            autoLoadEntities: this.configService.get<boolean>(
+                'database.autoloadEntities',
+            ),
             logging: this.configService.get<boolean>('database.log'),
             synchronize: this.configService.get<boolean>('database.sync'),
             dropSchema: this.configService.get<boolean>('database.dropSchema'),
