@@ -1,7 +1,7 @@
 import { PersistentEntity } from '@src/commons/abstracts';
-import { Account } from '@src/modules/core/accounts/entities/account.entity';
+import { Account } from '@src/modules/accounts/entities/account.entity';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
-import { Playlist } from '@modules/playlists/entities/playlist.entity';
+import { Playlist } from '@src/modules/collection/playlists/entities/playlist.entity';
 
 @Entity({ name: 'playlist_save' })
 export class PlaylistSave extends PersistentEntity {

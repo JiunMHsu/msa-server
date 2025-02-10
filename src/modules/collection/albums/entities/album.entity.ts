@@ -2,7 +2,7 @@ import { PersistentEntity } from '@src/commons/abstracts';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { AlbumType } from '../constants/album-type.enum';
 import { Artist } from '@modules/artists/entities/artist.entity';
-import { Image } from '@modules/images/entities/image.entity';
+import { Image } from '@src/modules/media/images/entities/image.entity';
 import { Duration } from '@commons/helpers/duration';
 import { AlbumState } from '../constants/album-state.enum';
 

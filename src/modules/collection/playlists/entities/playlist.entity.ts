@@ -1,6 +1,6 @@
 import { PersistentEntity } from '@src/commons/abstracts';
-import { Account } from '@modules/core/accounts/entities/account.entity';
-import { Image } from '@modules/images/entities/image.entity';
+import { Account } from '@src/modules/accounts/entities/account.entity';
+import { Image } from '@src/modules/media/images/entities/image.entity';
 import { Duration } from '@commons/helpers/duration';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
@@ -26,9 +26,12 @@ export class Playlist extends PersistentEntity {
     @Column(() => Duration)
     public duration: Duration;
 
-    @Column('boolean', { name: 'is_private', default: false, nullable: false })
-    public isPrivate: boolean;
+    @Column('boolean', { name: 'is_public', default: true, nullable: false })
+    public isPublic: boolean;
 
     @Column('int', { name: 'saves', nullable: false })
     public saves: number;
+
+    @Column('boolean', { name: 'isOnProfile', default: false, nullable: false })
+    public isOnProfile: boolean;
 }

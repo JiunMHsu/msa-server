@@ -8,8 +8,6 @@ import { StreamState } from '../constants/stream-state.enum';
 
 @Entity({ name: 'stream' })
 export class Stream extends PersistentEntity {
-    public sessionId: string;
-
     public deviceId: string;
 
     public track: Track;

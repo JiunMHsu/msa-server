@@ -2,7 +2,7 @@ import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { Track } from '@modules/collection/tracks/entities/track.entity';
 import { PersistentEntity } from '@commons/abstracts';
 import { ArtistManager } from '@modules/artist-managers/entities/artist-manager.entity';
-import { Image } from '@modules/images/entities/image.entity';
+import { Image } from '@src/modules/media/images/entities/image.entity';
 
 @Entity({ name: 'artist' })
 export class Artist extends PersistentEntity {

@@ -1,5 +1,5 @@
 import { PersistentEntity } from '@commons/abstracts';
-import { Account } from '@modules/core/accounts/entities/account.entity';
+import { Account } from '@src/modules/accounts/entities/account.entity';
 import { Album } from '@modules/collection/albums/entities/album.entity';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 

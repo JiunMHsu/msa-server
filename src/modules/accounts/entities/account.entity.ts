@@ -1,8 +1,8 @@
 import { PersistentEntity } from '@src/commons/abstracts';
-import { User } from '@modules/auth/users/entities/user.entity';
+import { User } from '@src/modules/core/users/entities/user.entity';
 import { Profile } from '@modules/profiles/entities/profile.entity';
 import { Entity, JoinColumn, OneToOne } from 'typeorm';
-import { Stream } from '@modules/core/streams/entities/stream.entity';
+import { Stream } from '@src/modules/streams/entities/stream.entity';
 
 @Entity({ name: 'account' })
 export class Account extends PersistentEntity {
