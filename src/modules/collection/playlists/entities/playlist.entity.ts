@@ -32,6 +32,10 @@ export class Playlist extends PersistentEntity {
     @Column('int', { name: 'saves', nullable: false })
     public saves: number;
 
-    @Column('boolean', { name: 'isOnProfile', default: false, nullable: false })
-    public isOnProfile: boolean;
+    @Column('boolean', {
+        name: 'shown_on_profile',
+        default: false,
+        nullable: false,
+    })
+    public shownOnProfile: boolean;
 }
